@@ -15,15 +15,7 @@ import { UserPlus, Eye, EyeOff, ShieldCheck, AlertCircle, CheckCircle2 } from "l
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 
-// Firebase config — same as main app
-const firebaseConfig = {
-  apiKey: "AIzaSyBaIT-pzctt11F5xAACTIhYgAs21BTDjoY",
-  authDomain: "talentaccel.firebaseapp.com",
-  projectId: "talentaccel",
-  storageBucket: "talentaccel.firebasestorage.app",
-  messagingSenderId: "944597841037",
-  appId: "1:944597841037:web:f538af3eb15d28bee5dec4",
-};
+import { firebaseConfig } from "@/lib/firebase";
 
 interface CreatedAccount {
   email: string;
