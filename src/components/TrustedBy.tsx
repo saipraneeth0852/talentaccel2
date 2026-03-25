@@ -23,8 +23,19 @@ export const TrustedBy = () => (
         </p>
       </AnimatedSection>
       
-      {/* New Company Marquee */}
-      <div className="relative flex overflow-hidden group mb-16">
+      {/* Fading Industries List (moved above) */}
+      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-12">
+        {industries.map((name, i) => (
+          <AnimatedSection key={name} delay={i * 0.08}>
+            <div className="text-sm font-semibold text-muted-foreground/50 tracking-wide text-center uppercase">
+              {name}
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+
+      {/* Company Marquee (moved below) */}
+      <div className="relative flex overflow-hidden group">
         <div className="flex items-center gap-12 md:gap-16 marquee-track pr-12 md:pr-16">
           {[...companies, ...companies, ...companies].map((company, i) => {
             const Icon = company.icon;
@@ -48,17 +59,6 @@ export const TrustedBy = () => (
         {/* Fade edges */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-muted/30 to-transparent pointer-events-none z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-muted/30 to-transparent pointer-events-none z-10" />
-      </div>
-
-      {/* Original Fading Industries List */}
-      <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 pt-6 border-t border-border/50">
-        {industries.map((name, i) => (
-          <AnimatedSection key={name} delay={i * 0.08}>
-            <div className="text-lg font-bold text-muted-foreground/40 tracking-wide text-center">
-              {name}
-            </div>
-          </AnimatedSection>
-        ))}
       </div>
     </div>
   </section>
