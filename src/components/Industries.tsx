@@ -1,5 +1,6 @@
 import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSection";
 import { Code, Brain, Landmark, Radio, Cpu, Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const industries = [
   { icon: Code, label: "SaaS & Product Companies" },
@@ -23,12 +24,14 @@ export const Industries = () => (
           const Icon = ind.icon;
           return (
             <StaggerItem key={ind.label}>
-              <div className="flex items-center gap-4 p-5 rounded-xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1">
-                <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-primary" />
+              <Link to="/industries" className="block">
+                <div className="flex items-center gap-4 p-5 rounded-xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                  <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="font-semibold text-sm text-foreground">{ind.label}</span>
                 </div>
-                <span className="font-semibold text-sm text-foreground">{ind.label}</span>
-              </div>
+              </Link>
             </StaggerItem>
           );
         })}

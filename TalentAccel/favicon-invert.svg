@@ -1,0 +1,18 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="192" height="192" rx="36" fill="#1A1D3E"/>
+<g clip-path="url(#clip0_2002_218)">
+<path d="M24 88V48H72L104 88H24Z" fill="#0A72FF"/>
+<path d="M104 88H64V168H104V88Z" fill="#0A72FF"/>
+<path d="M104 88H64V168H104V88Z" fill="url(#paint0_linear_2002_218)" fill-opacity="0.4"/>
+<path d="M128 24L112 48H144V80L168 64V24H128Z" fill="#00E59D"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2002_218" x1="84" y1="103" x2="72" y2="84" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0"/>
+<stop offset="1"/>
+</linearGradient>
+<clipPath id="clip0_2002_218">
+<rect width="144" height="144" fill="white" transform="translate(24 24)"/>
+</clipPath>
+</defs>
+</svg>

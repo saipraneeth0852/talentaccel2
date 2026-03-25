@@ -1,7 +1,7 @@
 import { AnimatedSection } from "./AnimatedSection";
 
 const logos = [
-  "SaaS Co", "TechScale", "FinEdge", "DataFlow", "CloudNine", "AIVentures"
+  "Electronics", "Telecom", "Emerging Technologies", "Aerospace & Defense", "Manufacturing", "IT Products & Services"
 ];
 
 export const TrustedBy = () => (

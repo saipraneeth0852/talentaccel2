@@ -9,19 +9,20 @@ const navItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", href: "/#services", hash: "#services", icon: Briefcase },
   { label: "Offshore", href: "/offshore-teams", hash: "", icon: Globe },
-  { label: "Industries", href: "/#industries", hash: "#industries", icon: Building2 },
-  { label: "Case Studies", href: "/#case-studies", hash: "#case-studies", icon: FileText },
-  { label: "Insights", href: "/#insights", hash: "#insights", icon: Lightbulb },
-  { label: "About", href: "/#why-talentaccel", hash: "#why-talentaccel", icon: Users },
-  { label: "Contact", href: "/#contact", hash: "#contact", icon: Phone },
+  { label: "Industries", href: "/industries", hash: "", icon: Building2 },
+  { label: "Case Studies", href: "/case-studies", hash: "", icon: FileText },
+  { label: "Blog", href: "/blog", hash: "", icon: Lightbulb },
+  { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
+  { label: "About", href: "/about", hash: "", icon: Users },
+  { label: "Contact", href: "/contact", hash: "", icon: Phone },
 ];
 
 const mobileNavItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", href: "/#services", hash: "#services", icon: Briefcase },
-  { label: "Offshore", href: "/offshore-teams", hash: "", icon: Globe },
-  { label: "About", href: "/#why-talentaccel", hash: "#why-talentaccel", icon: Users },
-  { label: "Contact", href: "/#contact", hash: "#contact", icon: Phone },
+  { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
+  { label: "About", href: "/about", hash: "", icon: Users },
+  { label: "Contact", href: "/contact", hash: "", icon: Phone },
 ];
 
 export const FloatingNav = () => {
@@ -59,7 +60,7 @@ export const FloatingNav = () => {
     if (item.hash) {
       return location.pathname === "/" && activeHash === item.hash;
     }
-    return location.pathname === item.href;
+    return location.pathname === item.href || location.pathname.startsWith(item.href + "/");
   };
 
   return (
@@ -109,8 +110,8 @@ export const FloatingNav = () => {
           );
         })}
         <Link
-          to="/#contact"
-          onClick={() => handleNavClick("/#contact")}
+          to="/contact"
+          onClick={() => handleNavClick("/contact")}
           className="ml-1 px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:shadow-lg active:scale-95 whitespace-nowrap"
         >
           Book a Consultation

@@ -16,14 +16,14 @@ export const FinalCTA = () => (
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:hello@talentaccel.com"
+                href="mailto:hr@talentaccel.com"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5"
               >
                 Book a Free Hiring Consultation
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="mailto:hello@talentaccel.com"
+                href="mailto:hr@talentaccel.com"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-primary-foreground/20 text-primary-foreground font-semibold text-sm hover:bg-primary-foreground/10 transition-all duration-200"
               >
                 Talk to Our Talent Experts

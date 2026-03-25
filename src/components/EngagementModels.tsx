@@ -12,13 +12,13 @@ const models = [
   {
     name: "Growth Company Pack",
     target: "Scaling organizations",
-    features: ["Everything in Startup Pack", "Compliance audits & advisory", "L&D workshops", "Employee engagement", "HR analytics + dashboards"],
+    features: ["Startup Growth Pack +", "Compliance audits & advisory", "L&D workshops", "Employer engagement", "HR analytics + dashboards"],
     highlight: true,
   },
   {
-    name: "Enterprise HR Partner",
+    name: "Enterprise HR Partner Pack",
     target: "Mid to large enterprises",
-    features: ["Everything in Growth Pack", "Employer branding", "Immigration support", "Certification programs", "Process documentation & governance"],
+    features: ["Growth Company Pack +", "Employer branding", "Immigration support", "Certification programs", "Process documentation & governance"],
     highlight: false,
   },
 ];
@@ -29,8 +29,8 @@ export const EngagementModels = () => (
       <AnimatedSection className="text-center mb-16">
         <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Engagement</p>
         <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Engagement Models</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Flexible models designed to match your growth stage and hiring complexity.
+        <p className="text-muted-foreground max-w-2xl mx-auto italic">
+          The models are based on maturity, scale, and complexity. Our bundles are designed to remove HR friction at every stage of growth.
         </p>
       </AnimatedSection>
 
