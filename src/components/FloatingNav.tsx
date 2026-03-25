@@ -70,12 +70,14 @@ export const FloatingNav = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        className="fixed top-5 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float"
+        className="fixed top-5 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float hover:scale-105 transition-transform"
       >
-        <LogoMark size={32} />
-        <span className="text-base font-bold text-foreground tracking-tight hidden sm:inline">
-          Talent<span className="text-primary">Accel</span>
-        </span>
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5">
+          <LogoMark size={32} />
+          <span className="text-base font-bold text-foreground tracking-tight hidden sm:inline">
+            Talent<span className="text-primary">Accel</span>
+          </span>
+        </Link>
       </motion.div>
 
       {/* Desktop floating nav */}
