@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Calculator, Shield, FileText, Check } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const servicesList = [
   "Payroll Processing",
@@ -20,6 +21,7 @@ const details = [
 
 const PayrollCompliance = () => (
   <>
+    <SEO title="Payroll Processing & Compliance" description="Learn how TalentAccel's expert Payroll Processing & Compliance can accelerate your company's growth." />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Code, Brain, Landmark, Radio, Cpu, Rocket, ArrowRight } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 
 const industries = [
@@ -44,6 +45,10 @@ const industries = [
 
 const Industries = () => (
   <>
+    <SEO 
+      title="Industries We Serve" 
+      description="We specialize in hiring for high-growth industries where talent is scarce and speed matters. Deep domain knowledge lets us move faster."
+    />
     {/* Hero */}
     <section className="relative min-h-[50vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />

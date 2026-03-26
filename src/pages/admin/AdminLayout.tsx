@@ -12,6 +12,7 @@ import {
   Menu,
   X,
   UserCog,
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard, exact: true },
   { label: "Services", href: "/admin/services", icon: Briefcase },
   { label: "Industries", href: "/admin/industries", icon: Building2 },
+  { label: "Careers", href: "/admin/careers", icon: Users },
   { label: "Case Studies", href: "/admin/case-studies", icon: FileText },
   { label: "Blogs", href: "/admin/blogs", icon: BookOpen },
   { label: "Admin Accounts", href: "/admin/accounts", icon: UserCog },

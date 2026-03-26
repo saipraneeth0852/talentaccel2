@@ -20,8 +20,12 @@ import CaseStudiesPage from "./pages/CaseStudiesPage.tsx";
 import Industries from "./pages/Industries.tsx";
 import TalentAcquisition from "./pages/services/TalentAcquisition.tsx";
 import DedicatedTeams from "./pages/services/DedicatedTeams.tsx";
+import HrOperations from "./pages/services/HrOperations.tsx";
 import PayrollCompliance from "./pages/services/PayrollCompliance.tsx";
 import HrAdvisory from "./pages/services/HrAdvisory.tsx";
+import LearningDevelopment from "./pages/services/LearningDevelopment.tsx";
+import EmployeeExperience from "./pages/services/EmployeeExperience.tsx";
+import ExtendedWorkforce from "./pages/services/ExtendedWorkforce.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 // Admin pages
@@ -33,6 +37,7 @@ import AdminIndustries from "./pages/admin/AdminIndustries.tsx";
 import AdminCaseStudies from "./pages/admin/AdminCaseStudies.tsx";
 import AdminBlogs from "./pages/admin/AdminBlogs.tsx";
 import AdminAccounts from "./pages/admin/AdminAccounts.tsx";
+import AdminCareers from "./pages/admin/AdminCareers.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,14 +45,14 @@ const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!hash) {
-      window.scrollTo(0, 0);
-    } else {
-      const id = hash.replace("#", "");
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
   }, [pathname, hash]);
 
@@ -62,6 +67,58 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => (
   </>
 );
 
+import { AnimatePresence } from "framer-motion";
+import { PageTransition } from "./components/PageTransition";
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+      <Routes location={location} key={location.pathname}>
+        {/* Public routes */}
+        <Route path="/" element={<PublicLayout><PageTransition><Index /></PageTransition></PublicLayout>} />
+        <Route path="/offshore-teams" element={<PublicLayout><PageTransition><OffshoreTeams /></PageTransition></PublicLayout>} />
+        <Route path="/about" element={<PublicLayout><PageTransition><About /></PageTransition></PublicLayout>} />
+        <Route path="/careers" element={<PublicLayout><PageTransition><Careers /></PageTransition></PublicLayout>} />
+        <Route path="/contact" element={<PublicLayout><PageTransition><Contact /></PageTransition></PublicLayout>} />
+        <Route path="/blog" element={<PublicLayout><PageTransition><Blog /></PageTransition></PublicLayout>} />
+        <Route path="/blog/:slug" element={<PublicLayout><PageTransition><BlogPost /></PageTransition></PublicLayout>} />
+        <Route path="/case-studies" element={<PublicLayout><PageTransition><CaseStudiesPage /></PageTransition></PublicLayout>} />
+        <Route path="/industries" element={<PublicLayout><PageTransition><Industries /></PageTransition></PublicLayout>} />
+        <Route path="/services/talent-acquisition" element={<PublicLayout><PageTransition><TalentAcquisition /></PageTransition></PublicLayout>} />
+        <Route path="/services/dedicated-teams" element={<PublicLayout><PageTransition><DedicatedTeams /></PageTransition></PublicLayout>} />
+        <Route path="/services/hr-operations" element={<PublicLayout><PageTransition><HrOperations /></PageTransition></PublicLayout>} />
+        <Route path="/services/payroll-compliance" element={<PublicLayout><PageTransition><PayrollCompliance /></PageTransition></PublicLayout>} />
+        <Route path="/services/hr-advisory" element={<PublicLayout><PageTransition><HrAdvisory /></PageTransition></PublicLayout>} />
+        <Route path="/services/learning-development" element={<PublicLayout><PageTransition><LearningDevelopment /></PageTransition></PublicLayout>} />
+        <Route path="/services/employee-experience" element={<PublicLayout><PageTransition><EmployeeExperience /></PageTransition></PublicLayout>} />
+        <Route path="/services/extended-workforce" element={<PublicLayout><PageTransition><ExtendedWorkforce /></PageTransition></PublicLayout>} />
+
+        {/* Admin routes (no transitions directly to keep snappy, or default) */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="services" element={<AdminServices />} />
+          <Route path="industries" element={<AdminIndustries />} />
+          <Route path="case-studies" element={<AdminCaseStudies />} />
+          <Route path="blogs" element={<AdminBlogs />} />
+          <Route path="accounts" element={<AdminAccounts />} />
+          <Route path="careers" element={<AdminCareers />} />
+        </Route>
+
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -70,42 +127,7 @@ const App = () => (
       <AuthProvider>
         <BrowserRouter>
           <ScrollToTop />
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<PublicLayout><Index /></PublicLayout>} />
-            <Route path="/offshore-teams" element={<PublicLayout><OffshoreTeams /></PublicLayout>} />
-            <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
-            <Route path="/careers" element={<PublicLayout><Careers /></PublicLayout>} />
-            <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
-            <Route path="/blog" element={<PublicLayout><Blog /></PublicLayout>} />
-            <Route path="/blog/:slug" element={<PublicLayout><BlogPost /></PublicLayout>} />
-            <Route path="/case-studies" element={<PublicLayout><CaseStudiesPage /></PublicLayout>} />
-            <Route path="/industries" element={<PublicLayout><Industries /></PublicLayout>} />
-            <Route path="/services/talent-acquisition" element={<PublicLayout><TalentAcquisition /></PublicLayout>} />
-            <Route path="/services/dedicated-teams" element={<PublicLayout><DedicatedTeams /></PublicLayout>} />
-            <Route path="/services/payroll-compliance" element={<PublicLayout><PayrollCompliance /></PublicLayout>} />
-            <Route path="/services/hr-advisory" element={<PublicLayout><HrAdvisory /></PublicLayout>} />
-
-            {/* Admin routes */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute>
-                  <AdminLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<AdminDashboard />} />
-              <Route path="services" element={<AdminServices />} />
-              <Route path="industries" element={<AdminIndustries />} />
-              <Route path="case-studies" element={<AdminCaseStudies />} />
-              <Route path="blogs" element={<AdminBlogs />} />
-              <Route path="accounts" element={<AdminAccounts />} />
-            </Route>
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>

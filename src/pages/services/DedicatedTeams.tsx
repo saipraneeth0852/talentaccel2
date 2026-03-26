@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, UserCheck, BarChart3, Search, Check } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const features = [
   { icon: UserCheck, title: "Dedicated Recruiter", desc: "A full-time TalentAccel recruiter focused exclusively on your open roles — aligned to your culture, priorities, and pace." },
@@ -19,6 +20,7 @@ const benefits = [
 
 const DedicatedTeams = () => (
   <>
+    <SEO title="Dedicated Offshore Tech Teams" description="Learn how TalentAccel's expert Dedicated Offshore Tech Teams can accelerate your company's growth." />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">

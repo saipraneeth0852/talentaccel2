@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Users, Network, Target, Zap, Check } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const servicesList = ["Permanent Hiring", "Contract Staffing", "Executive Search", "Startup Hiring Support", "Tech & AI Hiring"];
 
@@ -18,6 +19,7 @@ const model = ["Dedicated recruiter", "Dedicated sourcing specialist", "Hiring a
 
 const TalentAcquisition = () => (
   <>
+    <SEO title="Talent Acquisition & Hiring Solutions" description="Learn how TalentAccel's expert Talent Acquisition & Hiring Solutions can accelerate your company's growth." />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">
@@ -132,8 +134,37 @@ const TalentAcquisition = () => (
       </div>
     </section>
 
-    {/* CTA */}
+    {/* Pricing Model */}
     <section className="py-24 lg:py-32">
+      <div className="container mx-auto px-6 lg:px-12">
+        <AnimatedSection className="text-center mb-12">
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Transparent Pricing</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Pricing Model</h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Outcome-based pricing tied to CTC — you pay only when we deliver the right hire.
+          </p>
+        </AnimatedSection>
+        <div className="max-w-xl mx-auto rounded-2xl overflow-hidden border border-border shadow-card">
+          <div className="grid grid-cols-2 bg-primary text-primary-foreground">
+            <div className="px-8 py-4 text-sm font-bold uppercase tracking-wide">CTC</div>
+            <div className="px-8 py-4 text-sm font-bold uppercase tracking-wide border-l border-primary-foreground/20">TA Pricing</div>
+          </div>
+          {[
+            { ctc: "< 40 LPA", price: "8.33%" },
+            { ctc: "40 – 75 LPA", price: "12%" },
+            { ctc: "> 75 LPA", price: "15%" },
+          ].map((row, i) => (
+            <div key={row.ctc} className={`grid grid-cols-2 ${i % 2 === 0 ? "bg-card" : "bg-muted/40"}`}>
+              <div className="px-8 py-5 text-foreground font-semibold">{row.ctc}</div>
+              <div className="px-8 py-5 text-primary font-bold text-lg border-l border-border">{row.price}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-12">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">

@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 interface BlogPost {
   id: string;

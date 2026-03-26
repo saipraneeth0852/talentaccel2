@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain, Palette, BarChart3, Cpu } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import offshoreHero from "@/assets/offshore-hero.png";
 
 const advantages = [
@@ -39,6 +40,11 @@ const scalingTimeline = [
 
 const OffshoreTeams = () => (
   <>
+    <SEO 
+      title="Dedicated Offshore Teams in India" 
+      description="Build and scale dedicated offshore teams in India. From talent sourcing to HR operations and compliance, TalentAccel provides an end-to-end solution."
+      keywords="offshore teams, India tech talent, build operate support, dedicated recruiter"
+    />
     {/* Hero */}
     <section className="relative min-h-[80vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />

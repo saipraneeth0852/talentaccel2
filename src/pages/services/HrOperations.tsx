@@ -1,0 +1,110 @@
+import { motion } from "framer-motion";
+import { ArrowRight, FileText, Shield, Calculator, BarChart3, Check } from "lucide-react";
+import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
+import { Link } from "react-router-dom";
+
+const servicesList = [
+  "PF, ESI, PT, LWF Filings",
+  "Taxation & Payroll Management",
+  "Salary Bands",
+  "Multi-state Compliance",
+  "POSH, CLRA, Shops & Establishment",
+  "Compliance Audits & Advisory",
+];
+
+const details = [
+  { icon: Calculator, title: "Payroll Management", desc: "End-to-end monthly payroll processing with salary slips, reimbursements, and full-and-final settlement for all employee types." },
+  { icon: FileText, title: "Statutory Filings", desc: "Timely PF, ESI, PT, LWF filings across all applicable regulations — never miss a deadline or face penalties." },
+  { icon: Shield, title: "Multi-state Compliance", desc: "POSH, CLRA, Shops & Establishment, and all applicable state labour laws — managed across every state where you operate." },
+  { icon: BarChart3, title: "Compliance Audits", desc: "Periodic audits to identify gaps, reduce risk, and keep your organisation audit-ready at all times." },
+];
+
+const HrOperations = () => (
+  <>
+    <SEO title="HR Operations & Managed Services" description="Learn how TalentAccel's expert HR Operations & Managed Services can accelerate your company's growth." />
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-subtle" />
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">
+        <div className="max-w-3xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+          >
+            <FileText className="w-3.5 h-3.5" /> HR Operations
+          </motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+          >
+            Zero Compliance Risk.{" "}
+            <span className="text-gradient-accent">Accurate Payroll.</span>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+          >
+            We handle every aspect of payroll and statutory compliance so you can focus on running your business — not chasing filings.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap gap-3"
+          >
+            <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
+              Get Started <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-16 lg:py-24 bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-12">
+        <AnimatedSection className="mb-10">
+          <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
+        </AnimatedSection>
+        <div className="flex flex-wrap gap-3">
+          {servicesList.map((s) => (
+            <span key={s} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-sm text-foreground font-medium shadow-card">
+              <Check className="w-3.5 h-3.5 text-secondary" /> {s}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-24 lg:py-32">
+      <div className="container mx-auto px-6 lg:px-12">
+        <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+          {details.map((d) => {
+            const Icon = d.icon;
+            return (
+              <StaggerItem key={d.title}>
+                <div className="p-6 rounded-2xl bg-card border border-border shadow-card h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">{d.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{d.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    <section className="py-16 lg:py-24 bg-muted/30">
+      <div className="container mx-auto px-6 lg:px-12">
+        <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
+          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Ready to simplify compliance?</h2>
+          <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Let our HR Operations team handle the filings, payroll, and compliance so you never miss a deadline.</p>
+          <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
+            Talk to Us <ArrowRight className="w-4 h-4" />
+          </Link>
+        </AnimatedSection>
+      </div>
+    </section>
+
+    <Footer />
+  </>
+);
+
+export default HrOperations;

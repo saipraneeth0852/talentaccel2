@@ -4,6 +4,7 @@ import { db } from "@/lib/firebase";
 import { motion } from "framer-motion";
 import { Users, Clock, TrendingUp, ArrowRight } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 
 interface Metric { value: string; label: string; }
@@ -49,6 +50,10 @@ const CaseStudiesPage = () => {
 
   return (
     <>
+      <SEO 
+        title="Customer Success Stories" 
+        description="Companies that trusted TalentAccel to build their teams and manage their HR operations."
+      />
       {/* Hero */}
       <section className="relative min-h-[40vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-subtle" />

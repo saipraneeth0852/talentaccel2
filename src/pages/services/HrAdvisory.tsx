@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Settings, BookOpen, Users, BarChart3, Check } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const servicesList = [
   "HR Policy Development",
@@ -20,6 +21,7 @@ const details = [
 
 const HrAdvisory = () => (
   <>
+    <SEO title="HR Advisory & Strategy" description="Learn how TalentAccel's expert HR Advisory & Strategy can accelerate your company's growth." />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">

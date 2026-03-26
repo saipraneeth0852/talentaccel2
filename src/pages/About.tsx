@@ -2,19 +2,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, Target, Zap, Shield, Handshake } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const team = [
   {
     name: "Sandeep Sankhla",
     role: "Co-Founder",
     bio: "Proven entrepreneur and strategic business leader with deep expertise in company formation, corporate structuring, governance, and operational scaling. He has supported multiple organizations in establishing compliant, growth-ready business frameworks across industries.",
-    image: "/founder-sandeep.jpg",
+    image: "/founder-sandeep-rm.png",
   },
   {
     name: "Carine Dsouza",
     role: "Co-Founder",
     bio: "HR and Talent Management professional with experience in organizational development and people operations. Focused on aligning HR strategy with business outcomes, recruitment, enhancing employee experience, and building structured people processes for growing organizations.",
-    image: "/founder-carine.jpg",
+    image: "/founder-carine-rm.png",
   },
 ];
 
@@ -118,28 +119,26 @@ const About = () => (
     <section className="py-24 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-12">
         <AnimatedSection className="text-center mb-16">
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Leadership</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Founders</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Our Team</h2>
         </AnimatedSection>
-        <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <StaggerContainer className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {team.map((member) => (
             <StaggerItem key={member.name}>
-              <div className="group rounded-3xl bg-card border border-border/50 shadow-card hover:shadow-card-hover transition-all duration-300 h-full overflow-hidden flex flex-col">
-                <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
+              <div className="flex flex-col items-center text-center h-full">
+                <div className="relative w-64 h-64 md:w-72 md:h-72 mb-6 overflow-hidden rounded-full bg-[#E5E3DB] flex items-end justify-center group">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
-                <div className="p-8 md:p-10 flex-1 flex flex-col">
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-foreground mb-2">{member.name}</h3>
-                  <p className="text-sm font-bold text-primary mb-6 uppercase tracking-wider">{member.role}</p>
-                  <div className="w-12 h-1 bg-muted rounded-full mb-6 group-hover:bg-primary/50 transition-colors duration-300" />
-                  <p className="text-base text-muted-foreground leading-relaxed">{member.bio}</p>
-                </div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-1">{member.name}</h3>
+                <p className="text-lg font-semibold text-slate-600 mb-4">{member.role}</p>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-[90%] mx-auto">
+                  {member.bio}
+                </p>
               </div>
             </StaggerItem>
           ))}

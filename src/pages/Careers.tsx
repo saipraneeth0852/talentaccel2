@@ -1,15 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Upload, Briefcase, Users, ArrowRight, Star } from "lucide-react";
+import { Upload, Briefcase, Users, ArrowRight, Star, Rocket, Heart, Target, Globe } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { JobApplicationModal } from "@/components/JobApplicationModal";
-
-const openRoles = [
-  { title: "Senior Recruiter", dept: "Talent Acquisition", location: "Bangalore", type: "Full-time" },
-  { title: "HR Operations Specialist", dept: "HR Operations", location: "Bangalore", type: "Full-time" },
-  { title: "Business Development Manager", dept: "Sales", location: "Bangalore / Remote", type: "Full-time" },
-];
+import { SEO } from "@/components/SEO";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const perks = [
   { icon: Briefcase, title: "Meaningful Work", desc: "Help build the teams that power India's fastest-growing startups and enterprises." },
@@ -20,7 +17,26 @@ const perks = [
 const Careers = () => {
   const [file, setFile] = useState<File | null>(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "", role: "" });
-  const [applyRole, setApplyRole] = useState<typeof openRoles[0] | null>(null);
+  
+  // Dynamic Roles State
+  const [openRoles, setOpenRoles] = useState<any[]>([]);
+  const [loadingRoles, setLoadingRoles] = useState(true);
+  const [applyRole, setApplyRole] = useState<any | null>(null);
+
+  useEffect(() => {
+    const fetchOpenings = async () => {
+      try {
+        const snap = await getDocs(collection(db, "careers"));
+        const roles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setOpenRoles(roles);
+      } catch (error) {
+        console.error("Error fetching roles:", error);
+      } finally {
+        setLoadingRoles(false);
+      }
+    };
+    fetchOpenings();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -33,6 +49,10 @@ const Careers = () => {
 
   return (
     <>
+      <SEO 
+        title="Careers at TalentAccel" 
+        description="Join a team that's accelerating talent and enabling growth for startups and enterprises across India. We're looking for driven people."
+      />
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-subtle" />
@@ -99,28 +119,41 @@ const Careers = () => {
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Open Positions</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Current Openings</h2>
           </AnimatedSection>
-          <StaggerContainer className="space-y-4 max-w-3xl mx-auto">
-            {openRoles.map((role) => (
-              <StaggerItem key={role.title}>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-0.5">
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1">{role.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">{role.dept}</span>
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-semibold">{role.location}</span>
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">{role.type}</span>
+
+          {loadingRoles ? (
+             <div className="flex justify-center items-center py-12">
+               <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+             </div>
+          ) : openRoles.length > 0 ? (
+            <StaggerContainer className="space-y-4 max-w-3xl mx-auto">
+              {openRoles.map((role) => (
+                <StaggerItem key={role.id || role.title}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-0.5">
+                    <div>
+                      <h3 className="font-bold text-foreground mb-1">{role.title}</h3>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">{role.dept}</span>
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-semibold">{role.location}</span>
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">{role.type}</span>
+                      </div>
                     </div>
+                    <button
+                      onClick={() => setApplyRole(role)}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-all whitespace-nowrap flex-shrink-0"
+                    >
+                      Apply Now <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setApplyRole(role)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-all whitespace-nowrap flex-shrink-0"
-                  >
-                    Apply Now <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          ) : (
+            <div className="text-center py-12 max-w-2xl mx-auto bg-muted/30 rounded-2xl border border-border">
+              <Briefcase className="w-8 h-8 text-muted-foreground mx-auto mb-3 opacity-50" />
+              <p className="text-muted-foreground font-medium">No open positions at the moment.</p>
+              <p className="text-sm text-muted-foreground mt-1">Check back later or join our talent network below.</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -258,19 +291,23 @@ const Careers = () => {
           {/* Culture values row */}
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { emoji: "🚀", title: "Move Fast", desc: "We ship, iterate, and improve — every week." },
-              { emoji: "🤝", title: "People First", desc: "Empathy drives how we treat clients, candidates, and each other." },
-              { emoji: "📈", title: "Own It", desc: "Take initiative. Your impact is visible and recognized." },
-              { emoji: "🌏", title: "Think Big", desc: "We're building towards becoming India's top talent partner." },
-            ].map((v) => (
+              { icon: Rocket, title: "Move Fast", desc: "We ship, iterate, and improve — every week." },
+              { icon: Heart, title: "People First", desc: "Empathy drives how we treat clients, candidates, and each other." },
+              { icon: Target, title: "Own It", desc: "Take initiative. Your impact is visible and recognized." },
+              { icon: Globe, title: "Think Big", desc: "We're building towards becoming India's top talent partner." },
+            ].map((v) => {
+              const Icon = v.icon;
+              return (
               <StaggerItem key={v.title}>
                 <div className="p-5 rounded-2xl bg-card border border-border shadow-card text-center h-full">
-                  <div className="text-3xl mb-3">{v.emoji}</div>
+                  <div className="mx-auto w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
                   <h3 className="font-bold text-foreground mb-1.5">{v.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
                 </div>
               </StaggerItem>
-            ))}
+            )})}
           </StaggerContainer>
         </div>
       </section>
