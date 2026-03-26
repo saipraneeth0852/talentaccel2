@@ -8,11 +8,13 @@ const team = [
     name: "Sandeep Sankhla",
     role: "Co-Founder",
     bio: "Proven entrepreneur and strategic business leader with deep expertise in company formation, corporate structuring, governance, and operational scaling. He has supported multiple organizations in establishing compliant, growth-ready business frameworks across industries.",
+    image: "/founder-sandeep.jpg",
   },
   {
     name: "Carine Dsouza",
     role: "Co-Founder",
     bio: "HR and Talent Management professional with experience in organizational development and people operations. Focused on aligning HR strategy with business outcomes, recruitment, enhancing employee experience, and building structured people processes for growing organizations.",
+    image: "/founder-carine.jpg",
   },
 ];
 
@@ -122,13 +124,22 @@ const About = () => (
         <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {team.map((member) => (
             <StaggerItem key={member.name}>
-              <div className="p-8 rounded-2xl bg-card border border-border shadow-card h-full">
-                <div className="w-16 h-16 rounded-full bg-gradient-accent flex items-center justify-center text-2xl font-extrabold text-white mb-5">
-                  {member.name.charAt(0)}
+              <div className="group rounded-3xl bg-card border border-border/50 shadow-card hover:shadow-card-hover transition-all duration-300 h-full overflow-hidden flex flex-col">
+                <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{member.name}</h3>
-                <p className="text-sm font-semibold text-primary mb-4">{member.role}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                <div className="p-8 md:p-10 flex-1 flex flex-col">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-foreground mb-2">{member.name}</h3>
+                  <p className="text-sm font-bold text-primary mb-6 uppercase tracking-wider">{member.role}</p>
+                  <div className="w-12 h-1 bg-muted rounded-full mb-6 group-hover:bg-primary/50 transition-colors duration-300" />
+                  <p className="text-base text-muted-foreground leading-relaxed">{member.bio}</p>
+                </div>
               </div>
             </StaggerItem>
           ))}
