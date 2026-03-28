@@ -28,45 +28,60 @@ const values = [
 
 const About = () => (
   <>
+    <SEO
+      title="About TalentAccel — Our Story, Mission & Team"
+      description="Meet the founders behind TalentAccel. We help startups and growing companies build high-performance teams, HR operations, and offshore teams in India."
+      keywords="about TalentAccel, HR company India, offshore HR team, startup HR solutions, TalentAccel founders"
+    />
     {/* Hero */}
     <section className="relative min-h-[60vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-20">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-12">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+            >
+              <span className="w-2 h-2 rounded-full bg-secondary" />
+              About Us
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            >
+              Building the Teams that{" "}
+              <span className="text-gradient-accent">Accel your Business</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+            >
+              TalentAccel delivers a single-window HR ecosystem that supports businesses at every stage of growth — from first hire to full-scale operations.
+            </motion.p>
+          </div>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:block relative"
           >
-            <span className="w-2 h-2 rounded-full bg-secondary" />
-            About Us
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="About Us Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
-          >
-            Building the Teams that{" "}
-            <span className="text-gradient-accent">Accel your Business</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
-          >
-            TalentAccel delivers a single-window HR ecosystem that supports businesses at every stage of growth — from first hire to full-scale operations.
-          </motion.p>
         </div>
       </div>
     </section>
 
     {/* Mission */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           <AnimatedSection>
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Mission</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Why TalentAccel Exists</h2>
@@ -100,8 +115,8 @@ const About = () => (
     </section>
 
     {/* Our Story */}
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
         <AnimatedSection>
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Story</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">Born from the Challenges of Growth</h2>
@@ -116,13 +131,13 @@ const About = () => (
     </section>
 
     {/* Leadership Team */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Founders</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Our Team</h2>
         </AnimatedSection>
-        <StaggerContainer className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {team.map((member) => (
             <StaggerItem key={member.name}>
               <div className="flex flex-col items-center text-center h-full">
@@ -147,9 +162,9 @@ const About = () => (
     </section>
 
     {/* Values */}
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What We Stand For</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Values</h2>
         </AnimatedSection>
@@ -173,8 +188,8 @@ const About = () => (
     </section>
 
     {/* CTA */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
             <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5">

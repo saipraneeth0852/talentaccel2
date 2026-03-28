@@ -1,6 +1,7 @@
 import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSection";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const articles = [
   { tag: "Hiring", title: "Hiring Strategies for Scaling Startups", desc: "How to build a repeatable hiring process that grows with your company.", read: "5 min" },
@@ -10,30 +11,35 @@ const articles = [
 ];
 
 export const Insights = () => (
-  <section id="insights" className="py-24 lg:py-32">
-    <div className="container mx-auto px-6 lg:px-12">
-      <AnimatedSection className="text-center mb-16">
-        <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Insights</p>
+  <section id="insights" className="py-16 lg:py-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <AnimatedSection className="text-center mb-10">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+          Insights
+        </div>
         <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Latest from Our Blog</h2>
       </AnimatedSection>
 
       <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {articles.map((a) => (
           <StaggerItem key={a.title}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="group p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col"
-            >
-              <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-4 w-fit">
-                {a.tag}
-              </span>
-              <h3 className="font-bold text-foreground mb-2 leading-snug">{a.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{a.desc}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{a.read} read</span>
-                <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform duration-200" />
-              </div>
-            </motion.div>
+            <Link to="/blog">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="group p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col cursor-pointer"
+              >
+                <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-4 w-fit">
+                  {a.tag}
+                </span>
+                <h3 className="font-bold text-foreground mb-2 leading-snug">{a.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{a.desc}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">{a.read} read</span>
+                  <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
+              </motion.div>
+            </Link>
           </StaggerItem>
         ))}
       </StaggerContainer>

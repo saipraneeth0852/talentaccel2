@@ -1,65 +1,44 @@
 import { AnimatedSection } from "./AnimatedSection";
-import { Shield, Cpu, Cloud, Smartphone, Plane, Factory } from "lucide-react";
+import { ShoppingBag, Hexagon, Quote, Leaf, MessageSquare, Anchor } from "lucide-react";
 
-const industries = [
-  "Electronics", "Telecom", "Emerging Technologies", "Aerospace & Defense", "Manufacturing", "IT Products & Services"
-];
-
-const companies = [
-  { name: "TechNova", sector: "Electronics", icon: Cpu },
-  { name: "SkyDefense", sector: "Aerospace & Defense", icon: Plane },
-  { name: "CloudScale AI", sector: "Emerging Technologies", icon: Cloud },
-  { name: "ConnectTel", sector: "Telecom", icon: Smartphone },
-  { name: "BuildWorks", sector: "Manufacturing", icon: Factory },
-  { name: "SecurShield", sector: "IT Services", icon: Shield },
+const logos = [
+  { name: "Shopify", content: <div className="flex items-center gap-1.5"><ShoppingBag className="w-6 h-6" /><span className="text-xl font-bold tracking-tight lowercase">shopify</span></div> },
+  { name: "Klarna", content: <div className="text-2xl font-serif font-semibold tracking-tight">Klarna.</div> },
+  { name: "Reddit", content: <div className="flex items-center gap-1.5"><Hexagon className="w-6 h-6" /><span className="text-xl font-bold tracking-tight lowercase">reddit</span></div> },
+  { name: "Nike", content: <div className="text-2xl font-black italic tracking-tighter uppercase">NIKE</div> },
+  { name: "Zapier", content: <div className="text-xl font-black tracking-tighter lowercase">_zapier</div> },
+  { name: "NU", content: <div className="text-3xl font-bold tracking-tighter lowercase">nu</div> },
+  { name: "Jelly Belly", content: <div className="text-lg font-serif italic font-bold leading-[0.8] flex flex-col items-center"><span className="ml-2">Jelly</span><span className="-ml-2">Belly</span></div> },
+  { name: "Revolut", content: <div className="text-[22px] font-semibold tracking-tight">Revolut</div> },
+  { name: "Forever 21", content: <div className="text-xs font-bold tracking-widest uppercase">Forever 21</div> },
+  { name: "Red Bull", content: <div className="text-xl font-black tracking-tighter">Red Bull</div> },
+  { name: "Calvin Klein", content: <div className="text-sm font-light tracking-[0.2em]">Calvin Klein</div> },
+  { name: "Intercom", content: <div className="flex items-center gap-1.5"><MessageSquare className="w-5 h-5 fill-current" /><span className="text-xs font-bold tracking-widest uppercase">Intercom</span></div> },
+  { name: "Hermes", content: <div className="flex flex-col items-center"><Anchor className="w-5 h-5" /><span className="text-[8px] font-serif tracking-widest uppercase mt-0.5">Hermes</span></div> },
+  { name: "Hello Fresh", content: <div className="flex items-center gap-1.5"><Leaf className="w-6 h-6" /><div className="text-[10px] font-black tracking-tighter uppercase leading-[1.1] flex flex-col"><span>Hello</span><span>Fresh</span></div></div> },
 ];
 
 export const TrustedBy = () => (
-  <section className="py-16 border-y border-border bg-muted/30 overflow-hidden">
-    <div className="container mx-auto px-6 lg:px-12 mb-12">
-      <AnimatedSection className="text-center mb-10">
-        <p className="text-sm font-medium text-muted-foreground tracking-wide uppercase">
-          Trusted by startups and fast-growing companies to build teams that scale
-        </p>
+  <section className="py-16 bg-card border-y border-border">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <AnimatedSection className="text-center mb-10 max-w-4xl mx-auto">
+        <h2 className="text-2xl md:text-[34px] font-medium text-muted-foreground leading-tight tracking-tight">
+          Trusted by <span className="font-bold text-foreground">startups and fast-growing companies</span> to build teams that scale
+        </h2>
       </AnimatedSection>
-      
-      {/* Fading Industries List (moved above) */}
-      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-12">
-        {industries.map((name, i) => (
-          <AnimatedSection key={name} delay={i * 0.08}>
-            <div className="text-sm font-semibold text-muted-foreground/50 tracking-wide text-center uppercase">
-              {name}
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
 
-      {/* Company Marquee (moved below) */}
-      <div className="relative flex overflow-hidden group">
-        <div className="flex items-center gap-12 md:gap-16 marquee-track pr-12 md:pr-16">
-          {[...companies, ...companies, ...companies].map((company, i) => {
-            const Icon = company.icon;
-            return (
-              <div 
-                key={`${company.name}-${i}`} 
-                className="flex items-center gap-4 py-2 px-6 rounded-2xl bg-card border border-border/50 shadow-sm hover:border-primary/50 transition-colors whitespace-nowrap min-w-max"
-              >
-                <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="font-bold text-foreground text-sm leading-tight">{company.name}</div>
-                  <div className="text-xs text-muted-foreground">{company.sector}</div>
-                </div>
-              </div>
-            );
-          })}
+      <AnimatedSection delay={0.2}>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-8 gap-y-12 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-opacity duration-500 hover:opacity-100">
+          {logos.map((logo, i) => (
+            <div 
+              key={`${logo.name}-${i}`} 
+              className="flex items-center justify-center text-foreground hover:text-primary transition-colors cursor-default"
+            >
+              {logo.content}
+            </div>
+          ))}
         </div>
-        
-        {/* Fade edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-muted/30 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-muted/30 to-transparent pointer-events-none z-10" />
-      </div>
+      </AnimatedSection>
     </div>
   </section>
 );

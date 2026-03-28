@@ -1,7 +1,8 @@
-import { AnimatedSection } from "./AnimatedSection";
-import { motion } from "framer-motion";
-import { Search, Timer, Target, Package, ArrowRight } from "lucide-react";
+import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSection";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Timer, Target, Package, ArrowRight, PhoneCall } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const models = [
   {
@@ -21,7 +22,7 @@ const models = [
   {
     num: "03",
     icon: Target,
-    name: "Outcome-Based Pricing",
+    name: "Outcome-Based",
     desc: "Hiring across verticals",
     detail: "Pay only when we deliver — whether it's successful placements, compliance milestones, or completed projects. It's a completely risk-free, no-hire, no-fee model.",
   },
@@ -34,78 +35,99 @@ const models = [
   },
 ];
 
-export const EngagementModels = () => (
-  <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
-    {/* Subtle Background Glows */}
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
+export const EngagementModels = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-    <div className="container mx-auto px-6 lg:px-12 relative z-10">
-      <AnimatedSection className="text-center mb-20">
-        <p className="text-sm font-semibold text-primary tracking-widest uppercase mb-4">How We Work</p>
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-foreground mb-6">Engagement Models</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Flexible frameworks designed for every stage of your growth — from tactical one-off projects to comprehensive HR outsourcing.
-        </p>
-      </AnimatedSection>
+  return (
+    <section className="py-16 lg:py-16 bg-background relative overflow-hidden font-sans">
+      {/* Subtle Background Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl mx-auto rounded-full bg-gradient-to-b from-primary/5 to-transparent blur-[120px] pointer-events-none" />
 
-      {/* Modern 2x2 Grid */}
-      <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        {models.map((m, i) => {
-          const Icon = m.icon;
-          return (
-            <motion.div
-              key={m.num}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative bg-card border border-border/60 hover:border-primary/40 rounded-[2rem] p-8 lg:p-10 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col cursor-default"
-            >
-              {/* Oversized Background Number */}
-              <div className="absolute -bottom-8 -right-4 text-[12rem] font-black text-muted-foreground/5 select-none pointer-events-none group-hover:text-primary/[0.03] group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 leading-none">
-                {m.num}
-              </div>
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.2)] transition-all duration-500 text-primary shrink-0">
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <h3 className="font-extrabold text-foreground text-2xl leading-tight mb-1.5">{m.name}</h3>
-                    <p className="text-xs font-bold text-primary/80 uppercase tracking-wider">{m.desc}</p>
-                  </div>
-                </div>
-                
-                <p className="text-base text-muted-foreground leading-relaxed flex-1">
-                  {m.detail}
-                </p>
-                
-                <div className="mt-8 pt-6 border-t border-border/50 flex items-center text-sm font-bold text-primary opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <span className="bg-primary/10 px-4 py-2 rounded-full inline-flex items-center">
-                    Explore Model <ArrowRight className="w-4 h-4 ml-2" />
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+        <AnimatedSection className="mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+            How We Work
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Engagement Models</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Flexible frameworks designed for every stage of your growth — from tactical one-off projects to comprehensive HR outsourcing.
+          </p>
+        </AnimatedSection>
 
-      {/* CTA */}
-      <AnimatedSection className="text-center mt-20">
-        <div className="inline-flex flex-col items-center p-8 rounded-3xl bg-card border border-border shadow-sm max-w-xl mx-auto w-full">
-          <p className="text-foreground font-semibold text-lg mb-2">Not sure which model fits your stage?</p>
-          <p className="text-muted-foreground text-sm mb-6">Let's discuss your specific needs and tailor a solution.</p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-foreground text-background font-bold text-sm hover:scale-105 hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+        {/* Tab-like structural top border visual */}
+        <div className="flex flex-col gap-8 w-full">
+          {/* Main 4-Column Area */}
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="w-full bg-card border-t-4 border-t-primary border-l border-r border-b border-border/60 rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           >
-            Talk to an Expert <ArrowRight className="w-4 h-4" />
-          </Link>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x lg:divide-y-0 divide-border/50 h-full">
+              {models.map((m, i) => {
+                const Icon = m.icon;
+                const isHovered = hoveredCard === i;
+                return (
+                  <div 
+                    key={m.num}
+                    className="p-8 flex flex-col h-full bg-card hover:bg-[#f6faff] transition-colors duration-500 relative overflow-hidden group"
+                    onMouseEnter={() => setHoveredCard(i)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    {/* Header */}
+                    <div className="text-center mb-6 h-16">
+                      <h3 className="font-black text-foreground text-lg uppercase tracking-wider mb-2 leading-tight">{m.name}</h3>
+                      <p className="text-xs text-muted-foreground font-medium leading-relaxed">{m.desc}</p>
+                    </div>
+
+                    <div className="w border-t border-border/40 mx-4" />
+
+                    {/* Faux Pricing / Icon Focus Area */}
+                    <div className="py-8 text-center flex flex-col items-center flex-shrink-0">
+                      <motion.div
+                        animate={{
+                          y: isHovered ? -5 : 0,
+                          scale: isHovered ? 1.05 : 1,
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#e1effe] to-[#f3f8ff] flex items-center justify-center shadow-inner mb-4 relative"
+                      >
+                        {/* Glow effect matching the blurred text of image */}
+                        <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <Icon className="w-8 h-8 text-[#1a66cc] relative z-10" />
+                      </motion.div>
+                      
+                      
+
+                      <Link to="/contact" className="w-full relative overflow-hidden rounded-full block">
+                        <motion.div
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full py-3 bg-[#1877f2] hover:bg-[#166fe5] text-white font-bold text-sm rounded-full shadow-[0_4px_14px_0_rgba(24,119,242,0.39)] transition-colors text-center"
+                        >
+                          Explore Model
+                        </motion.div>
+                      </Link>
+                    </div>
+
+                    <div className="w border-t border-border/40 mx-4 mb-6" />
+
+                    {/* Features/Details List equivalent */}
+                    <div className="flex-1">
+                      <h4 className="font-extrabold text-foreground text-sm mb-4">Model Overview</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {m.detail}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
-      </AnimatedSection>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};

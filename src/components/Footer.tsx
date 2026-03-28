@@ -32,9 +32,9 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
 };
 
 export const Footer = () => (
-  <footer className="bg-primary text-primary-foreground pt-16 pb-24 lg:pb-8">
-    <div className="container mx-auto px-6 lg:px-12">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+  <footer className="bg-primary text-primary-foreground pt-16 pb-16 lg:pb-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-8">
         {/* Brand column */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-4">

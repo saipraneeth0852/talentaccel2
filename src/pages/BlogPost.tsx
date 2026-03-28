@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Footer } from "@/components/Footer";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { SEO } from "@/components/SEO";
 
 interface BlogPost {
   id: string;
@@ -93,6 +94,40 @@ const BlogPost = () => {
 
   return (
     <>
+      <SEO
+        title={article.title}
+        description={article.description}
+        image={article.imageUrl || undefined}
+        keywords={article.tag}
+        type="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": article.title,
+          "description": article.description,
+          "image": article.imageUrl || "https://talentaccel.com/og-image.jpg",
+          "author": {
+            "@type": "Organization",
+            "name": "TalentAccel",
+            "url": "https://talentaccel.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "TalentAccel",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://talentaccel.com/logo.png"
+            }
+          },
+          "datePublished": article.createdAt?.toDate
+            ? article.createdAt.toDate().toISOString()
+            : new Date().toISOString(),
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://talentaccel.com/blog/${article.id}`
+          }
+        }}
+      />
       {/* Hero */}
       <section className="relative min-h-[45vh] flex items-end overflow-hidden">
         {article.imageUrl && (
@@ -102,7 +137,7 @@ const BlogPost = () => {
           </div>
         )}
         {!article.imageUrl && <div className="absolute inset-0 bg-gradient-subtle" />}
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-28 pb-14">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -137,8 +172,8 @@ const BlogPost = () => {
       </section>
 
       {/* Article body */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-16 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             {/* Lead */}
             <motion.p
@@ -157,7 +192,22 @@ const BlogPost = () => {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="prose-blog"
             >
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.content}</ReactMarkdown>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  a: ({ href, children }) => {
+                    const isSafe = href && /^https?:\/\//i.test(href);
+                    if (!isSafe) return <span>{children}</span>;
+                    return (
+                      <a href={href} target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    );
+                  },
+                }}
+              >
+                {article.content}
+              </ReactMarkdown>
             </motion.div>
 
             {/* CTA */}
@@ -180,8 +230,8 @@ const BlogPost = () => {
 
       {/* More articles */}
       {others.length > 0 && (
-        <section className="py-16 lg:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-12">
+        <section className="py-16 lg:py-16 bg-muted/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-10">
               <h2 className="text-2xl font-bold text-foreground">More Insights</h2>
             </AnimatedSection>

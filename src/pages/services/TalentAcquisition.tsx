@@ -19,11 +19,16 @@ const model = ["Dedicated recruiter", "Dedicated sourcing specialist", "Hiring a
 
 const TalentAcquisition = () => (
   <>
-    <SEO title="Talent Acquisition & Hiring Solutions" description="Learn how TalentAccel's expert Talent Acquisition & Hiring Solutions can accelerate your company's growth." />
+    <SEO
+      title="Talent Acquisition & Hiring Solutions"
+      description="End-to-end recruitment for startups in India. We source, screen & onboard top tech and business talent — 40% faster than traditional agencies."
+      keywords="talent acquisition India, startup hiring, tech recruitment India, permanent hiring, contract staffing"
+    />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
           >
@@ -50,14 +55,18 @@ const TalentAcquisition = () => (
               All Services <ChevronRight className="w-4 h-4" />
             </a>
           </motion.div>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Talent Acquisition Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     {/* Services Include */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What's Included</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Services Include</h2>
         </AnimatedSection>
@@ -75,9 +84,9 @@ const TalentAcquisition = () => (
     </section>
 
     {/* How We Help */}
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Approach</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">How We Help</h2>
         </AnimatedSection>
@@ -101,9 +110,9 @@ const TalentAcquisition = () => (
     </section>
 
     {/* Ideal For + Model */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <AnimatedSection>
             <div className="p-8 rounded-2xl bg-card border border-border shadow-card h-full">
               <h2 className="text-2xl font-bold text-foreground mb-6">Ideal For</h2>
@@ -135,9 +144,9 @@ const TalentAcquisition = () => (
     </section>
 
     {/* Pricing Model */}
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-12">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-8">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Transparent Pricing</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Pricing Model</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
@@ -164,8 +173,8 @@ const TalentAcquisition = () => (
     </section>
 
     {/* CTA */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Ready to hire smarter?</h2>

@@ -21,11 +21,16 @@ const details = [
 
 const PayrollCompliance = () => (
   <>
-    <SEO title="Payroll Processing & Compliance" description="Learn how TalentAccel's expert Payroll Processing & Compliance can accelerate your company's growth." />
+    <SEO
+      title="Payroll Processing & Compliance for Startups"
+      description="Accurate payroll and statutory compliance for Indian startups. PF, ESI, TDS & labour law — fully managed so you never face a penalty."
+      keywords="payroll compliance India, startup payroll India, PF ESI TDS compliance, payroll outsourcing India"
+    />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
           >
@@ -52,14 +57,18 @@ const PayrollCompliance = () => (
               All Services <ChevronRight className="w-4 h-4" />
             </a>
           </motion.div>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Service Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     {/* Services list */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Coverage</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Services Include</h2>
         </AnimatedSection>
@@ -77,9 +86,9 @@ const PayrollCompliance = () => (
     </section>
 
     {/* Detail cards */}
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
-        <AnimatedSection className="text-center mb-16">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What We Do</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">In Detail</h2>
         </AnimatedSection>
@@ -103,8 +112,8 @@ const PayrollCompliance = () => (
     </section>
 
     {/* CTA */}
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Stay 100% compliant, always.</h2>

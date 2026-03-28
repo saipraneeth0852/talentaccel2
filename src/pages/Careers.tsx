@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Upload, Briefcase, Users, ArrowRight, Star, Rocket, Heart, Target, Globe } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Upload, Briefcase, Users, ArrowRight, Star, Rocket, Heart, Target, Globe, CheckCircle2 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { JobApplicationModal } from "@/components/JobApplicationModal";
 import { SEO } from "@/components/SEO";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const perks = [
@@ -17,7 +17,14 @@ const perks = [
 const Careers = () => {
   const [file, setFile] = useState<File | null>(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "", role: "" });
-  
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const { scrollYProgress } = useScroll();
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacityBg = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   // Dynamic Roles State
   const [openRoles, setOpenRoles] = useState<any[]>([]);
   const [loadingRoles, setLoadingRoles] = useState(true);
@@ -29,8 +36,8 @@ const Careers = () => {
         const snap = await getDocs(collection(db, "careers"));
         const roles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setOpenRoles(roles);
-      } catch (error) {
-        console.error("Error fetching roles:", error);
+      } catch {
+        // silently show empty state
       } finally {
         setLoadingRoles(false);
       }
@@ -41,10 +48,23 @@ const Careers = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const body = `Name: ${form.name}%0APhone: ${form.phone}%0ARole of Interest: ${form.role}%0A%0APlease find my CV attached.`;
-    window.location.href = `mailto:hr@talentaccel.com?subject=CV Submission — ${form.name}&body=${body}`;
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await addDoc(collection(db, "jobApplications"), {
+        ...form,
+        cvFileName: file?.name ?? "",
+        source: "talent-network",
+        createdAt: serverTimestamp(),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please email your CV directly to hr@talentaccel.com");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -55,41 +75,53 @@ const Careers = () => {
       />
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-subtle" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-secondary" />
-            Careers
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
-          >
-            Grow with{" "}
-            <span className="text-gradient-accent">TalentAccel</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
-          >
-            Join a team that's accelerating talent and enabling growth for startups and enterprises across India. We're always looking for sharp, driven people to join our mission.
-          </motion.p>
+        <motion.div style={{ y: yBg, opacity: opacityBg }} className="absolute inset-0 bg-gradient-subtle" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-12">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+              >
+                <span className="w-2 h-2 rounded-full bg-secondary" />
+                Careers
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+              >
+                Grow with{" "}
+                <span className="text-gradient-accent">TalentAccel</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+              >
+                Join a team that's accelerating talent and enabling growth for startups and enterprises across India. We're always looking for sharp, driven people to join our mission.
+              </motion.p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="hidden lg:block relative"
+            >
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Careers Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Perks */}
-      <section className="py-24 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection className="text-center mb-16">
+      <section className="py-16 md:py-12 lg:py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-10">
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Why Join Us</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Why Work at TalentAccel</h2>
           </AnimatedSection>
@@ -113,9 +145,9 @@ const Careers = () => {
       </section>
 
       {/* Open Roles */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection className="text-center mb-16">
+      <section className="py-16 md:py-12 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-10">
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Open Positions</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Current Openings</h2>
           </AnimatedSection>
@@ -158,10 +190,10 @@ const Careers = () => {
       </section>
 
       {/* CV Upload / Talent Network */}
-      <section className="py-24 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
-            <AnimatedSection>
+      <section className="py-16 md:py-12 lg:py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <AnimatedSection className="h-full flex flex-col">
               <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Talent Network</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Don't See a Role? Join Our Network</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -179,88 +211,155 @@ const Careers = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-8 p-5 sm:p-6 rounded-3xl bg-card border border-border shadow-sm relative overflow-hidden flex-1 flex flex-col justify-center">
+                {/* Decorative background element */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+                
+                <h4 className="font-bold text-foreground text-md mb-4 flex items-center gap-2 relative z-10">
+                  <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Star className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  What Happens Next?
+                </h4>
+                
+                <div className="space-y-4 relative z-10">
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-7 h-7 rounded-full bg-muted border border-border flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:border-primary/30 group-hover:bg-primary/5 transition-colors">
+                      <span className="text-[10px] font-bold text-foreground">1</span>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-foreground text-sm">Profile Review</h5>
+                      <p className="text-[13px] text-muted-foreground mt-1 leading-relaxed">Our recruitment team reviews every CV to understand your core strengths and aspirations.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-7 h-7 rounded-full bg-muted border border-border flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:border-primary/30 group-hover:bg-primary/5 transition-colors">
+                      <span className="text-[10px] font-bold text-foreground">2</span>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-foreground text-sm">Smart Mapping</h5>
+                      <p className="text-[13px] text-muted-foreground mt-1 leading-relaxed">We map your capabilities against emerging requirements from our top startup / enterprise clients.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-7 h-7 rounded-full bg-muted border border-border flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:border-primary/30 group-hover:bg-primary/5 transition-colors">
+                      <span className="text-[10px] font-bold text-foreground">3</span>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-foreground text-sm">Priority Outreach</h5>
+                      <p className="text-[13px] text-muted-foreground mt-1 leading-relaxed">When an opening aligns with your goals, we reach out directly for an expedited interview.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.15}>
-              <form onSubmit={handleSubmit} className="space-y-5 p-8 rounded-2xl bg-card border border-border shadow-card">
-                <h3 className="text-lg font-bold text-foreground mb-2">Submit Your CV</h3>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Full Name *</label>
-                  <input
-                    name="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    placeholder="Your full name"
-                  />
+            <AnimatedSection delay={0.15} className="h-full flex flex-col">
+              {submitted ? (
+                <div className="h-full w-full flex flex-col items-center justify-center gap-4 p-12 rounded-2xl bg-card border border-border shadow-card text-center">
+                  <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+                    <CheckCircle2 className="w-8 h-8 text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">You're in the Network!</h3>
+                  <p className="text-muted-foreground max-w-sm leading-relaxed">
+                    Your CV has been submitted. We'll reach out when a role matching your profile opens up.
+                  </p>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Email *</label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    placeholder="you@email.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Phone</label>
-                  <input
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Role / Domain of Interest</label>
-                  <input
-                    name="role"
-                    value={form.role}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    placeholder="e.g. Recruiter, HR Operations, Sales"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Upload CV</label>
-                  <label className="flex flex-col items-center justify-center gap-3 w-full h-32 rounded-xl border-2 border-dashed border-border hover:border-primary/50 bg-muted/30 hover:bg-primary/5 transition-all cursor-pointer">
-                    <Upload className="w-6 h-6 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">
-                      {file ? file.name : "Click to upload PDF or DOCX"}
-                    </span>
+              ) : (
+                <form onSubmit={handleSubmit} className="h-full w-full flex flex-col justify-between space-y-4 p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-card">
+                  <h3 className="text-lg font-bold text-foreground mb-2">Submit Your CV</h3>
+                  <div>
+                    <label htmlFor="cv-name" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Full Name *</label>
                     <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      className="hidden"
-                      onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                      id="cv-name"
+                      name="name"
+                      required
+                      maxLength={100}
+                      value={form.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      placeholder="Your full name"
                     />
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  Submit to Talent Network <ArrowRight className="w-4 h-4" />
-                </button>
-                <p className="text-xs text-muted-foreground">
-                  By submitting, you agree to let TalentAccel contact you about relevant opportunities.
-                </p>
-              </form>
+                  </div>
+                  <div>
+                    <label htmlFor="cv-email" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Email *</label>
+                    <input
+                      id="cv-email"
+                      name="email"
+                      type="email"
+                      required
+                      maxLength={150}
+                      value={form.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      placeholder="you@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="cv-phone" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Phone</label>
+                    <input
+                      id="cv-phone"
+                      name="phone"
+                      maxLength={20}
+                      value={form.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="cv-role" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Role / Domain of Interest</label>
+                    <input
+                      id="cv-role"
+                      name="role"
+                      maxLength={100}
+                      value={form.role}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+                      placeholder="e.g. Recruiter, HR Operations, Sales"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="cv-file" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Upload CV</label>
+                    <label htmlFor="cv-file" className="flex flex-col items-center justify-center gap-3 w-full h-32 rounded-xl border-2 border-dashed border-border hover:border-primary/50 bg-muted/30 hover:bg-primary/5 transition-all cursor-pointer">
+                      <Upload className="w-6 h-6 text-muted-foreground" />
+                      <span className="text-sm text-muted-foreground">
+                        {file ? file.name : "Click to upload PDF or DOCX"}
+                      </span>
+                      <input
+                        id="cv-file"
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        className="hidden"
+                        onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                      />
+                    </label>
+                  </div>
+                  {submitError && <p className="text-sm text-destructive">{submitError}</p>}
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {submitting ? "Submitting…" : <><span>Submit to Talent Network</span> <ArrowRight className="w-4 h-4" /></>}
+                  </button>
+                  <p className="text-xs text-muted-foreground">
+                    By submitting, you agree to let TalentAccel contact you about relevant opportunities.
+                  </p>
+                </form>
+              )}
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Life at TalentAccel — image + culture section */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-12">
-          <AnimatedSection className="text-center mb-12">
+      <section className="py-16 md:py-12 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-8">
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Life at TalentAccel</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">A culture built on ambition & care</h2>
             <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
@@ -269,7 +368,7 @@ const Careers = () => {
           </AnimatedSection>
 
           {/* Image grid */}
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16 max-w-5xl mx-auto">
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 max-w-5xl mx-auto">
             {[
               { bg: "from-primary/20 to-primary/5", label: "Team Meetings", aspect: "md:col-span-2 md:row-span-2" },
               { bg: "from-secondary/20 to-secondary/5", label: "Strategy Sessions", aspect: "" },
@@ -282,7 +381,7 @@ const Careers = () => {
                 >
                   <Star className="w-6 h-6 text-primary/40" />
                   {item.label}
-                  <span className="text-xs text-muted-foreground/60">Photo coming soon</span>
+                  <span className="text-xs text-muted-foreground/60">{item.label}</span>
                 </div>
               </StaggerItem>
             ))}

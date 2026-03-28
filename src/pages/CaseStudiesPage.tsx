@@ -2,29 +2,20 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { motion } from "framer-motion";
-import { Users, Clock, TrendingUp, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
-
-interface Metric { value: string; label: string; }
 
 interface CaseStudy {
   id: string;
   tag: string;
   title: string;
   description: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
-  metrics: Metric[];
-  results: string[];
   imageUrl: string;
   order: number;
 }
-
-// Icons assigned by metric position (consistent visual pattern)
-const metricIcons = [Users, Clock, TrendingUp];
 
 const CaseStudiesPage = () => {
   const [cases, setCases] = useState<CaseStudy[]>([]);
@@ -57,39 +48,51 @@ const CaseStudiesPage = () => {
       {/* Hero */}
       <section className="relative min-h-[40vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-subtle" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-secondary" />
-            Case Studies
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
-          >
-            Real Results from{" "}
-            <span className="text-gradient-accent">Real Companies</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground max-w-xl"
-          >
-            Companies that trusted TalentAccel to build their teams and manage their HR operations.
-          </motion.p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+              >
+                <span className="w-2 h-2 rounded-full bg-secondary" />
+                Case Studies
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
+              >
+                Real Results from{" "}
+                <span className="text-gradient-accent">Real Companies</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-lg text-muted-foreground max-w-xl"
+              >
+                Companies that trusted TalentAccel to build their teams and manage their HR operations.
+              </motion.p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="hidden lg:block relative"
+            >
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Case Studies Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Case Studies */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-6 lg:px-12 space-y-16">
+      <section className="py-16 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
@@ -99,85 +102,56 @@ const CaseStudiesPage = () => {
               <p className="text-muted-foreground">No case studies yet. Check back soon.</p>
             </div>
           ) : (
-            cases.map((c, i) => (
-              <AnimatedSection key={c.id} delay={i * 0.1}>
-                <div className="rounded-3xl bg-card border border-border shadow-card overflow-hidden">
-                  {c.imageUrl && (
-                    <div className="w-full h-56 overflow-hidden">
-                      <img src={c.imageUrl} alt={c.title} className="w-full h-full object-cover" />
-                    </div>
-                  )}
-                  <div className="p-8 lg:p-12">
-                    <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-6">
-                      {c.tag}
-                    </span>
-                    <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-8">{c.title}</h2>
-
-                    {/* Metrics */}
-                    {Array.isArray(c.metrics) && c.metrics.some(m => m.value) && (
-                      <div className="grid grid-cols-3 gap-4 mb-10">
-                        {c.metrics.map((m, idx) => {
-                          const Icon = metricIcons[idx] ?? TrendingUp;
-                          return (
-                            <div key={idx} className="text-center p-5 rounded-2xl bg-muted/50 border border-border">
-                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-2">
-                                <Icon className="w-4 h-4 text-primary" />
-                              </div>
-                              <div className="text-3xl font-extrabold text-foreground">{m.value}</div>
-                              <div className="text-xs text-muted-foreground mt-1">{m.label}</div>
-                            </div>
-                          );
-                        })}
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cases.map((c) => (
+                <StaggerItem key={c.id}>
+                  <Link to={`/case-studies/${c.id}`} className="block h-full">
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      className="group rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col cursor-pointer overflow-hidden"
+                    >
+                      {c.imageUrl ? (
+                        <div className="w-full h-44 overflow-hidden bg-muted">
+                          <img
+                            src={c.imageUrl}
+                            alt={c.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-full h-44 bg-muted/50 flex items-center justify-center">
+                          <span className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                            <span className="w-3 h-3 rounded-full bg-primary" />
+                          </span>
+                        </div>
+                      )}
+                      <div className="p-6 flex flex-col flex-1">
+                        <div className="flex items-center mb-4">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
+                            {c.tag}
+                          </span>
+                        </div>
+                        <h3 className="font-bold text-foreground mb-3 leading-snug text-base">{c.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{c.description}</p>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all duration-200">
+                            Read study <ArrowRight className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
                       </div>
-                    )}
-
-                    {/* Challenge / Solution / Outcome */}
-                    <div className="grid md:grid-cols-3 gap-8 mb-8">
-                      {c.challenge && (
-                        <div>
-                          <h3 className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3">The Challenge</h3>
-                          <p className="text-sm text-foreground leading-relaxed">{c.challenge}</p>
-                        </div>
-                      )}
-                      {c.solution && (
-                        <div>
-                          <h3 className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3">Our Solution</h3>
-                          <p className="text-sm text-foreground leading-relaxed">{c.solution}</p>
-                        </div>
-                      )}
-                      {c.outcome && (
-                        <div>
-                          <h3 className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-3">The Outcome</h3>
-                          <p className="text-sm text-foreground leading-relaxed">{c.outcome}</p>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Results list */}
-                    {Array.isArray(c.results) && c.results.length > 0 && (
-                      <div className="border-t border-border pt-6">
-                        <h3 className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-4">Key Results</h3>
-                        <ul className="grid sm:grid-cols-2 gap-2">
-                          {c.results.map((r, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <span className="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
-                              {r}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))
+                    </motion.div>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           )}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-16 lg:py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">

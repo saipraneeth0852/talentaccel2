@@ -1,147 +1,208 @@
-import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSection";
-import { motion } from "framer-motion";
+import { AnimatedSection } from "./AnimatedSection";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
-  Users, FileText, Settings, GraduationCap, Heart, Globe,
-  ArrowRight,
+  Users, Shield, Settings, GraduationCap, Heart, Globe,
+  ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const challenges = [
-  "Hiring the right talent",
-  "Managing payroll & statutory compliance accurately",
-  "Scaling teams without operational chaos",
-  "Upskilling the team",
-  "Keeping employees engaged",
+const workflowData = [
+  {
+    challengeTitle: "Talent Bottlenecks",
+    challengeDesc: "Struggling to hire the right talent quickly and at scale to meet your growth demands.",
+    solutionLabel: "Talent Acquisition",
+    solutionDesc: "End-to-end recruitment across all corporate functions and leadership levels.",
+    solutionHref: "/services/talent-acquisition",
+    icon: Users,
+    color: "from-blue-500 to-indigo-500"
+  },
+  {
+    challengeTitle: "Compliance Risks",
+    challengeDesc: "Managing payroll and complex statutory compliance inaccurately, risking heavy fines.",
+    solutionLabel: "HR Operations",
+    solutionDesc: "Complete management of payroll, benefits, and statutory legal compliance.",
+    solutionHref: "/services/hr-operations",
+    icon: Shield,
+    color: "from-emerald-500 to-teal-500"
+  },
+  {
+    challengeTitle: "Operational Chaos",
+    challengeDesc: "Scaling teams rapidly without structured operational workflows to support them.",
+    solutionLabel: "HR Advisory",
+    solutionDesc: "Architecting strategic hr frameworks, policies, and scalable company structures.",
+    solutionHref: "/services/hr-advisory",
+    icon: Settings,
+    color: "from-orange-500 to-red-500"
+  },
+  {
+    challengeTitle: "Skill Gaps",
+    challengeDesc: "Failing to create long-term impact due to a lack of continuous upskilling.",
+    solutionLabel: "Learning & Development",
+    solutionDesc: "Targeted capability-building programmes designed to develop your future leaders.",
+    solutionHref: "/services/learning-development",
+    icon: GraduationCap,
+    color: "from-purple-500 to-pink-500"
+  },
+  {
+    challengeTitle: "Retention Issues",
+    challengeDesc: "Constantly losing top-tier employees due to poor culture and disengagement.",
+    solutionLabel: "Employee Experience",
+    solutionDesc: "Designing progressive workplace cultures that meaningfully engage and retain top talent.",
+    solutionHref: "/services/employee-experience",
+    icon: Heart,
+    color: "from-rose-500 to-orange-500"
+  },
+  {
+    challengeTitle: "Global Friction",
+    challengeDesc: "Facing massive overhead and complexity when expanding into new global markets.",
+    solutionLabel: "Extended Workforce",
+    solutionDesc: "Rapid deployment of scalable offshore teams and specialist contractors.",
+    solutionHref: "/services/extended-workforce",
+    icon: Globe,
+    color: "from-cyan-500 to-blue-500"
+  },
 ];
 
-const solutions = [
-  { icon: Users, label: "Talent Acquisition", href: "/services/talent-acquisition", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { icon: FileText, label: "HR Operations", href: "/services/hr-operations", img: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { icon: Settings, label: "HR Advisory", href: "/services/hr-advisory", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { icon: GraduationCap, label: "Learning & Development", href: "/services/learning-development", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { icon: Heart, label: "Employee Experience", href: "/services/employee-experience", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { icon: Globe, label: "Extended Workforce", href: "/services/extended-workforce", img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-];
+const TimelineNode = ({ item, index }: { item: typeof workflowData[0]; index: number }) => {
+  const Icon = item.icon;
 
-export const TalentEcosystem = () => (
-  <section className="py-24 lg:py-32 relative overflow-hidden bg-slate-50/50">
-    {/* Rich ambient backgrounds */}
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10" />
-    <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] -z-10" />
+  return (
+    <div className="relative flex flex-col md:flex-row items-center justify-between w-full mb-10 md:mb-20 group">
+      
+      {/* Desktop Left Column (Always Challenge) */}
+      <div className={`w-full md:w-5/12 md:text-right md:pr-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 order-2 md:order-1`}>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col gap-2"
+        >
+          <h4 className="text-xl font-bold text-slate-800">{item.challengeTitle}</h4>
+          <p className="text-sm text-slate-500 leading-relaxed md:ml-auto max-w-sm">{item.challengeDesc}</p>
+        </motion.div>
+      </div>
 
-    <div className="container mx-auto px-6 lg:px-12 relative z-10">
-      {/* Header */}
-      <AnimatedSection className="text-center mb-20">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm font-bold text-slate-800 tracking-wide uppercase">Talent Ecosystem</span>
+      {/* The Central Node (Pointer) */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.4 }}
+        className="absolute left-0 md:left-1/2 -ml-5 md:-ml-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-2 border-slate-100 shadow-[0_4px_15px_-4px_rgba(0,0,0,0.08)] flex items-center justify-center z-20 group-hover:scale-110 group-hover:border-primary/20 transition-all duration-300 order-1 md:order-2"
+      >
+        <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-gradient-to-br ${item.color} transition-colors duration-300`}>
+          <Icon className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors duration-300" />
         </div>
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-          One Partner.{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Complete People Solutions.
-          </span>
-        </h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          TalentAccel delivers a single-window HR ecosystem that supports businesses at every stage of growth, transforming operational chaos into structured success.
-        </p>
-      </AnimatedSection>
+      </motion.div>
 
-      {/* Challenges (Current State) */}
-      <AnimatedSection className="mb-16">
-        <p className="text-center text-sm font-bold text-slate-500 uppercase tracking-widest mb-8">
-          The Challenges Growing Companies Face
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-          {challenges.map((c, i) => (
-            <motion.span
-              key={c}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="px-6 py-3.5 rounded-full bg-white/60 backdrop-blur-md border border-slate-200/60 text-sm md:text-base text-slate-700 font-medium shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow cursor-default"
-            >
-              {c}
-            </motion.span>
-          ))}
-        </div>
-      </AnimatedSection>
+      {/* Desktop Right Column (Always Solution) */}
+      <div className={`w-full md:w-5/12 md:text-left md:pl-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 hidden md:block order-3`}>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
+          className="flex flex-col gap-2"
+        >
+          <Link to={item.solutionHref} className="block group/link">
+            <h4 className="text-xl font-bold text-slate-800 group-hover/link:text-primary transition-colors duration-300 flex items-center gap-2">
+              {item.solutionLabel}
+              <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
+            </h4>
+            <p className="text-sm text-slate-500 leading-relaxed max-w-sm mt-1">{item.solutionDesc}</p>
+          </Link>
+        </motion.div>
+      </div>
 
-      {/* Transition Flow Elements */}
-      <AnimatedSection className="flex justify-center mb-16 relative">
-        <div className="flex flex-col items-center gap-3">
-          <motion.div 
-            initial={{ height: 0 }}
-            whileInView={{ height: 64 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="w-px bg-gradient-to-b from-slate-200 to-primary/50" 
-          />
-          <motion.div 
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shadow-[0_0_20px_rgba(239,90,57,0.15)]"
-          >
-            <ArrowRight className="w-5 h-5 text-primary rotate-90" />
-          </motion.div>
-          <motion.div 
-            initial={{ height: 0 }}
-            whileInView={{ height: 64 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="w-px bg-gradient-to-b from-primary/50 to-secondary/50" 
-          />
-        </div>
-      </AnimatedSection>
-
-      {/* Solution Label */}
-      <AnimatedSection className="text-center mb-12">
-        <h3 className="text-2xl font-bold text-slate-900">
-          Our Solution <span className="text-secondary">—</span> The Accel Workflow
-        </h3>
-      </AnimatedSection>
-
-      {/* Solution Tiles (Future State) */}
-      <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        {solutions.map((s) => {
-          const Icon = s.icon;
-          return (
-            <StaggerItem key={s.label}>
-              <Link to={s.href} className="block h-full">
-                <motion.div
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group relative h-full flex flex-col justify-end min-h-[240px] p-6 rounded-[2rem] bg-slate-900 border border-slate-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.16)] hover:border-primary/50 transition-all duration-300 text-left overflow-hidden"
-                >
-                  {/* Background Image with Zoom */}
-                  <div className="absolute inset-0 w-full h-full overflow-hidden">
-                    <img 
-                      src={s.img} 
-                      alt={s.label} 
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-80 group-hover:opacity-100" 
-                    />
-                    {/* Dark gradient for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent transition-opacity duration-300" />
-                  </div>
-                  
-                  {/* Content (z-10 to stay above image) */}
-                  <div className="relative z-10 mt-auto">
-                    <div className="w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 group-hover:bg-primary/90 group-hover:border-primary flex items-center justify-center transition-all duration-300 shadow-lg">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                    
-                    <span className="text-lg font-bold text-white group-hover:text-primary-foreground transition-colors duration-300 leading-tight">
-                      {s.label}
-                    </span>
-                  </div>
-                </motion.div>
-              </Link>
-            </StaggerItem>
-          );
-        })}
-      </StaggerContainer>
+      {/* Mobile Right Column Fallback */}
+      <div className={`w-full pl-10 mt-4 md:hidden order-4`}>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <Link to={item.solutionHref} className="block group/link p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.color}`} />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary">The Solution is</span>
+            </div>
+            <h4 className="text-xl font-bold text-slate-800 group-hover/link:text-primary transition-colors duration-300 flex items-center justify-between mt-1">
+              {item.solutionLabel}
+              <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
+            </h4>
+            <p className="text-sm text-slate-500 leading-relaxed mt-2">{item.solutionDesc}</p>
+          </Link>
+        </motion.div>
+      </div>
+      
     </div>
-  </section>
-);
+  );
+};
+
+export const TalentEcosystem = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section ref={containerRef} className="py-16 lg:py-16 relative bg-white overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header Section */}
+        <AnimatedSection className="text-center mb-10 lg:mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+            The Accel Ecosystem
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight leading-tight max-w-3xl mx-auto">
+            Resolving Constraints. <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              Accelerating Growth.
+            </span>
+          </h2>
+        </AnimatedSection>
+
+
+        {/* Vertical Scroll Timeline Area */}
+        <div className="relative max-w-6xl mx-auto pt-10">
+          
+          {/* Static Column Headers (Desktop) */}
+          <div className="hidden md:flex justify-between w-full mb-10 px-6">
+            <div className="w-5/12 text-right pr-6">
+              <h3 className="text-2xl font-black text-slate-400 uppercase tracking-widest">Challenges</h3>
+            </div>
+            <div className="w-5/12 text-left pl-6">
+              <h3 className="text-2xl font-black text-primary uppercase tracking-widest">Solutions</h3>
+            </div>
+          </div>
+          
+          {/* Tracking Line Base (Gray) */}
+          <div className="absolute top-0 bottom-0 left-0 md:left-1/2 md:-ml-px w-0.5 bg-slate-100" />
+          
+          {/* Active Animated Outline Form Scroll */}
+          <motion.div 
+            style={{ scaleY, originY: 0 }}
+            className="absolute top-0 bottom-0 left-0 md:left-1/2 md:-ml-px w-0.5 bg-gradient-to-b from-primary via-secondary to-primary" 
+          />
+
+          {/* Workflow Nodes */}
+          {workflowData.map((item, index) => (
+            <TimelineNode key={item.challengeTitle} item={item} index={index} />
+          ))}
+
+        </div>
+      </div>
+    </section>
+  );
+};

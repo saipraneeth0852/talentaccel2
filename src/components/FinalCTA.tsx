@@ -2,8 +2,8 @@ import { AnimatedSection } from "./AnimatedSection";
 import { ArrowRight, MessageSquare } from "lucide-react";
 
 export const FinalCTA = () => (
-  <section id="contact" className="py-24 lg:py-32">
-    <div className="container mx-auto px-6 lg:px-12">
+  <section id="contact" className="py-16 lg:py-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedSection>
         <div className="relative rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(161_100%_45%/0.15),transparent_60%)]" />

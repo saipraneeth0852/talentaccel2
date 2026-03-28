@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Rocket, Users, Shield } from "lucide-react";
 import heroVisual from "@/assets/hero-visual.png";
 
 export const Hero = () => (
@@ -8,8 +8,8 @@ export const Hero = () => (
     <div className="absolute inset-0 bg-gradient-subtle" />
     <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px]" />
 
-    <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-20 pb-32">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-32">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -44,10 +44,10 @@ export const Hero = () => (
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-wrap gap-4 mb-8"
           >
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1"
             >
               Book a Hiring Consultation
@@ -62,23 +62,7 @@ export const Hero = () => (
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4"
-          >
-            {[
-              "Fast-track hiring for startups & scaling companies",
-              "Dedicated recruiters & offshore hiring support",
-              "End-to-end HR, payroll & compliance management",
-            ].map((text, i) => (
-              <div key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
-                {text}
-              </div>
-            ))}
-          </motion.div>
+          {/* Floating bullet points moved to right side */}
         </div>
 
         <motion.div
@@ -88,13 +72,74 @@ export const Hero = () => (
           className="hidden lg:block relative"
         >
           <div className="absolute inset-0 bg-secondary/10 blur-[120px] rounded-full min-w-[300px] min-h-[300px] -z-10" />
-          <motion.img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-            alt="Diverse tech startup team collaborating in a modern office"
-            whileHover={{ y: -10, rotate: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-[500px] object-cover max-w-lg mx-auto rounded-3xl drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] ring-1 ring-border/50"
-          />
+          
+          <div className="relative max-w-lg mx-auto">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+              alt="Diverse tech startup team collaborating in a modern office"
+              className="w-full h-[500px] object-cover rounded-3xl drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] ring-1 ring-border/50"
+            />
+            
+            {/* Card 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30, y: 10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
+              className="absolute -left-12 top-10 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Rocket className="w-5 h-5 text-primary" />
+                </div>
+                <p className="text-xs font-bold text-foreground leading-snug">Fast-track hiring for startups & scaling companies</p>
+              </motion.div>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, y: -10 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.5, type: "spring" }}
+              className="absolute -right-8 top-1/2 -translate-y-1/2 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
+              >
+                <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                  <Users className="w-5 h-5 text-secondary" />
+                </div>
+                <p className="text-xs font-bold text-foreground leading-snug">Dedicated recruiters & offshore hiring support</p>
+              </motion.div>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.5, type: "spring" }}
+              className="absolute -left-8 bottom-12 z-20"
+            >
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+                  <Shield className="w-5 h-5 text-amber-500" />
+                </div>
+                <p className="text-xs font-bold text-foreground leading-snug">End-to-end HR, payroll & compliance management</p>
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>

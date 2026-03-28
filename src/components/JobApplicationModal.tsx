@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload, ArrowRight, MapPin, Clock, Building2, CheckCircle2 } from "lucide-react";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 interface Role {
   title: string;
@@ -45,22 +47,28 @@ export const JobApplicationModal = ({ role, onClose }: Props) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Job Application — ${form.name} for ${role?.title}`;
-    const body = [
-      `Position: ${role?.title} (${role?.dept})`,
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Phone: ${form.phone}`,
-      `LinkedIn: ${form.linkedin}`,
-      `Years of Experience: ${form.experience}`,
-      ``,
-      `Cover Note:`,
-      form.coverNote,
-    ].join("%0A");
-    window.location.href = `mailto:hr@talentaccel.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await addDoc(collection(db, "jobApplications"), {
+        ...form,
+        cvFileName: file?.name ?? "",
+        position: role?.title ?? "",
+        department: role?.dept ?? "",
+        source: "job-listing",
+        createdAt: serverTimestamp(),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please email hr@talentaccel.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (!role) return null;
@@ -128,7 +136,7 @@ export const JobApplicationModal = ({ role, onClose }: Props) => {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Application Sent!</h3>
                 <p className="text-muted-foreground max-w-sm leading-relaxed">
-                  Your email client has been opened with your application details. Once sent, our team will be in touch within 3–5 business days.
+                  Your application has been received. Our team will review it and be in touch within 3–5 business days.
                 </p>
                 <button
                   onClick={onClose}
@@ -255,11 +263,13 @@ export const JobApplicationModal = ({ role, onClose }: Props) => {
                 </div>
 
                 <div className="pt-1">
+                  {submitError && <p className="mb-3 text-sm text-destructive">{submitError}</p>}
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5"
+                    disabled={submitting}
+                    className="w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Application <ArrowRight className="w-4 h-4" />
+                    {submitting ? "Submitting…" : <><span>Submit Application</span> <ArrowRight className="w-4 h-4" /></>}
                   </button>
                   <p className="mt-3 text-xs text-muted-foreground text-center">
                     By submitting, you consent to TalentAccel processing your data for recruitment purposes.

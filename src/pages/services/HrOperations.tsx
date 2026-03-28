@@ -23,11 +23,16 @@ const details = [
 
 const HrOperations = () => (
   <>
-    <SEO title="HR Operations & Managed Services" description="Learn how TalentAccel's expert HR Operations & Managed Services can accelerate your company's growth." />
+    <SEO
+      title="HR Operations & Managed Services"
+      description="Outsourced HR operations for growing startups — employee onboarding, HRMS setup, compliance reporting & policy management. All fully managed."
+      keywords="HR operations outsourcing India, managed HR services startup, HRMS setup India, employee onboarding"
+    />
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-24 pb-24">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
           >
@@ -51,12 +56,16 @@ const HrOperations = () => (
               Get Started <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Service Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="py-16 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="mb-10">
           <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
         </AnimatedSection>
@@ -70,8 +79,8 @@ const HrOperations = () => (
       </div>
     </section>
 
-    <section className="py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-4xl">
           {details.map((d) => {
             const Icon = d.icon;
@@ -91,8 +100,8 @@ const HrOperations = () => (
       </div>
     </section>
 
-    <section className="py-16 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-16 lg:py-16 bg-muted/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
           <h2 className="text-3xl font-bold text-primary-foreground mb-4">Ready to simplify compliance?</h2>
           <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Let our HR Operations team handle the filings, payroll, and compliance so you never miss a deadline.</p>

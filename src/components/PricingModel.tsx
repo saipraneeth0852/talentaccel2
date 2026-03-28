@@ -1,10 +1,13 @@
 import { AnimatedSection } from "./AnimatedSection";
 
 export const PricingModel = () => (
-  <section className="py-24 lg:py-32 bg-muted/30">
-    <div className="container mx-auto px-6 lg:px-12">
-      <AnimatedSection className="text-center mb-12">
-        <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Transparent Pricing</p>
+  <section className="py-16 lg:py-16 bg-muted/30">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <AnimatedSection className="text-center mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+          Transparent Pricing
+        </div>
         <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Pricing Model</h2>
         <p className="text-muted-foreground max-w-xl mx-auto font-medium">
           Outcome-based pricing tied to CTC &mdash; you pay only when we deliver the right hire.

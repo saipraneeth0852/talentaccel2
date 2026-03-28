@@ -9,17 +9,20 @@ const reasons = [
 ];
 
 export const WhyTalentAccel = () => (
-  <section id="why-talentaccel" className="py-24 lg:py-32">
-    <div className="container mx-auto px-6 lg:px-12">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+  <section id="why-talentaccel" className="py-16 lg:py-16">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid lg:grid-cols-2 gap-8 items-center">
         <AnimatedSection>
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Why Us</p>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+            Why Us
+          </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Why TalentAccel</h2>
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
             We're not a generic recruitment agency. We're a startup-focused talent advisory partner that combines deep hiring expertise with end-to-end HR infrastructure.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity">
+            <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity">
               Get Started
             </a>
           </div>
