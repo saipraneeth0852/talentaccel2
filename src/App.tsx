@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation, useNavigationType } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -52,16 +52,39 @@ const PageLoader = () => (
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+  const prevPathRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (hash) {
-      setTimeout(() => {
-        const id = hash.replace("#", "");
+      const id = hash.replace("#", "");
+      let tries = 0;
+      
+      const tryScroll = () => {
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          const isSamePage = prevPathRef.current === pathname;
+          // Adding a small delay after finding the element ensures it's fully rendered
+          // and any page transition scroll resets have occurred.
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: isSamePage ? "smooth" : "instant" });
+          }, 10);
+          prevPathRef.current = pathname;
+          return true;
         }
-      }, 100);
+        return false;
+      };
+
+      if (!tryScroll()) {
+        const intervalId = setInterval(() => {
+          tries++;
+          if (tryScroll() || tries > 20) { // Try for 1 second (20 * 50ms)
+            clearInterval(intervalId);
+          }
+        }, 50);
+        return () => clearInterval(intervalId);
+      }
+    } else {
+      prevPathRef.current = pathname;
     }
   }, [pathname, hash]);
 
@@ -78,9 +101,18 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => (
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+  const navType = useNavigationType();
+
   return (
     <Suspense fallback={<PageLoader />}>
-      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo({ top: 0, behavior: "instant" })}>
+      <AnimatePresence 
+        mode="wait" 
+        onExitComplete={() => {
+          if (navType !== "POP" && !location.hash) {
+            window.scrollTo({ top: 0, behavior: "instant" });
+          }
+        }}
+      >
         <Routes location={location} key={location.pathname}>
           {/* Public routes */}
           <Route path="/" element={<PublicLayout><PageTransition><Index /></PageTransition></PublicLayout>} />
