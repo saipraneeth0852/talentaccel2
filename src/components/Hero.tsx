@@ -8,7 +8,7 @@ export const Hero = () => (
     <div className="absolute inset-0 bg-gradient-subtle" />
     <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px]" />
 
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-32">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-16 lg:pt-24 pb-32">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         <div className="max-w-2xl">
           <motion.div
@@ -27,8 +27,8 @@ export const Hero = () => (
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-foreground mb-6"
           >
-            One partner —{" "}
-            <span className="text-gradient-accent drop-shadow-sm">Complete people solutions</span>
+            Your People Partner,{" "}
+            <span className="text-gradient-accent drop-shadow-sm">From First Hire to Full Scale.</span>
           </motion.h1>
 
           <motion.p
@@ -37,38 +37,54 @@ export const Hero = () => (
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl"
           >
-            TalentAccel partners with startups and growing companies to build high-performing teams, streamline HR operations, and ensure compliance — from hiring to payroll.
+            We partner with startups and fast-growing teams to deliver seamless recruitment, HR operations, and compliance — all in one place.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap gap-4 mb-8"
+            className="flex flex-wrap gap-4 mb-6"
           >
             <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1"
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('free-hr-audit')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-pressable inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
             >
-              Book a Hiring Consultation
+              Claim Your Free HR Audit
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="#services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-all duration-300"
+              href="#how-it-works"
+              className="btn-pressable inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors duration-200"
             >
-              Explore Our Services
+              See How It Works
               <ChevronRight className="w-4 h-4" />
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex items-center gap-2 text-sm text-foreground/80 font-medium"
+          >
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+               <Shield className="w-3 h-3" />
+            </span>
+            Includes a complimentary HR & Compliance Audit — at no cost, no obligation.
           </motion.div>
 
           {/* Floating bullet points moved to right side */}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4, type: "spring", stiffness: 50 }}
+          transition={{ type: "spring", duration: 0.8, bounce: 0.15, delay: 0.3 }}
           className="hidden lg:block relative"
         >
           <div className="absolute inset-0 bg-secondary/10 blur-[120px] rounded-full min-w-[300px] min-h-[300px] -z-10" />
@@ -78,67 +94,10 @@ export const Hero = () => (
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
               alt="Diverse tech startup team collaborating in a modern office"
               className="w-full h-[500px] object-cover rounded-3xl drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] ring-1 ring-border/50"
+              style={{ willChange: "transform" }}
             />
             
-            {/* Card 1 */}
-            <motion.div
-              initial={{ opacity: 0, x: -30, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
-              className="absolute -left-12 top-10 z-20"
-            >
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
-              >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Rocket className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-xs font-bold text-foreground leading-snug">Fast-track hiring for startups & scaling companies</p>
-              </motion.div>
-            </motion.div>
 
-            {/* Card 2 */}
-            <motion.div
-              initial={{ opacity: 0, x: 30, y: -10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.5, type: "spring" }}
-              className="absolute -right-8 top-1/2 -translate-y-1/2 z-20"
-            >
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
-              >
-                <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Users className="w-5 h-5 text-secondary" />
-                </div>
-                <p className="text-xs font-bold text-foreground leading-snug">Dedicated recruiters & offshore hiring support</p>
-              </motion.div>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.5, type: "spring" }}
-              className="absolute -left-8 bottom-12 z-20"
-            >
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-card/95 backdrop-blur-md border border-border/50 p-4 rounded-2xl shadow-xl max-w-[220px] flex gap-4 items-center cursor-default"
-              >
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
-                  <Shield className="w-5 h-5 text-amber-500" />
-                </div>
-                <p className="text-xs font-bold text-foreground leading-snug">End-to-end HR, payroll & compliance management</p>
-              </motion.div>
-            </motion.div>
           </div>
         </motion.div>
       </div>

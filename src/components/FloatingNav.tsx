@@ -62,7 +62,7 @@ const resourceItems = [
 const navItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", type: "mega-menu", items: serviceItems, icon: Briefcase, href: "/#services", hash: "#services" },
-  { label: "Offshore", href: "/offshore-teams", hash: "", icon: Globe },
+  { label: "Global Teams", href: "/offshore-teams", hash: "", icon: Globe },
   { label: "Resources", type: "dropdown", items: resourceItems, icon: Lightbulb },
   { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
   { label: "About", href: "/about", hash: "", icon: Users },
@@ -103,7 +103,7 @@ export const FloatingNav = () => {
     if (location.pathname !== "/") return;
 
     const handleScroll = () => {
-      const sections = ['services', 'industries', 'case-studies', 'why-talentaccel'];
+      const sections = ['services', 'case-studies', 'why-talentaccel'];
       let found = false;
 
       // Ensure we clear hash if at the very top (Home)
@@ -182,7 +182,7 @@ export const FloatingNav = () => {
     <>
       {/* Top Navigation Wrapper */}
       <div className="fixed top-3 lg:top-5 left-0 right-0 z-50 pointer-events-none flex justify-center w-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Floating logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -192,8 +192,8 @@ export const FloatingNav = () => {
         >
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5">
             <LogoMark size={32} />
-            <span className="text-base font-bold text-foreground tracking-tight hidden sm:inline">
-              Talent<span className="text-primary">Accel</span>
+            <span className="text-base font-bold text-[#191D3E] tracking-tight hidden sm:inline dark:text-white">
+              TalentAccel
             </span>
           </Link>
         </motion.div>
@@ -353,8 +353,8 @@ export const FloatingNav = () => {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-2">
                 <LogoMark size={28} />
-                <span className="text-xl font-bold text-foreground tracking-tight">
-                  Talent<span className="text-primary">Accel</span>
+                <span className="text-xl font-bold text-[#191D3E] tracking-tight dark:text-white">
+                  TalentAccel
                 </span>
               </div>
               <button

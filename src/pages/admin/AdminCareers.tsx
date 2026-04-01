@@ -47,9 +47,8 @@ const emptyForm = { title: "", dept: "", location: "", type: "Full-time" };
 
 // Original hardcoded data
 const initialSeedData = [
-  { title: "Senior Recruiter", dept: "Talent Acquisition", location: "Bangalore", type: "Full-time", order: 0 },
-  { title: "HR Operations Specialist", dept: "HR Operations", location: "Bangalore", type: "Full-time", order: 1 },
-  { title: "Business Development Manager", dept: "Sales", location: "Bangalore / Remote", type: "Full-time", order: 2 },
+  { title: "Lead Data Scientist – Industrial AI / Machine Health", dept: "Data Science", location: "Noida", type: "Full-time", order: 0 },
+  { title: "HR Business Partners (Multiple Levels)", dept: "Human Resources", location: "Electronics City, Bengaluru", type: "Full-time", order: 1 },
 ];
 
 export default function AdminCareers() {

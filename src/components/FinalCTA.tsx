@@ -2,13 +2,13 @@ import { AnimatedSection } from "./AnimatedSection";
 import { ArrowRight, MessageSquare } from "lucide-react";
 
 export const FinalCTA = () => (
-  <section id="contact" className="py-16 lg:py-16">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="contact" className="py-10 lg:py-12">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
       <AnimatedSection>
         <div className="relative rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(161_100%_45%/0.15),transparent_60%)]" />
           <div className="relative z-10">
-            <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5">
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-primary-foreground mb-5">
               Ready to build your team faster?
             </h2>
             <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">

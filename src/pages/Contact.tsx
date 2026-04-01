@@ -127,8 +127,11 @@ const Contact = () => {
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Office</p>
-                      <p className="text-sm font-medium text-foreground">Bangalore, India</p>
+                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Company Headquarters</p>
+                      <p className="text-sm font-medium text-foreground leading-relaxed">
+                        No. 05, 10th Cross, Wilson Garden,<br />
+                        Bangalore – 560027, Karnataka, India
+                      </p>
                     </div>
                   </div>
                   <a href="https://www.talentaccel.com" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">

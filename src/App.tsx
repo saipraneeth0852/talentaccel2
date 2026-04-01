@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation, useNavigationType } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigationType, NavigationType } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -30,6 +30,7 @@ const LearningDevelopment = lazy(() => import("./pages/services/LearningDevelopm
 const EmployeeExperience = lazy(() => import("./pages/services/EmployeeExperience"));
 const ExtendedWorkforce = lazy(() => import("./pages/services/ExtendedWorkforce"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const SeedJobs = lazy(() => import("./pages/SeedJobs"));
 
 // Admin pages — lazy loaded separately so users never download admin code
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -52,19 +53,31 @@ const PageLoader = () => (
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+  const navType = useNavigationType();
   const prevPathRef = useRef<string | null>(null);
+
+  // Save scroll position while on a page; also save final position on exit
+  useEffect(() => {
+    const savePageScroll = () => {
+      sessionStorage.setItem(`scroll-${pathname}`, window.scrollY.toString());
+    };
+
+    window.addEventListener("scroll", savePageScroll, { passive: true });
+    return () => {
+      savePageScroll(); // capture final position before leaving
+      window.removeEventListener("scroll", savePageScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (hash) {
       const id = hash.replace("#", "");
       let tries = 0;
-      
+
       const tryScroll = () => {
         const element = document.getElementById(id);
         if (element) {
           const isSamePage = prevPathRef.current === pathname;
-          // Adding a small delay after finding the element ensures it's fully rendered
-          // and any page transition scroll resets have occurred.
           setTimeout(() => {
             element.scrollIntoView({ behavior: isSamePage ? "smooth" : "instant" });
           }, 10);
@@ -77,16 +90,34 @@ const ScrollToTop = () => {
       if (!tryScroll()) {
         const intervalId = setInterval(() => {
           tries++;
-          if (tryScroll() || tries > 20) { // Try for 1 second (20 * 50ms)
+          if (tryScroll() || tries > 20) {
             clearInterval(intervalId);
           }
         }, 50);
         return () => clearInterval(intervalId);
       }
     } else {
+      if (navType === NavigationType.Pop) {
+        // Restore saved scroll position for back/forward navigation.
+        // Use RAF so the new page's content is in the DOM before we scroll.
+        const savedPos = sessionStorage.getItem(`scroll-${pathname}`);
+        if (savedPos) {
+          const pos = parseInt(savedPos, 10);
+          requestAnimationFrame(() => {
+            window.scrollTo(0, pos);
+            // Second attempt after enter animation (0.4s) in case lazy content
+            // wasn't ready yet and clamped our first scroll to 0.
+            setTimeout(() => {
+              if (pos > 0 && window.scrollY === 0) {
+                window.scrollTo(0, pos);
+              }
+            }, 450);
+          });
+        }
+      }
       prevPathRef.current = pathname;
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, navType]);
 
   return null;
 };
@@ -105,16 +136,19 @@ const AnimatedRoutes = () => {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <AnimatePresence 
-        mode="wait" 
+      <AnimatePresence
+        mode="wait"
         onExitComplete={() => {
-          if (navType !== "POP" && !location.hash) {
+          // Only scroll to top on forward/replace navigation — POP restoration
+          // is handled by ScrollToTop after the new page mounts.
+          if (navType !== NavigationType.Pop && !location.hash) {
             window.scrollTo({ top: 0, behavior: "instant" });
           }
         }}
       >
         <Routes location={location} key={location.pathname}>
           {/* Public routes */}
+          <Route path="/seed-jobs" element={<PageTransition><SeedJobs /></PageTransition>} />
           <Route path="/" element={<PublicLayout><PageTransition><Index /></PageTransition></PublicLayout>} />
           <Route path="/offshore-teams" element={<PublicLayout><PageTransition><OffshoreTeams /></PageTransition></PublicLayout>} />
           <Route path="/about" element={<PublicLayout><PageTransition><About /></PageTransition></PublicLayout>} />

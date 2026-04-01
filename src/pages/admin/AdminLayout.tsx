@@ -43,8 +43,8 @@ export default function AdminLayout() {
         <div className="flex items-center gap-2.5">
           <LogoMark size={28} />
           <div>
-            <span className="text-base font-bold text-foreground">
-              Talent<span className="text-primary">Accel</span>
+            <span className="text-base font-bold text-[#191D3E] tracking-tight dark:text-white">
+              TalentAccel
             </span>
             <p className="text-xs text-muted-foreground">Admin Panel</p>
           </div>
@@ -136,8 +136,8 @@ export default function AdminLayout() {
           </button>
           <div className="flex items-center gap-2">
             <LogoMark size={22} />
-            <span className="font-bold text-foreground text-sm">
-              Talent<span className="text-primary">Accel</span> Admin
+            <span className="font-bold text-[#191D3E] text-sm tracking-tight dark:text-white">
+              TalentAccel <span className="text-muted-foreground font-medium">Admin</span>
             </span>
           </div>
         </header>

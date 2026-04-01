@@ -133,7 +133,7 @@ const OffshoreTeams = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.5 }}
-                  className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center justify-between shadow-2xl"
+                  className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md border border-white/10 rounded-3xl p-4 flex items-center justify-between shadow-2xl"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
@@ -264,7 +264,7 @@ const OffshoreTeams = () => {
                 <StaggerItem key={m.title}>
                   <motion.div 
                     whileHover={{ scale: 1.03, y: -10 }} 
-                    className="p-10 rounded-[2rem] bg-card border border-border shadow-lg relative overflow-hidden h-full flex flex-col"
+                    className="p-10 rounded-3xl bg-card border border-border shadow-lg relative overflow-hidden h-full flex flex-col"
                   >
                     <div className="absolute -right-6 -top-6 text-[8rem] font-black text-foreground/[0.03] select-none leading-none z-0 tracking-tighter">
                       0{i+1}
@@ -314,13 +314,13 @@ const OffshoreTeams = () => {
               
               {/* Cost Box */}
               <AnimatedSection>
-                <div className="rounded-[2rem] bg-gradient-to-br from-muted/80 to-background border border-border p-10 shadow-xl relative overflow-hidden">
+                <div className="rounded-3xl bg-gradient-to-br from-muted/80 to-background border border-border p-10 shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                   
                   <h3 className="text-xl font-bold text-foreground mb-8">Estimated Economic Advantage</h3>
                   
                   <div className="space-y-6">
-                    <div className="p-6 rounded-2xl bg-background border border-border flex justify-between items-center relative z-10 hover:border-red-500/30 transition-colors">
+                    <div className="p-6 rounded-3xl bg-background border border-border flex justify-between items-center relative z-10 hover:border-red-500/30 transition-colors">
                       <div>
                         <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-1">US-Based Team</p>
                         <p className="text-sm font-medium text-foreground">Avg. Base Salary</p>
@@ -330,7 +330,7 @@ const OffshoreTeams = () => {
                       </div>
                     </div>
                     
-                    <div className="p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-transparent border-l-4 border-l-primary flex justify-between items-center relative z-10 hover:border-l-secondary transition-all">
+                    <div className="p-6 rounded-3xl bg-gradient-to-r from-primary/10 to-transparent border-l-4 border-l-primary flex justify-between items-center relative z-10 hover:border-l-secondary transition-all">
                       <div>
                         <p className="text-xs font-bold text-primary tracking-widest uppercase mb-1">India Hub</p>
                         <p className="text-sm font-medium text-foreground">Avg. Base Salary</p>

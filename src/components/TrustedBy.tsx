@@ -1,42 +1,41 @@
 import { AnimatedSection } from "./AnimatedSection";
-import { ShoppingBag, Hexagon, Quote, Leaf, MessageSquare, Anchor } from "lucide-react";
+import { Cloud, Cpu, Landmark, Rocket, Building2, Radio, ShoppingBag } from "lucide-react";
 
-const logos = [
-  { name: "Shopify", content: <div className="flex items-center gap-1.5"><ShoppingBag className="w-6 h-6" /><span className="text-xl font-bold tracking-tight lowercase">shopify</span></div> },
-  { name: "Klarna", content: <div className="text-2xl font-serif font-semibold tracking-tight">Klarna.</div> },
-  { name: "Reddit", content: <div className="flex items-center gap-1.5"><Hexagon className="w-6 h-6" /><span className="text-xl font-bold tracking-tight lowercase">reddit</span></div> },
-  { name: "Nike", content: <div className="text-2xl font-black italic tracking-tighter uppercase">NIKE</div> },
-  { name: "Zapier", content: <div className="text-xl font-black tracking-tighter lowercase">_zapier</div> },
-  { name: "NU", content: <div className="text-3xl font-bold tracking-tighter lowercase">nu</div> },
-  { name: "Jelly Belly", content: <div className="text-lg font-serif italic font-bold leading-[0.8] flex flex-col items-center"><span className="ml-2">Jelly</span><span className="-ml-2">Belly</span></div> },
-  { name: "Revolut", content: <div className="text-[22px] font-semibold tracking-tight">Revolut</div> },
-  { name: "Forever 21", content: <div className="text-xs font-bold tracking-widest uppercase">Forever 21</div> },
-  { name: "Red Bull", content: <div className="text-xl font-black tracking-tighter">Red Bull</div> },
-  { name: "Calvin Klein", content: <div className="text-sm font-light tracking-[0.2em]">Calvin Klein</div> },
-  { name: "Intercom", content: <div className="flex items-center gap-1.5"><MessageSquare className="w-5 h-5 fill-current" /><span className="text-xs font-bold tracking-widest uppercase">Intercom</span></div> },
-  { name: "Hermes", content: <div className="flex flex-col items-center"><Anchor className="w-5 h-5" /><span className="text-[8px] font-serif tracking-widest uppercase mt-0.5">Hermes</span></div> },
-  { name: "Hello Fresh", content: <div className="flex items-center gap-1.5"><Leaf className="w-6 h-6" /><div className="text-[10px] font-black tracking-tighter uppercase leading-[1.1] flex flex-col"><span>Hello</span><span>Fresh</span></div></div> },
+const sectors = [
+  { name: "SaaS & Product", icon: Cloud },
+  { name: "AI & Data Science", icon: Cpu },
+  { name: "FinTech", icon: Landmark },
+  { name: "Startups & Scaleups", icon: Rocket },
+  { name: "Global Centers (GCC)", icon: Building2 },
+  { name: "Telecom", icon: Radio },
+  { name: "E-Commerce", icon: ShoppingBag },
 ];
 
 export const TrustedBy = () => (
-  <section className="py-16 bg-card border-y border-border">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <AnimatedSection className="text-center mb-10 max-w-4xl mx-auto">
+  <section className="py-10 lg:py-12 bg-card border-y border-border">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
+      <AnimatedSection className="text-center mb-12 max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-[34px] font-medium text-muted-foreground leading-tight tracking-tight">
-          Trusted by <span className="font-bold text-foreground">startups and fast-growing companies</span> to build teams that scale
+          Trusted across <span className="font-bold text-foreground">fast-growing sectors</span> to build teams that scale
         </h2>
       </AnimatedSection>
 
       <AnimatedSection delay={0.2}>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-8 gap-y-12 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-opacity duration-500 hover:opacity-100">
-          {logos.map((logo, i) => (
-            <div 
-              key={`${logo.name}-${i}`} 
-              className="flex items-center justify-center text-foreground hover:text-primary transition-colors cursor-default"
-            >
-              {logo.content}
-            </div>
-          ))}
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-10 opacity-70 hover:opacity-100 transition-opacity duration-500">
+          {sectors.map((sector) => {
+            const Icon = sector.icon;
+            return (
+              <div 
+                key={sector.name} 
+                className="flex items-center justify-center gap-3 text-foreground hover:text-primary transition-transform duration-300 hover:scale-105 cursor-default group"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-muted/80 flex items-center justify-center border border-border/50 group-hover:border-primary/30 group-hover:bg-primary/5 transition-colors">
+                  <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <span className="font-semibold text-base md:text-lg tracking-tight">{sector.name}</span>
+              </div>
+            );
+          })}
         </div>
       </AnimatedSection>
     </div>

@@ -143,34 +143,7 @@ const TalentAcquisition = () => (
       </div>
     </section>
 
-    {/* Pricing Model */}
-    <section className="py-16 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-8">
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Transparent Pricing</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Pricing Model</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Outcome-based pricing tied to CTC — you pay only when we deliver the right hire.
-          </p>
-        </AnimatedSection>
-        <div className="max-w-xl mx-auto rounded-2xl overflow-hidden border border-border shadow-card">
-          <div className="grid grid-cols-2 bg-primary text-primary-foreground">
-            <div className="px-8 py-4 text-sm font-bold uppercase tracking-wide">CTC</div>
-            <div className="px-8 py-4 text-sm font-bold uppercase tracking-wide border-l border-primary-foreground/20">TA Pricing</div>
-          </div>
-          {[
-            { ctc: "< 40 LPA", price: "8.33%" },
-            { ctc: "40 – 75 LPA", price: "12%" },
-            { ctc: "> 75 LPA", price: "15%" },
-          ].map((row, i) => (
-            <div key={row.ctc} className={`grid grid-cols-2 ${i % 2 === 0 ? "bg-card" : "bg-muted/40"}`}>
-              <div className="px-8 py-5 text-foreground font-semibold">{row.ctc}</div>
-              <div className="px-8 py-5 text-primary font-bold text-lg border-l border-border">{row.price}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
 
     {/* CTA */}
     <section className="py-16 lg:py-16 bg-muted/30">

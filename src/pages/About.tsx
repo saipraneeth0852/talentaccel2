@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Zap, Shield, Handshake } from "lucide-react";
+import { ArrowRight, Target, Zap, Shield, Handshake, Linkedin } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -7,31 +7,33 @@ import { SEO } from "@/components/SEO";
 const team = [
   {
     name: "Sandeep Sankhla",
-    role: "Co-Founder",
+    role: "Partner",
     bio: "Proven entrepreneur and strategic business leader with deep expertise in company formation, corporate structuring, governance, and operational scaling. He has supported multiple organizations in establishing compliant, growth-ready business frameworks across industries.",
     image: "/founder-sandeep-rm.png",
+    linkedin: "https://www.linkedin.com/in/sandeepsankhla/",
   },
   {
     name: "Carine Dsouza",
-    role: "Co-Founder",
+    role: "Partner",
     bio: "HR and Talent Management professional with experience in organizational development and people operations. Focused on aligning HR strategy with business outcomes, recruitment, enhancing employee experience, and building structured people processes for growing organizations.",
     image: "/founder-carine-rm.png",
+    linkedin: "https://www.linkedin.com/in/carine-viola-dsouza-88723981/",
   },
 ];
 
 const values = [
-  { icon: Target, title: "Startup-Focused Approach", desc: "We understand the challenges of building teams in fast-growing companies and tailor every engagement accordingly." },
-  { icon: Zap, title: "Speed & Quality", desc: "Our hiring process ensures faster closures without compromising on talent quality." },
-  { icon: Shield, title: "End-to-End Support", desc: "From recruitment to HR operations and compliance, we support your entire people function." },
-  { icon: Handshake, title: "Flexible Engagement", desc: "Choose from contingency hiring, dedicated recruitment teams, or full HR outsourcing to match your stage." },
+  { icon: Target, title: "Context Over Templates", desc: "Every company is different. We take time to understand your stage, culture, and goals before recommending anything." },
+  { icon: Zap, title: "Speed With Standards", desc: "We move quickly without taking shortcuts — faster hiring, cleaner compliance, and HR processes that actually stick." },
+  { icon: Shield, title: "Accountability", desc: "We treat your people function as if it were our own. When something is in our scope, it gets done — and done right." },
+  { icon: Handshake, title: "Partnerships, Not Transactions", desc: "We're not a recruitment portal. We're a long-term partner invested in the health and growth of your organisation." },
 ];
 
 const About = () => (
   <>
-    <SEO
-      title="About TalentAccel — Our Story, Mission & Team"
-      description="Meet the founders behind TalentAccel. We help startups and growing companies build high-performance teams, HR operations, and offshore teams in India."
-      keywords="about TalentAccel, HR company India, offshore HR team, startup HR solutions, TalentAccel founders"
+    <SEO 
+      title="Scale Your Team & Operations" 
+      description="TalentAccel manages your full recruitment, HR operations, payroll, and compliance stack—freeing your leadership to focus on building the product and scaling the business."
+      keywords="recruitment services India, HR operations for startups, payroll and compliance, offshore team building, talent acquisition, scaling tech teams, HR outsourcing"
     />
     {/* Hero */}
     <section className="relative min-h-[60vh] flex items-center overflow-hidden">
@@ -54,8 +56,8 @@ const About = () => (
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
             >
-              Building the Teams that{" "}
-              <span className="text-gradient-accent">Accel your Business</span>
+              The People Partner for{" "}
+              <span className="text-gradient-accent">India's Growing Companies</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -63,7 +65,7 @@ const About = () => (
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
             >
-              TalentAccel delivers a single-window HR ecosystem that supports businesses at every stage of growth — from first hire to full-scale operations.
+              TalentAccel manages your full <strong>recruitment</strong>, <strong>HR operations</strong>, <strong>payroll</strong>, and <strong>compliance</strong> stack—so your leadership can stay focused on <strong>building the product</strong> and <strong>scaling the business</strong>.
             </motion.p>
           </div>
           <motion.div
@@ -84,15 +86,12 @@ const About = () => (
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <AnimatedSection>
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Mission</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">Why TalentAccel Exists</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">We exist so you can focus on building</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Building and scaling a startup requires more than just great ideas — it requires the right people, the right structure, and the right support systems.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              At TalentAccel, we understand the unique challenges growing companies face when it comes to hiring, compliance, and managing people operations.
+              Growing companies shouldn't have to spend their best energy on hiring complexity, payroll errors, and compliance risk. That's where we come in.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Our mission is to provide structured, reliable, and scalable HR solutions that enable startups and growth-stage companies to focus on innovation and growth, while we build the people infrastructure that supports their journey.
+              TalentAccel's mission is to give startups and growth-stage companies access to the people infrastructure that was once only available to large enterprises — without the cost, the headcount, or the overhead.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
@@ -119,12 +118,12 @@ const About = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
         <AnimatedSection>
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Story</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">Born from the Challenges of Growth</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">Started in Bangalore. Built from experience.</h2>
           <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-            TalentAccel was founded in Bangalore with one clear purpose: to be the people partner that growing companies actually need — not just a recruiter, but a full-stack HR ecosystem.
+            TalentAccel was founded after seeing the same pattern repeat across fast-growing companies: great products, strong ambition — and an HR function that couldn't keep up.
           </p>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            Our founders saw firsthand how startups struggled to hire fast, stay compliant, and build structured HR operations while trying to scale. TalentAccel was built to solve all of it under one roof — accelerating talent and enabling growth.
+            Hiring was reactive. Compliance was handled at the last minute. People operations were improvised. We set out to change that — building a single partner that growing companies could rely on for the full spectrum of HR, from the first offer letter to complex multi-state compliance.
           </p>
         </AnimatedSection>
       </div>
@@ -134,7 +133,7 @@ const About = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Founders</p>
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Partners</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Our Team</h2>
         </AnimatedSection>
         <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -151,6 +150,16 @@ const About = () => (
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-1">{member.name}</h3>
                 <p className="text-lg font-semibold text-slate-600 mb-4">{member.role}</p>
+                <div className="flex gap-4 mb-4">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </div>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-[90%] mx-auto">
                   {member.bio}
                 </p>
@@ -193,10 +202,10 @@ const About = () => (
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
             <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5">
-              Ready to build your team?
+              Let's talk about your team
             </h2>
             <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Let's discuss how TalentAccel can accelerate your talent and enable your growth.
+              Whether you need to hire now or want to build a better HR foundation — we're happy to start with a conversation.
             </p>
             <a
               href="mailto:hr@talentaccel.com"

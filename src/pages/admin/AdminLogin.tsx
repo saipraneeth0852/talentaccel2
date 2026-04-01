@@ -35,8 +35,8 @@ export default function AdminLogin() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2.5 mb-4">
             <LogoMark size={36} />
-            <span className="text-2xl font-bold text-foreground">
-              Talent<span className="text-primary">Accel</span>
+            <span className="text-2xl font-bold text-[#191D3E] tracking-tight dark:text-white">
+              TalentAccel
             </span>
           </div>
           <h1 className="text-xl font-bold text-foreground">Admin Panel</h1>

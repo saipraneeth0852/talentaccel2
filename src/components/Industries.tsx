@@ -13,8 +13,8 @@ const industries = [
 ];
 
 export const Industries = () => (
-  <section id="industries" className="py-16 lg:py-16 bg-muted/30">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="industries" className="py-10 lg:py-12 bg-muted/30">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
       <AnimatedSection className="mb-8 lg:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="max-w-xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-4 shadow-sm">

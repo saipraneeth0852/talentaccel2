@@ -11,14 +11,19 @@ const articles = [
 ];
 
 export const Insights = () => (
-  <section id="insights" className="py-16 lg:py-16">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <AnimatedSection className="text-center mb-10">
+  <section id="insights" className="py-10 lg:py-12">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
+      <AnimatedSection className="text-center mb-10 flex flex-col items-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
           Insights
         </div>
-        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Latest from Our Blog</h2>
+        <Link to="/blog" className="block hover:opacity-80 transition-opacity duration-200">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Latest from Our Blog</h2>
+        </Link>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          Actionable strategies, market trends, and practical playbooks to help you hire smarter and scale faster.
+        </p>
       </AnimatedSection>
 
       <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -27,7 +32,7 @@ export const Insights = () => (
             <Link to="/blog">
               <motion.div
                 whileHover={{ y: -4 }}
-                className="group p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col cursor-pointer"
+                className="group p-6 rounded-3xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col cursor-pointer"
               >
                 <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-4 w-fit">
                   {a.tag}
