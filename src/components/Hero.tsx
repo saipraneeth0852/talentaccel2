@@ -8,7 +8,7 @@ export const Hero = () => (
     <div className="absolute inset-0 bg-gradient-subtle" />
     <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px]" />
 
-    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-16 lg:pt-24 pb-32">
+    <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-32 lg:pt-24 pb-16 lg:pb-32">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
         <div className="max-w-2xl">
           <motion.div
@@ -25,7 +25,7 @@ export const Hero = () => (
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="text-[2.2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold lg:leading-[1.1] tracking-tight text-foreground mb-6"
           >
             Your People Partner,{" "}
             <span className="text-gradient-accent drop-shadow-sm">From First Hire to Full Scale.</span>

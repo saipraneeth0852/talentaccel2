@@ -59,7 +59,7 @@ const FooterLogo = ({ className }: { className?: string }) => (
 );
 
 export const Footer = () => (
-  <footer className="bg-[#1378FF] text-white pt-16 pb-6">
+  <footer className="bg-[#1378FF] text-white pt-16 pb-32 lg:pb-6">
     <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
       <div className="grid sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-10 mb-10">
         {/* Brand column */}

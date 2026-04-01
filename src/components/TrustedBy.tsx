@@ -21,13 +21,13 @@ export const TrustedBy = () => (
       </AnimatedSection>
 
       <AnimatedSection delay={0.2}>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12 md:gap-y-10 opacity-70 hover:opacity-100 transition-opacity duration-500">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap items-center md:justify-center gap-x-4 gap-y-6 md:gap-x-12 md:gap-y-10 opacity-70 hover:opacity-100 transition-opacity duration-500">
           {sectors.map((sector) => {
             const Icon = sector.icon;
             return (
               <div 
                 key={sector.name} 
-                className="flex items-center justify-center gap-3 text-foreground hover:text-primary transition-transform duration-300 hover:scale-105 cursor-default group"
+                className="flex items-center justify-start md:justify-center gap-3 text-foreground hover:text-primary transition-transform duration-300 hover:scale-105 cursor-default group"
               >
                 <div className="w-12 h-12 rounded-2xl bg-muted/80 flex items-center justify-center border border-border/50 group-hover:border-primary/30 group-hover:bg-primary/5 transition-colors">
                   <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />

@@ -79,7 +79,7 @@ const TimelineNode = ({ item, index }: { item: typeof workflowData[0]; index: nu
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-2"
         >
-          <h4 className="text-xl font-bold text-slate-800">{item.challengeTitle}</h4>
+          <h4 className="text-lg sm:text-xl font-bold text-slate-800">{item.challengeTitle}</h4>
           <p className="text-sm text-slate-500 leading-relaxed md:ml-auto max-w-sm">{item.challengeDesc}</p>
         </motion.div>
       </div>

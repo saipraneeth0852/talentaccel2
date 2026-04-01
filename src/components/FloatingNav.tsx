@@ -181,18 +181,18 @@ export const FloatingNav = () => {
   return (
     <>
       {/* Top Navigation Wrapper */}
-      <div className="fixed top-3 lg:top-5 left-0 right-0 z-50 pointer-events-none flex justify-center w-full">
+      <div className="fixed top-0 lg:top-5 left-0 right-0 z-50 lg:pointer-events-none flex justify-center w-full bg-card/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-border/40 lg:border-none py-2.5 lg:py-0 pointer-events-auto transition-all duration-300 shadow-sm lg:shadow-none">
         <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
-          {/* Floating logo */}
+          {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex items-center h-14 gap-2.5 px-5 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float hover:scale-105 transition-transform pointer-events-auto shrink-0"
+          className="flex items-center h-10 lg:h-14 gap-2 lg:gap-2.5 px-2 lg:px-5 lg:rounded-full lg:bg-card/80 lg:backdrop-blur-xl lg:border lg:border-border lg:shadow-float lg:hover:scale-105 transition-transform shrink-0"
         >
-          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5">
-            <LogoMark size={32} />
-            <span className="text-base font-bold text-[#191D3E] tracking-tight hidden sm:inline dark:text-white">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 lg:gap-2.5">
+            <LogoMark size={28} className="lg:w-8 lg:h-8" />
+            <span className="text-[15px] lg:text-base font-bold text-[#191D3E] tracking-tight dark:text-white">
               TalentAccel
             </span>
           </Link>
