@@ -7,12 +7,46 @@ import { JobApplicationModal } from "@/components/JobApplicationModal";
 import { SEO } from "@/components/SEO";
 import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import { careerSeedData } from "@/lib/careerSeedData";
 
 const perks = [
   { icon: Briefcase, title: "Meaningful Work", desc: "Help build the teams that power India's fastest-growing startups and enterprises." },
   { icon: Users, title: "Collaborative Culture", desc: "Work alongside experienced HR and talent professionals in a high-growth environment." },
   { icon: ArrowRight, title: "Growth Path", desc: "Clear career progression with learning opportunities and mentorship from leadership." },
 ];
+
+interface CareerRole {
+  id: string;
+  title: string;
+  dept: string;
+  location: string;
+  type: string;
+  order?: number;
+  experience?: string;
+  summary?: string;
+  workMode?: string;
+}
+
+const curatedOpenRoles: CareerRole[] = careerSeedData.map((role, index) => ({
+  id: `curated-${index}-${role.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+  ...role,
+}));
+
+const mergeRoles = (remoteRoles: CareerRole[]) => {
+  const roleMap = new Map<string, CareerRole>();
+
+  [...remoteRoles, ...curatedOpenRoles].forEach((role, index) => {
+    const key = `${role.title.toLowerCase()}::${role.location.toLowerCase()}`;
+    roleMap.set(key, {
+      ...roleMap.get(key),
+      ...role,
+      id: role.id || `${key}-${index}`,
+      order: role.order ?? index,
+    });
+  });
+
+  return Array.from(roleMap.values()).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+};
 
 const Careers = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -26,18 +60,18 @@ const Careers = () => {
   const opacityBg = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   // Dynamic Roles State
-  const [openRoles, setOpenRoles] = useState<any[]>([]);
+  const [openRoles, setOpenRoles] = useState<CareerRole[]>(curatedOpenRoles);
   const [loadingRoles, setLoadingRoles] = useState(true);
-  const [applyRole, setApplyRole] = useState<any | null>(null);
+  const [applyRole, setApplyRole] = useState<CareerRole | null>(null);
 
   useEffect(() => {
     const fetchOpenings = async () => {
       try {
         const snap = await getDocs(collection(db, "careers"));
-        const roles = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setOpenRoles(roles);
+        const roles = snap.docs.map((doc) => ({ id: doc.id, ...(doc.data() as Omit<CareerRole, "id">) }));
+        setOpenRoles(mergeRoles(roles));
       } catch {
-        // silently show empty state
+        setOpenRoles(curatedOpenRoles);
       } finally {
         setLoadingRoles(false);
       }
@@ -160,18 +194,27 @@ const Careers = () => {
             <StaggerContainer className="space-y-4 max-w-3xl mx-auto">
               {openRoles.map((role) => (
                 <StaggerItem key={role.id || role.title}>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-0.5">
-                    <div>
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 p-6 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-0.5">
+                    <div className="min-w-0">
                       <h3 className="font-bold text-foreground mb-1">{role.title}</h3>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mb-3">
                         <span className="inline-block px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">{role.dept}</span>
                         <span className="inline-block px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-semibold">{role.location}</span>
                         <span className="inline-block px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">{role.type}</span>
+                        {role.experience ? (
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-accent/60 text-foreground text-xs font-semibold">{role.experience}</span>
+                        ) : null}
+                        {role.workMode ? (
+                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-semibold">{role.workMode}</span>
+                        ) : null}
                       </div>
+                      {role.summary ? (
+                        <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">{role.summary}</p>
+                      ) : null}
                     </div>
                     <button
                       onClick={() => setApplyRole(role)}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-all whitespace-nowrap flex-shrink-0"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-all whitespace-nowrap flex-shrink-0 self-start"
                     >
                       Apply Now <ArrowRight className="w-3.5 h-3.5" />
                     </button>

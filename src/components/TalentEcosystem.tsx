@@ -27,8 +27,8 @@ const workflowData = [
     color: "from-emerald-500 to-teal-500"
   },
   {
-    challengeTitle: "Improvised HR is fine for Day 1, not Day 1,000.",
-    challengeDesc: "Is your people infrastructure built for the scale you're aiming for? Inconsistent policies shouldn't stall your professional growth.",
+    challengeTitle: "People operations need more structure as you scale.",
+    challengeDesc: "The systems, policies, and frameworks that support a 20-person team need to evolve as the business grows in size and complexity.",
     solutionLabel: "Strategic HR Advisory",
     solutionDesc: "We build the scalable frameworks you need—from org design and performance models to professional policy structures.",
     solutionHref: "/services/hr-advisory",
@@ -68,18 +68,18 @@ const TimelineNode = ({ item, index }: { item: typeof workflowData[0]; index: nu
   const Icon = item.icon;
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-between w-full mb-10 md:mb-12 group">
+    <div className="relative flex flex-col md:flex-row md:items-stretch justify-between w-full mb-10 md:mb-12 group">
       
       {/* Desktop Left Column (Always Challenge) */}
-      <div className={`w-full md:w-5/12 md:text-right md:pr-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 order-2 md:order-1`}>
+      <div className={`w-full md:w-5/12 md:text-right md:pr-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 order-2 md:order-1 md:self-stretch`}>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-2 md:min-h-[176px] md:justify-center"
         >
-          <h4 className="text-lg sm:text-xl font-bold text-slate-800">{item.challengeTitle}</h4>
+          <h4 className="text-lg sm:text-xl font-bold text-slate-800 md:min-h-[3.5rem] md:flex md:items-end md:justify-end md:ml-auto md:max-w-[22rem] leading-tight" style={{ textWrap: "balance" }}>{item.challengeTitle}</h4>
           <p className="text-sm text-slate-500 leading-relaxed md:ml-auto max-w-sm">{item.challengeDesc}</p>
         </motion.div>
       </div>
@@ -98,16 +98,16 @@ const TimelineNode = ({ item, index }: { item: typeof workflowData[0]; index: nu
       </motion.div>
 
       {/* Desktop Right Column (Always Solution) */}
-      <div className={`w-full md:w-5/12 md:text-left md:pl-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 hidden md:block order-3`}>
+      <div className={`w-full md:w-5/12 md:text-left md:pl-10 z-10 pl-10 md:pl-0 mt-6 md:mt-0 hidden md:block order-3 md:self-stretch`}>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-2 md:min-h-[176px] md:justify-center"
         >
           <Link to={item.solutionHref} className="block group/link">
-            <h4 className="text-xl font-bold text-slate-800 group-hover/link:text-primary transition-colors duration-300 flex items-center gap-2">
+            <h4 className="text-xl font-bold text-slate-800 group-hover/link:text-primary transition-colors duration-300 flex items-center gap-2 min-h-[3.5rem]" style={{ textWrap: "balance" }}>
               {item.solutionLabel}
               <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
             </h4>

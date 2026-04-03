@@ -36,7 +36,7 @@ const Contact = () => {
       });
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please email us directly at hr@talentaccel.com");
+      setError("Something went wrong. Please email us directly at biz@talentaccel.com");
     } finally {
       setSubmitting(false);
     }
@@ -103,13 +103,13 @@ const Contact = () => {
               <div>
                 <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-6">Get in Touch</p>
                 <div className="space-y-5">
-                  <a href="mailto:hr@talentaccel.com" className="flex items-start gap-4 group">
+                  <a href="mailto:biz@talentaccel.com" className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Email</p>
-                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">hr@talentaccel.com</p>
+                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">biz@talentaccel.com</p>
                     </div>
                   </a>
                   <a href="tel:+918217642293" className="flex items-start gap-4 group">
@@ -129,8 +129,8 @@ const Contact = () => {
                     <div>
                       <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Company Headquarters</p>
                       <p className="text-sm font-medium text-foreground leading-relaxed">
-                        No. 05, 10th Cross, Wilson Garden,<br />
-                        Bangalore – 560027, Karnataka, India
+                        2nd floor, 3G68+8F5, Shettihalli Main Rd,<br />
+                        Jalahalli West, Bengaluru, Karnataka 560015
                       </p>
                     </div>
                   </div>

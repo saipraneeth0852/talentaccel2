@@ -31,8 +31,8 @@ export class ErrorBoundary extends Component<Props, State> {
             <h1 className="text-2xl font-bold text-foreground mb-3">Something went wrong</h1>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               An unexpected error occurred. Please refresh the page — if the issue persists, contact us at{" "}
-              <a href="mailto:hr@talentaccel.com" className="text-primary underline">
-                hr@talentaccel.com
+              <a href="mailto:biz@talentaccel.com" className="text-primary underline">
+                biz@talentaccel.com
               </a>
             </p>
             <button

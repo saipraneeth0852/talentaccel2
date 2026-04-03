@@ -1,23 +1,9 @@
 import { useEffect, useState } from "react";
-import { collection, addDoc, serverTimestamp, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+import { careerSeedData } from "@/lib/careerSeedData";
 
-const jobs = [
-  {
-    title: "Lead Data Scientist – Industrial AI / Machine Health",
-    dept: "Data Science",
-    location: "Noida",
-    type: "Full-time",
-    order: 0,
-  },
-  {
-    title: "HR Business Partners (Multiple Levels)",
-    dept: "Human Resources",
-    location: "Electronics City, Bengaluru",
-    type: "Full-time",
-    order: 1,
-  },
-];
+const jobs = careerSeedData;
 
 export default function SeedJobs() {
   const [status, setStatus] = useState("Seeding...");
@@ -26,13 +12,26 @@ export default function SeedJobs() {
     async function seed() {
       try {
         const snap = await getDocs(collection(db, "careers"));
-        for (const d of snap.docs) {
-          await deleteDoc(doc(db, "careers", d.id));
-        }
+        const existing = new Map(
+          snap.docs.map((d) => {
+            const data = d.data();
+            const key = `${String(data.title || "").toLowerCase()}::${String(data.location || "").toLowerCase()}`;
+            return [key, d.id];
+          })
+        );
+
         for (const job of jobs) {
-          await addDoc(collection(db, "careers"), { ...job, createdAt: serverTimestamp() });
+          const key = `${job.title.toLowerCase()}::${job.location.toLowerCase()}`;
+          const payload = { ...job, updatedAt: serverTimestamp() };
+          const existingId = existing.get(key);
+
+          if (existingId) {
+            await updateDoc(doc(db, "careers", existingId), payload);
+          } else {
+            await addDoc(collection(db, "careers"), { ...payload, createdAt: serverTimestamp() });
+          }
         }
-        setStatus("Done! Seeded " + jobs.length + " jobs.");
+        setStatus("Done! Upserted " + jobs.length + " jobs.");
       } catch (e: any) {
         setStatus("Error: " + e.message);
       }

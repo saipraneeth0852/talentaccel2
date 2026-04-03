@@ -1,5 +1,5 @@
 import { AnimatedSection } from "./AnimatedSection";
-import { Cloud, Cpu, Landmark, Rocket, Building2, Radio, ShoppingBag } from "lucide-react";
+import { Cloud, Cpu, Landmark, Rocket, Building2, Radio, ShoppingBag, Factory, Shield } from "lucide-react";
 
 const sectors = [
   { name: "SaaS & Product", icon: Cloud },
@@ -7,6 +7,9 @@ const sectors = [
   { name: "FinTech", icon: Landmark },
   { name: "Startups & Scaleups", icon: Rocket },
   { name: "Global Centers (GCC)", icon: Building2 },
+  { name: "Manufacturing", icon: Factory },
+  { name: "Electronics", icon: Cpu },
+  { name: "Aerospace & Defence", icon: Shield },
   { name: "Telecom", icon: Radio },
   { name: "E-Commerce", icon: ShoppingBag },
 ];

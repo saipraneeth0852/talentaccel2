@@ -158,7 +158,7 @@ const Blog = () => {
           <AnimatedSection className="text-center mt-16">
             <p className="text-muted-foreground mb-6">New articles published regularly. Subscribe to stay updated.</p>
             <a
-              href="mailto:hr@talentaccel.com?subject=Newsletter Subscription"
+              href="mailto:biz@talentaccel.com?subject=Newsletter Subscription"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-all"
             >
               Subscribe for Updates <ArrowRight className="w-4 h-4" />

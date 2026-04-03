@@ -62,7 +62,7 @@ const resourceItems = [
 const navItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", type: "mega-menu", items: serviceItems, icon: Briefcase, href: "/#services", hash: "#services" },
-  { label: "Global Teams", href: "/offshore-teams", hash: "", icon: Globe },
+  { label: "GCC", href: "/offshore-teams", hash: "", icon: Globe },
   { label: "Resources", type: "dropdown", items: resourceItems, icon: Lightbulb },
   { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
   { label: "About", href: "/about", hash: "", icon: Users },

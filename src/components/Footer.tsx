@@ -151,10 +151,10 @@ export const Footer = () => (
 
           <div className="space-y-4">
             <a
-              href="mailto:hr@talentaccel.com"
+              href="mailto:biz@talentaccel.com"
               className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
             >
-              <Mail className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> hr@talentaccel.com
+              <Mail className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> biz@talentaccel.com
             </a>
             <a
               href="tel:+918217642293"
@@ -168,9 +168,14 @@ export const Footer = () => (
             >
               <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8431867096
             </a>
-            <div className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors cursor-default">
-              <MapPin className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> Bangalore, India
-            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=2nd+floor%2C+3G68%2B8F5%2C+Shettihalli+Main+Rd%2C+Jalahalli+West%2C+Bengaluru%2C+Karnataka+560015"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+            >
+              <MapPin className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> Jalahalli West, Bengaluru 560015
+            </a>
           </div>
         </div>
 

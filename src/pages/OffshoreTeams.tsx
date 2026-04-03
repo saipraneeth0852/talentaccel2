@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain, Palette, BarChart3, Cpu, Briefcase, Rocket, TrendingUp } from "lucide-react";
+import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain, Palette, BarChart3, Cpu, Briefcase, Rocket, TrendingUp, Building2, Settings2, Handshake } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
@@ -12,10 +12,11 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "We identify, assess, and hire high-quality professionals meticulously aligned with your organizational goals and company culture." },
-  { icon: Rocket, title: "Team Setup & Onboarding", desc: "We manage the entire onboarding lifecycle, ensuring seamless integration and alignment with your existing internal teams." },
-  { icon: Brain, title: "HR Operations & Payroll", desc: "TalentAccel handles all complex payroll, statutory compliance, benefits administration, and comprehensive HR support." },
-  { icon: TrendingUp, title: "Operational Support", desc: "We ensure perfectly smooth day-to-day HR operations so your technical team can focus purely on delivering results." },
+  { icon: Globe, title: "GCC Strategy & Workforce Planning", desc: "From setup and operating model design to Build-Operate-Transfer (BOT), managed offshore teams, and fully embedded talent solutions, we design, build, and scale your offshore operations with complete ownership across talent, HR, compliance, and operations." },
+  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "We build high-quality teams across leadership, specialist, and functional roles through structured sourcing, assessment, and hiring designed for long-term GCC success, team quality, and business continuity." },
+  { icon: Rocket, title: "Team Setup & Onboarding", desc: "We set up your teams for a strong start, with coordinated onboarding, role alignment, stakeholder integration, and operating rhythm from day one so your GCC begins with clarity and momentum." },
+  { icon: Brain, title: "HR Operations & Payroll", desc: "We manage the HR backbone of your GCC, including payroll, statutory compliance, employee support, documentation, and essential people operations that keep your offshore setup steady, compliant, and well supported." },
+  { icon: TrendingUp, title: "Operational Support & GCC Enablement", desc: "We support the day-to-day running of your GCC through governance, process stability, reporting, coordination, and the operational discipline needed to scale with confidence, visibility, and stronger delivery alignment." },
 ];
 
 const roleCategories = [
@@ -25,10 +26,28 @@ const roleCategories = [
   { category: "Specialized Talent", roles: ["Telecom Engineers", "Embedded Systems", "Electronics Engineers", "Hardware QA"], icon: Cpu },
 ];
 
-const engagementModels = [
-  { title: "Dedicated Recruiter", desc: "A dedicated TalentAccel recruiter embeds in your process to focus exclusively on building your offshore team from the ground up." },
-  { title: "Managed Offshore Team", desc: "TalentAccel assumes full responsibility for hiring, HR operations, payroll, and local compliance for your entire offshore hub." },
-  { title: "Build-Operate-Support", desc: "We build your team, optimize your local HR operations, and continuously support your scaling journey end-to-end." },
+const botStages = [
+  {
+    stage: "01",
+    label: "Build",
+    title: "Set Up Your GCC Foundation",
+    desc: "We establish the right operating model, hiring plan, compliance structure, and team setup so your India hub starts on strong ground.",
+    icon: Building2,
+  },
+  {
+    stage: "02",
+    label: "Operate",
+    title: "Run with Full Operational Ownership",
+    desc: "We manage day-to-day execution across hiring, HR, payroll, compliance, and operating rhythm while the center gains scale and stability.",
+    icon: Settings2,
+  },
+  {
+    stage: "03",
+    label: "Transfer",
+    title: "Hand Over with Confidence",
+    desc: "Once the GCC is mature, we transition knowledge, processes, and control to your internal team with continuity built into every step.",
+    icon: Handshake,
+  },
 ];
 
 const scalingTimeline = [
@@ -37,15 +56,22 @@ const scalingTimeline = [
   { time: "Scale Phase (12 Mo)", count: "50+", label: "Independent R&D Center" },
 ];
 
-const SectionHeader = ({ subheading, heading, description }: { subheading: string; heading: string; description: string }) => (
+const SectionHeader = ({
+  subheading,
+  heading,
+  description,
+}: {
+  subheading: string;
+  heading: string;
+  description: string;
+}) => (
   <AnimatedSection className="text-center mb-10 relative z-10">
-    <div className="inline-flex items-center justify-center space-x-2 mb-3">
-      <div className="w-8 h-[2px] bg-primary/40 rounded-full" />
-      <span className="text-sm font-bold text-primary tracking-widest uppercase">{subheading}</span>
-      <div className="w-8 h-[2px] bg-primary/40 rounded-full" />
+    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
+      <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+      {subheading}
     </div>
     <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">{heading}</h2>
-    <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">{description}</p>
+    <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">{description}</p>
   </AnimatedSection>
 );
 
@@ -157,34 +183,66 @@ const OffshoreTeams = () => {
 
       {/* Main Content */}
       <div className="relative pb-16">
-        {/* Why India */}
-        <section className="py-16 relative z-20">
+        {/* BOT / GCC Journey */}
+        <section id="engagement" className="py-16 relative z-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="The India Advantage" 
-              heading="Why Companies Build Teams in India" 
-              description="India has evolved into the defining global hub for technology innovation, complex product development, and resilient business operations."
+            <SectionHeader
+              subheading="Build-Operate-Transfer (BOT) / GCC"
+              heading="How the GCC Journey Takes Shape"
+              description="We set up your offshore center, run it with operational ownership, and transition it to your team when the foundation is ready to stand independently."
             />
-            <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {advantages.map((a, i) => {
-                const Icon = a.icon;
-                return (
-                  <StaggerItem key={a.title}>
-                    <motion.div 
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      className="group relative p-8 rounded-3xl bg-card border border-border shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-300 h-full overflow-hidden"
-                    >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:bg-primary/10 transition-colors duration-500" />
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10">
-                        <Icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                      <h3 className="text-xl font-bold text-foreground mb-3 relative z-10">{a.title}</h3>
-                      <p className="text-base text-muted-foreground leading-relaxed relative z-10">{a.desc}</p>
-                    </motion.div>
-                  </StaggerItem>
-                );
-              })}
-            </StaggerContainer>
+            <div className="max-w-6xl mx-auto">
+              <AnimatedSection className="mb-8">
+                <div className="rounded-3xl bg-card border border-border shadow-sm px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <Globe className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">India Hub, Built Around Your GCC Model</p>
+                      <p className="text-sm text-muted-foreground">A structured path from setup to handover, designed for long-term ownership.</p>
+                    </div>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-sm font-medium text-primary">
+                    Global team
+                    <ArrowRight className="w-4 h-4" />
+                    India GCC
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <div className="relative">
+                <div className="hidden lg:block absolute top-14 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20" />
+                <StaggerContainer className="grid lg:grid-cols-3 gap-8">
+                  {botStages.map((stage) => {
+                    const Icon = stage.icon;
+                    return (
+                      <StaggerItem key={stage.title}>
+                        <motion.div
+                          whileHover={{ y: -8, scale: 1.02 }}
+                          className="relative h-full rounded-3xl bg-card border border-border shadow-lg overflow-hidden p-8 flex flex-col"
+                        >
+                          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-70" />
+                          <div className="relative z-10 flex flex-col h-full">
+                            <div className="flex items-center justify-between mb-6">
+                              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                                <Icon className="w-7 h-7 text-primary" />
+                              </div>
+                              <div className="text-right">
+                                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary">{stage.label}</div>
+                                <div className="text-3xl font-black text-foreground/10">{stage.stage}</div>
+                              </div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight">{stage.title}</h3>
+                            <p className="text-base text-muted-foreground leading-relaxed">{stage.desc}</p>
+                          </div>
+                        </motion.div>
+                      </StaggerItem>
+                    );
+                  })}
+                </StaggerContainer>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -192,21 +250,25 @@ const OffshoreTeams = () => {
         <section className="py-16 relative z-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader 
-              subheading="End-To-End Offshore Solutions" 
-              heading="What TalentAccel Provides" 
-              description="We manage every aspect of your offshore journey, from initial strategic sourcing to ongoing HR support and operational excellence."
+              subheading="End-To-End GCC Solutions" 
+              heading="What TalentAccel Delivers" 
+              description="We help companies design, launch, and scale Global Capability Centers in India with end-to-end ownership. From operating model design and talent buildout to HR, compliance, payroll, and day-to-day execution, TalentAccel supports the full GCC journey with the structure, control, and continuity growing teams need."
             />
-            <StaggerContainer className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <StaggerContainer className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-5 max-w-7xl mx-auto">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
                   <StaggerItem key={s.title}>
-                    <div className="p-8 rounded-3xl bg-background border border-border shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center group">
-                      <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-                        <Icon className="w-8 h-8" />
+                    <div className="p-6 rounded-3xl bg-background border border-border shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center group">
+                      <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mb-5 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                        <Icon className="w-7 h-7" />
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-4">{s.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{s.desc}</p>
+                      <h3 className="text-base font-bold text-foreground leading-snug text-balance min-h-[4.25rem] mb-3 flex items-center justify-center">
+                        {s.title}
+                      </h3>
+                      <p className="text-[13px] text-muted-foreground leading-6 flex-grow max-w-[26ch] mx-auto">
+                        {s.desc}
+                      </p>
                     </div>
                   </StaggerItem>
                 );
@@ -247,35 +309,6 @@ const OffshoreTeams = () => {
                   </StaggerItem>
                 );
               })}
-            </StaggerContainer>
-          </div>
-        </section>
-
-        {/* Engagement Models */}
-        <section id="engagement" className="py-16 relative z-20 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="Tailored Engagement" 
-              heading="Flexible Operating Models" 
-              description="Choose the strategic operational model that perfectly aligns with your company's growth timeline and financial goals."
-            />
-            <StaggerContainer className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {engagementModels.map((m, i) => (
-                <StaggerItem key={m.title}>
-                  <motion.div 
-                    whileHover={{ scale: 1.03, y: -10 }} 
-                    className="p-10 rounded-3xl bg-card border border-border shadow-lg relative overflow-hidden h-full flex flex-col"
-                  >
-                    <div className="absolute -right-6 -top-6 text-[8rem] font-black text-foreground/[0.03] select-none leading-none z-0 tracking-tighter">
-                      0{i+1}
-                    </div>
-                    <div className="relative z-10 flex-grow">
-                      <h3 className="text-2xl font-bold text-foreground mb-4">{m.title}</h3>
-                      <p className="text-base text-muted-foreground leading-relaxed">{m.desc}</p>
-                    </div>
-                  </motion.div>
-                </StaggerItem>
-              ))}
             </StaggerContainer>
           </div>
         </section>
@@ -352,6 +385,37 @@ const OffshoreTeams = () => {
                 </div>
               </AnimatedSection>
             </div>
+          </div>
+        </section>
+
+        {/* Why India */}
+        <section className="py-16 relative z-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader 
+              subheading="The India Advantage" 
+              heading="Why Companies Build Teams in India" 
+              description="India has evolved into the defining global hub for technology innovation, complex product development, and resilient business operations."
+            />
+            <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {advantages.map((a, i) => {
+                const Icon = a.icon;
+                return (
+                  <StaggerItem key={a.title}>
+                    <motion.div 
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="group relative p-8 rounded-3xl bg-card border border-border shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-300 h-full overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:bg-primary/10 transition-colors duration-500" />
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10">
+                        <Icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 relative z-10">{a.title}</h3>
+                      <p className="text-base text-muted-foreground leading-relaxed relative z-10">{a.desc}</p>
+                    </motion.div>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
           </div>
         </section>
       </div>

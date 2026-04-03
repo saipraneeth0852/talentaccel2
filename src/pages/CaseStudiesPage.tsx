@@ -161,7 +161,7 @@ const CaseStudiesPage = () => {
                 Let TalentAccel help you hire faster, stay compliant, and scale your team with confidence.
               </p>
               <a
-                href="mailto:hr@talentaccel.com"
+                href="mailto:biz@talentaccel.com"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5"
               >
                 Start a Conversation <ArrowRight className="w-4 h-4" />

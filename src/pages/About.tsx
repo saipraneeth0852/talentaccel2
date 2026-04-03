@@ -113,22 +113,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* Our Story */}
-    <section className="py-16 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-        <AnimatedSection>
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Story</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">Started in Bangalore. Built from experience.</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
-            TalentAccel was founded after seeing the same pattern repeat across fast-growing companies: great products, strong ambition — and an HR function that couldn't keep up.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            Hiring was reactive. Compliance was handled at the last minute. People operations were improvised. We set out to change that — building a single partner that growing companies could rely on for the full spectrum of HR, from the first offer letter to complex multi-state compliance.
-          </p>
-        </AnimatedSection>
-      </div>
-    </section>
-
     {/* Leadership Team */}
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -208,7 +192,7 @@ const About = () => (
               Whether you need to hire now or want to build a better HR foundation — we're happy to start with a conversation.
             </p>
             <a
-              href="mailto:hr@talentaccel.com"
+              href="mailto:biz@talentaccel.com"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5"
             >
               Get in Touch <ArrowRight className="w-4 h-4" />
