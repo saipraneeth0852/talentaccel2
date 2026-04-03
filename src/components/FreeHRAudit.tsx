@@ -13,13 +13,13 @@ export const FreeHRAudit = () => {
         <AnimatedSection className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm font-bold text-white mb-6 shadow-sm backdrop-blur-sm">
              <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,1)] animate-pulse" />
-             Zero Risk, High Reward
+             Free HR Audit
           </div>
           <h2 className="text-4xl lg:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
-             Claim Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Free HR Audit</span>
+             A clearer view of where your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">people operations can do even more</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
-             We analyze your current state to provide targeted recommendations—before you ever commit to a partnership.
+             Our free audit gives you practical insight into your current setup, along with thoughtful recommendations to support your next stage of growth.
           </p>
         </AnimatedSection>
         
@@ -32,7 +32,7 @@ export const FreeHRAudit = () => {
                 </div>
                 <div className="text-sm font-black tracking-widest text-blue-400 uppercase mb-2">Step 1</div>
                 <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Discovery Call</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">A focused 30-minute sync to understand your rapid scaling timeline, immediate operational bottlenecks, and long-term cultural goals.</p>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">We begin with a focused conversation about your team, your goals, and the areas where you'd like more clarity or support.</p>
              </div>
           </StaggerItem>
 
@@ -43,8 +43,8 @@ export const FreeHRAudit = () => {
                    <Search className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="text-sm font-black tracking-widest text-primary uppercase mb-2">Step 2</div>
-                <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Process Review</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">Our experts plunge deep into your existing HR workflows, recruitment engines, and compliance posture to identify hidden risks and missing processes.</p>
+                <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Review</h3>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">We look at your hiring, HR workflows, payroll, and compliance setup to understand what's working well and where you can strengthen further.</p>
              </div>
           </StaggerItem>
 
@@ -55,8 +55,8 @@ export const FreeHRAudit = () => {
                    <FileText className="w-7 h-7 text-emerald-400 group-hover:scale-110 transition-transform" />
                 </div>
                 <div className="text-sm font-black tracking-widest text-emerald-400 uppercase mb-2">Step 3</div>
-                <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Customized Proposal</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">You receive a bespoke, aggressively actionable roadmap detailing the exact operational blueprint required to unapologetically unblock your growth.</p>
+                <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Action Plan</h3>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">You receive a tailored set of recommendations with clear priorities and next steps you can act on with confidence.</p>
              </div>
           </StaggerItem>
         </StaggerContainer>

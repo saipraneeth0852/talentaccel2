@@ -2,10 +2,10 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSectio
 import { Rocket, Zap, Shield, Handshake } from "lucide-react";
 
 const reasons = [
-  { icon: Rocket, title: "Built for Growing Companies", desc: "We've built HR infrastructure for companies from seed stage through Series B. Our approach adapts to where you are, not a generic template." },
-  { icon: Zap, title: "Speed Without Shortcuts", desc: "We close critical roles in days, not weeks — without lowering the bar on culture fit or technical skills." },
-  { icon: Shield, title: "The Complete HR Stack", desc: "Recruitment, payroll, compliance, L&D, employee experience — one team, one point of contact, zero gaps in your people operations." },
-  { icon: Handshake, title: "Flexible Engagement", desc: "Project-based, retainer, or fully embedded — we structure our engagement to match your stage, budget, and headcount." },
+  { icon: Rocket, title: "Built Around Your Stage", desc: "What a company needs at 20 people is different from what it needs at 200. We shape our support around where you are today and where you're headed next." },
+  { icon: Zap, title: "Clear, Practical Partnership", desc: "We bring recommendations you can act on, support you can rely on, and systems that make day-to-day operations easier." },
+  { icon: Shield, title: "One Connected People Partner", desc: "Hiring, HR, payroll, and compliance work better when they work together. We help you manage them as one connected function." },
+  { icon: Handshake, title: "Flexible by Design", desc: "Whether you need project support, an ongoing partner, or embedded expertise, we fit into the way your business operates." },
 ];
 
 export const WhyTalentAccel = () => (
@@ -15,15 +15,15 @@ export const WhyTalentAccel = () => (
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
-            Why Us
+            Why TalentAccel
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">The HR Partner Built for How You Grow</h2>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">Built for companies on the rise</h2>
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
-            Most HR firms are built for stability. We're built for velocity. Whether you're hiring your 10th employee or your 500th, we bring the right expertise at every stage — without the overhead of an in-house HR department.
+            The most exciting stage of growth deserves people operations that are just as thoughtful as the business itself. We combine speed, structure, and flexibility to help you grow with intention, not just pace.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="/contact" className="btn-pressable inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity">
-              Start Scaling
+              Start the Conversation
             </a>
           </div>
         </AnimatedSection>

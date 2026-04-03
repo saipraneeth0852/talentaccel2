@@ -18,7 +18,7 @@ export const Hero = () => (
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
-            Trusted by startups & fast-growing companies
+            Trusted by startups and fast-growing companies
           </motion.div>
 
           <motion.h1
@@ -27,8 +27,8 @@ export const Hero = () => (
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="text-[2.2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold lg:leading-[1.1] tracking-tight text-foreground mb-6"
           >
-            Your People Partner,{" "}
-            <span className="text-gradient-accent drop-shadow-sm">From First Hire to Full Scale.</span>
+            Build your team with confidence.{" "}
+            <span className="text-gradient-accent drop-shadow-sm">Scale your people operations with clarity.</span>
           </motion.h1>
 
           <motion.p
@@ -37,7 +37,7 @@ export const Hero = () => (
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl"
           >
-            We partner with startups and fast-growing teams to deliver seamless recruitment, HR operations, and compliance — all in one place.
+            TalentAccel helps growing companies hire exceptional talent, strengthen HR operations, and stay compliant as they scale.
           </motion.p>
 
           <motion.div
@@ -54,7 +54,7 @@ export const Hero = () => (
               }}
               className="btn-pressable inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
             >
-              Claim Your Free HR Audit
+              Book Your Free HR Audit
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
@@ -75,7 +75,7 @@ export const Hero = () => (
             <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
                <Shield className="w-3 h-3" />
             </span>
-            Includes a complimentary HR & Compliance Audit — at no cost, no obligation.
+            A practical HR and compliance review at no cost and no obligation.
           </motion.div>
 
           {/* Floating bullet points moved to right side */}

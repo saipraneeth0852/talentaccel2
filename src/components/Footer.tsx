@@ -71,7 +71,7 @@ export const Footer = () => (
             </span>
           </div>
           <p className="text-white/95 text-[15px] leading-relaxed mb-6 max-w-[280px]">
-            Building the Teams that Accel your Business.
+            Helping growing companies build strong teams and thoughtful people operations.
           </p>
 
           <div className="flex items-center gap-5 mb-8">

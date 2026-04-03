@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const steps = [
-  { icon: Target, step: "01", title: "Strategic Discovery", desc: "We align with your roadmap—mapping hiring targets, compliance gaps, and the business milestones that drive your growth." },
-  { icon: Search, step: "02", title: "Infrastructure Audit", desc: "A deep dive into your current people-ops to surface hidden risks, operational bottlenecks, and compliance vulnerabilities." },
-  { icon: Layers, step: "03", title: "Custom Architecture", desc: "We design a framework tailored to your stage—selecting the right talent models, HR structures, and statutory setups." },
-  { icon: Zap, step: "04", title: "Rapid Deployment", desc: "We move from plan to action in days. Recruiters are briefed, processes are documented, and filings are initiated within week one." },
-  { icon: BarChart2, step: "05", title: "Performance Metrics", desc: "Full visibility through real-time reporting on hiring velocity, compliance health, and organizational sentiment." },
-  { icon: RefreshCw, step: "06", title: "Adaptive Scaling", desc: "As your organization evolves, our support scales—adjusting capacity and mitigating the complexities of expanding teams." },
+  { icon: Target, step: "01", title: "We Start with Your Goals", desc: "We learn about your hiring plans, team structure, and business priorities so we can understand what success looks like for you." },
+  { icon: Search, step: "02", title: "We Review Your Current Setup", desc: "We assess your people processes, operations, payroll, and compliance to understand where support can create the most value." },
+  { icon: Layers, step: "03", title: "We Shape the Right Plan", desc: "We recommend a support model tailored to your stage, your priorities, and the way your company works." },
+  { icon: Zap, step: "04", title: "We Put the Plan into Motion", desc: "From hiring support to HR process design, we move quickly and thoughtfully into execution." },
+  { icon: BarChart2, step: "05", title: "We Keep Progress Visible", desc: "You have clarity on what's moving, what's improving, and what comes next." },
+  { icon: RefreshCw, step: "06", title: "We Grow with You", desc: "As your business evolves, our support evolves with it, so your people function stays strong at every stage." },
 ];
 
 export const HowItWorks = () => {
@@ -29,7 +29,7 @@ export const HowItWorks = () => {
             className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm"
           >
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
-            Our Workflow
+            How It Works
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export const HowItWorks = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight"
           >
-            How TalentAccel Works
+            How we work
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export const HowItWorks = () => {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto font-medium"
           >
-            A structured 6-step approach to building and scaling your people function — from first conversation to ongoing optimization.
+            Our approach is designed to be straightforward, collaborative, and built around progress.
           </motion.p>
         </div>
 

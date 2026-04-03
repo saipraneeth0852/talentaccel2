@@ -163,13 +163,13 @@ export const TalentEcosystem = () => {
         <AnimatedSection className="text-center mb-10 lg:mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
-            Where We Help
+            People Operations
           </div>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight max-w-3xl mx-auto">
-            The People Challenges Every Growing Company Faces
+            People operations that grow with your ambition
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed mt-4">
-            Sound familiar? Here's how we help you move past them.
+            Growth creates opportunity. It also asks more of your hiring, HR, payroll, and compliance. We help you build the structure behind that momentum, so your team can keep moving forward with confidence.
           </p>
         </AnimatedSection>
 

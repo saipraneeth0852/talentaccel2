@@ -58,10 +58,10 @@ export const Services = () => (
             Services
           </div>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
-            Services we provide to grow your team
+            Everything you need to build and support a stronger team
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            We help you recruit the right people, run smooth HR operations, and build learning and culture that stick.
+            From talent acquisition to HR operations, learning, and employee experience, TalentAccel brings together the people support growing companies need in one place.
           </p>
         </AnimatedSection>
 
