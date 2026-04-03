@@ -12,11 +12,11 @@ const advantages = [
 ];
 
 const services = [
-  { icon: Globe, title: "GCC Strategy & Workforce Planning", desc: "From setup and operating model design to Build-Operate-Transfer (BOT), managed offshore teams, and fully embedded talent solutions, we design, build, and scale your offshore operations with complete ownership across talent, HR, compliance, and operations." },
-  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "We build high-quality teams across leadership, specialist, and functional roles through structured sourcing, assessment, and hiring designed for long-term GCC success, team quality, and business continuity." },
-  { icon: Rocket, title: "Team Setup & Onboarding", desc: "We set up your teams for a strong start, with coordinated onboarding, role alignment, stakeholder integration, and operating rhythm from day one so your GCC begins with clarity and momentum." },
-  { icon: Brain, title: "HR Operations & Payroll", desc: "We manage the HR backbone of your GCC, including payroll, statutory compliance, employee support, documentation, and essential people operations that keep your offshore setup steady, compliant, and well supported." },
-  { icon: TrendingUp, title: "Operational Support & GCC Enablement", desc: "We support the day-to-day running of your GCC through governance, process stability, reporting, coordination, and the operational discipline needed to scale with confidence, visibility, and stronger delivery alignment." },
+  { icon: Globe, title: "GCC Blueprint & Workforce Design", desc: "We define the operating model, org shape, location strategy, and scale plan your GCC needs to launch with clarity." },
+  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "We hire leadership, specialist, and functional talent through a structured recruitment engine built for long-term team quality." },
+  { icon: Rocket, title: "Launch & Onboarding", desc: "We stand up the team with coordinated onboarding, role alignment, stakeholder integration, and a working rhythm from day one." },
+  { icon: Brain, title: "HR Operations & Compliance", desc: "We run payroll, statutory compliance, employee support, and core people operations so the GCC stays steady and audit-ready." },
+  { icon: TrendingUp, title: "Governance & GCC Enablement", desc: "We bring reporting, coordination, and operating discipline into the day-to-day so your GCC scales with control and continuity." },
 ];
 
 const roleCategories = [
@@ -250,16 +250,32 @@ const OffshoreTeams = () => {
         <section className="py-16 relative z-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader 
-              subheading="End-To-End GCC Solutions" 
-              heading="What TalentAccel Delivers" 
-              description="We help companies design, launch, and scale Global Capability Centers in India with end-to-end ownership. From operating model design and talent buildout to HR, compliance, payroll, and day-to-day execution, TalentAccel supports the full GCC journey with the structure, control, and continuity growing teams need."
+              subheading="End-To-End GCC Ownership" 
+              heading="A GCC Partner Across the Full Operating Model" 
+              description="TalentAccel helps companies design, launch, and run Global Capability Centers in India with one accountable partner across strategy, team buildout, HR, compliance, and operating continuity."
             />
+            <AnimatedSection className="mb-8">
+              <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
+                {["Strategy", "Hiring", "Launch", "HR", "Governance"].map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 shadow-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </AnimatedSection>
             <StaggerContainer className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-5 max-w-7xl mx-auto">
               {services.map((s, i) => {
                 const Icon = s.icon;
                 return (
                   <StaggerItem key={s.title}>
-                    <div className="p-6 rounded-3xl bg-background border border-border shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center group">
+                    <div className="p-6 rounded-3xl bg-background border border-border shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col items-center text-center group relative overflow-hidden">
+                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary/70 via-secondary/70 to-primary/70 opacity-80" />
+                      <div className="mb-4 inline-flex items-center rounded-full border border-border bg-muted px-2.5 py-1 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
                       <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mb-5 text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                         <Icon className="w-7 h-7" />
                       </div>
