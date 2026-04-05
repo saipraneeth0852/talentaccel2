@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Rocket, Users, Shield } from "lucide-react";
-import heroVisual from "@/assets/hero-visual.png";
+import { ArrowRight, ChevronRight, Shield } from "lucide-react";
+import { HeroImagePanel } from "./HeroImagePanel";
 
 export const Hero = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -52,14 +52,14 @@ export const Hero = () => (
                 e.preventDefault();
                 document.getElementById('free-hr-audit')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="btn-pressable inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+              className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
             >
               Book Your Free HR Audit
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#how-it-works"
-              className="btn-pressable inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors duration-200"
+              className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors duration-200"
             >
               See How It Works
               <ChevronRight className="w-4 h-4" />
@@ -81,25 +81,13 @@ export const Hero = () => (
           {/* Floating bullet points moved to right side */}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", duration: 0.8, bounce: 0.15, delay: 0.3 }}
-          className="hidden lg:block relative"
-        >
-          <div className="absolute inset-0 bg-secondary/10 blur-[120px] rounded-full min-w-[300px] min-h-[300px] -z-10" />
-          
-          <div className="relative max-w-lg mx-auto">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-              alt="Diverse tech startup team collaborating in a modern office"
-              className="w-full h-[500px] object-cover rounded-3xl drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] ring-1 ring-border/50"
-              style={{ willChange: "transform" }}
-            />
-            
-
-          </div>
-        </motion.div>
+        <HeroImagePanel
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+          alt="Diverse tech startup team collaborating in a modern office"
+          className="w-full max-w-[34rem] lg:justify-self-end"
+          imageClassName="h-[280px] sm:h-[360px] lg:h-[500px]"
+          glowClassName="top-14 bottom-4 from-primary/16 via-primary/8 to-secondary/22"
+        />
       </div>
     </div>
   </section>

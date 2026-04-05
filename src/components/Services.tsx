@@ -2,6 +2,7 @@ import { Users, FileText, Settings, GraduationCap, Heart, Globe, ArrowRight } fr
 import { AnimatedSection } from "./AnimatedSection";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { HeroImagePanel } from "./HeroImagePanel";
 
 const services = [
   {
@@ -65,16 +66,13 @@ export const Services = () => (
           </p>
         </AnimatedSection>
 
-        <AnimatedSection className="hidden lg:block relative" delay={0.2}>
-          <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-110 -z-10" />
-          <motion.img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
-            alt="HR professionals collaboratively reviewing business strategy"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-[450px] object-cover rounded-3xl shadow-soft ring-1 ring-border/50"
-          />
-        </AnimatedSection>
+        <HeroImagePanel
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
+          alt="HR professionals collaboratively reviewing business strategy"
+          className="w-full max-w-[34rem] lg:justify-self-end"
+          imageClassName="h-[240px] sm:h-[320px] lg:h-[450px]"
+          glowClassName="inset-x-[12%] top-12 bottom-6 from-primary/16 via-primary/10 to-secondary/16"
+        />
       </div>
 
       <motion.div 

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import { HeroImagePanel } from "@/components/HeroImagePanel";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 
@@ -78,14 +79,12 @@ const CaseStudiesPage = () => {
                 Companies that trusted TalentAccel to build their teams and manage their HR operations.
               </motion.p>
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden lg:block relative"
-            >
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Case Studies Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
-            </motion.div>
+            <HeroImagePanel
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+              alt="Case Studies Visual"
+              className="lg:justify-self-end"
+              imageClassName="h-[250px] sm:h-[320px] lg:h-[420px]"
+            />
           </div>
         </div>
       </section>

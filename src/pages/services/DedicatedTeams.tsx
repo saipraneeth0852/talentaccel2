@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, UserCheck, BarChart3, Search, Check } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
+import { HeroImagePanel } from "@/components/HeroImagePanel";
 import { SEO } from "@/components/SEO";
 
 const features = [
@@ -57,9 +58,12 @@ const DedicatedTeams = () => (
             </a>
           </motion.div>
             </div>
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }} className="hidden lg:block relative">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Service Visual" className="w-full max-w-lg mx-auto object-cover rounded-3xl shadow-2xl" />
-            </motion.div>
+            <HeroImagePanel
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+              alt="Service Visual"
+              className="lg:justify-self-end"
+              imageClassName="h-[260px] sm:h-[330px] lg:h-[440px]"
+            />
           </div>
         </div>
       </section>
