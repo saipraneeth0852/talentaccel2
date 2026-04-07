@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Shield } from "lucide-react";
 import { HeroImagePanel } from "./HeroImagePanel";
+import { useAuditModal } from "@/contexts/AuditModalContext";
 
-export const Hero = () => (
+export const Hero = () => {
+  const { openAudit } = useAuditModal();
+  return (
   <section className="relative min-h-screen flex items-center overflow-hidden">
     {/* Subtle background gradient */}
     <div className="absolute inset-0 bg-gradient-subtle" />
@@ -25,19 +28,19 @@ export const Hero = () => (
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-[2.2rem] leading-[1.15] sm:text-5xl lg:text-6xl font-extrabold lg:leading-[1.1] tracking-tight text-foreground mb-6"
+            className="text-[2rem] leading-[1.15] sm:text-4xl lg:text-5xl font-extrabold lg:leading-[1.1] tracking-tight text-foreground mb-6"
           >
-            Build your team with confidence.{" "}
-            <span className="text-gradient-accent drop-shadow-sm">Scale your people operations with clarity.</span>
+            One partner —{" "}
+            <span className="text-gradient-accent drop-shadow-sm">Complete people solutions</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl"
+            className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg"
           >
-            TalentAccel helps growing companies hire exceptional talent, strengthen HR operations, and stay compliant as they scale.
+            TalentAccel partners with startups and growing companies to build high-performing teams, streamline HR operations, and ensure compliance — from hiring to payroll.
           </motion.p>
 
           <motion.div
@@ -46,17 +49,13 @@ export const Hero = () => (
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4 mb-6"
           >
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('free-hr-audit')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <button
+              onClick={openAudit}
               className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
             >
               Book Your Free HR Audit
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
             <a
               href="#how-it-works"
               className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors duration-200"
@@ -75,7 +74,7 @@ export const Hero = () => (
             <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
                <Shield className="w-3 h-3" />
             </span>
-            A practical HR and compliance review at no cost and no obligation.
+            Free, no-obligation HR assessment.
           </motion.div>
 
           {/* Floating bullet points moved to right side */}
@@ -91,4 +90,5 @@ export const Hero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

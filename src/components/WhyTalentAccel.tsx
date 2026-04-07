@@ -2,10 +2,10 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSectio
 import { Rocket, Zap, Shield, Handshake } from "lucide-react";
 
 const reasons = [
-  { icon: Rocket, title: "Built Around Your Stage", desc: "What a company needs at 20 people is different from what it needs at 200. We shape our support around where you are today and where you're headed next." },
-  { icon: Zap, title: "Clear, Practical Partnership", desc: "We bring recommendations you can act on, support you can rely on, and systems that make day-to-day operations easier." },
-  { icon: Shield, title: "One Connected People Partner", desc: "Hiring, HR, payroll, and compliance work better when they work together. We help you manage them as one connected function." },
-  { icon: Handshake, title: "Flexible by Design", desc: "Whether you need project support, an ongoing partner, or embedded expertise, we fit into the way your business operates." },
+  { icon: Rocket, title: "Built Around Your Stage", desc: "Tailored HR support—whether you're at 20 or 200+ employees." },
+  { icon: Zap, title: "Clear, Practical Partnership", desc: "Actionable HR recommendations and reliable operational systems." },
+  { icon: Shield, title: "One Connected People Partner", desc: "Unified hiring, payroll, and compliance management." },
+  { icon: Handshake, title: "Flexible by Design", desc: "Project-based, retainer, or embedded HR models." },
 ];
 
 export const WhyTalentAccel = () => (
@@ -19,7 +19,7 @@ export const WhyTalentAccel = () => (
           </div>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">Built for companies on the rise</h2>
           <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
-            The most exciting stage of growth deserves people operations that are just as thoughtful as the business itself. We combine speed, structure, and flexibility to help you grow with intention, not just pace.
+            We combine speed, structure, and flexibility for intentional scaling.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="/contact" className="btn-pressable inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity">

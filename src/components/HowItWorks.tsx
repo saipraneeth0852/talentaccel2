@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const steps = [
-  { icon: Target, step: "01", title: "We Start with Your Goals", desc: "We learn about your hiring plans, team structure, and business priorities so we can understand what success looks like for you." },
-  { icon: Search, step: "02", title: "We Review Your Current Setup", desc: "We assess your people processes, operations, payroll, and compliance to understand where support can create the most value." },
-  { icon: Layers, step: "03", title: "We Shape the Right Plan", desc: "We recommend a support model tailored to your stage, your priorities, and the way your company works." },
-  { icon: Zap, step: "04", title: "We Put the Plan into Motion", desc: "From hiring support to HR process design, we move quickly and thoughtfully into execution." },
-  { icon: BarChart2, step: "05", title: "We Keep Progress Visible", desc: "You have clarity on what's moving, what's improving, and what comes next." },
-  { icon: RefreshCw, step: "06", title: "We Grow with You", desc: "As your business evolves, our support evolves with it, so your people function stays strong at every stage." },
+  { icon: Target, step: "01", title: "We Start with Your Goals", desc: "Assess hiring plans and team structure." },
+  { icon: Search, step: "02", title: "We Review Your Current Setup", desc: "Evaluate existing HR, payroll, and compliance." },
+  { icon: Layers, step: "03", title: "We Shape the Right Plan", desc: "Create a tailored operations roadmap." },
+  { icon: Zap, step: "04", title: "We Put the Plan into Motion", desc: "Execute hiring and HR process design." },
+  { icon: BarChart2, step: "05", title: "We Keep Progress Visible", desc: "Provide visible progress tracking." },
+  { icon: RefreshCw, step: "06", title: "We Grow with You", desc: "Evolve HR support as you scale." },
 ];
 
 export const HowItWorks = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={containerRef} className="py-12 lg:py-16 bg-background relative overflow-hidden">
+    <section id="how-it-works" ref={containerRef} className="py-12 lg:py-16 bg-background relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
@@ -47,7 +47,7 @@ export const HowItWorks = () => {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto font-medium"
           >
-            Our approach is designed to be straightforward, collaborative, and built around progress.
+            A straightforward, collaborative approach built for progress.
           </motion.p>
         </div>
 

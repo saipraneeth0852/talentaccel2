@@ -72,9 +72,7 @@ export const EngagementModels = () => {
                 <motion.div
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
-                  className={`relative h-full p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col ${
-                    m.recommended ? 'ring-2 ring-primary/20 bg-gradient-to-b from-card to-primary/5' : ''
-                  }`}
+                  className="relative h-full p-8 rounded-3xl bg-card border border-border shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col"
                 >
                   {/* Subtle Numbering */}
                   <span className="absolute top-8 right-8 text-6xl font-black text-slate-900/5 select-none pointer-events-none group-hover:text-primary/10 transition-colors">

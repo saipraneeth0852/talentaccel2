@@ -8,42 +8,42 @@ const services = [
   {
     icon: Users,
     title: "Talent Acquisition",
-    desc: "Fill roles faster without cutting corners. From high-volume hiring to executive search, we manage the full recruitment cycle.",
+    desc: "Full-cycle recruitment, from volume hiring to executive search.",
     bullets: ["Full Time", "Contract & Contract-to-Hire", "Staff Augmentation", "RPO & Volume Hiring", "Executive Hiring"],
     href: "/services/talent-acquisition",
   },
   {
     icon: FileText,
     title: "HR Operations",
-    desc: "Accurate payroll and full statutory compliance, handled end-to-end. Never worry about a missed filing or a regulatory change again.",
+    desc: "End-to-end payroll and compliance management, including statutory filings.",
     bullets: ["PF, ESI, PT, LWF Filings", "Taxation & Payroll Management", "Salary Bands", "Multi-state Compliance", "POSH, CLRA, Shops & Establishment", "Compliance Audits & Advisory"],
     href: "/services/hr-operations",
   },
   {
     icon: Settings,
     title: "HR Advisory",
-    desc: "Build the HR foundations your company needs to scale — from org design and compensation benchmarking to performance frameworks and HRMS implementation.",
+    desc: "Scalable HR foundations: org design, compensation, and HRMS implementation.",
     bullets: ["HR Policies & Handbook", "Org Structure & Role Design", "Compensation Benchmarking", "Performance Management & OKRs", "HRMS / ATS Implementation"],
     href: "/services/hr-advisory",
   },
   {
     icon: GraduationCap,
     title: "Learning & Development",
-    desc: "Equip your people with the skills to perform and grow. From new manager programmes to technical certifications, we build capability at every level.",
+    desc: "Skill development programs, from leadership training to technical certifications.",
     bullets: ["Behavioural & Leadership Training", "Technical & Domain Training", "Manager Readiness Programs", "Certification Programs (HR, Compliance, Analytics)"],
     href: "/services/learning-development",
   },
   {
     icon: Heart,
     title: "Employee Experience",
-    desc: "Create a workplace your people are proud to be part of — from structured onboarding and recognition programmes to smooth offboarding.",
+    desc: "Enhance workplace culture with streamlined onboarding and lifecycle management.",
     bullets: ["Background Verification", "Onboarding & Welcome Kits", "Employee Awards & Recognition", "Corporate & Festival Gifting", "Exit Management & F&F Processing"],
     href: "/services/employee-experience",
   },
   {
     icon: Globe,
     title: "Extended Workforce",
-    desc: "Expand into new markets, build offshore teams, and manage complex workforce transitions — all with the compliance and employer brand support you need.",
+    desc: "Turn-key offshore setups, employer branding, and global expansion support.",
     bullets: ["Employer Branding & Talent Marketing", "M&A Employee Rebadging", "Visa & Immigration Support", "CSR Advisory & Execution", "HR Event & Engagement Support"],
     href: "/services/extended-workforce",
   },
@@ -59,10 +59,10 @@ export const Services = () => (
             Services
           </div>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
-            Everything you need to build and support a stronger team
+            Comprehensive support for stronger teams
           </h2>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            From talent acquisition to HR operations, learning, and employee experience, TalentAccel brings together the people support growing companies need in one place.
+            End-to-end talent acquisition, HR operations, and employee experience under one roof.
           </p>
         </AnimatedSection>
 

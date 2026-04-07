@@ -22,7 +22,7 @@ export const Insights = () => (
           <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Latest from Our Blog</h2>
         </Link>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Actionable strategies, market trends, and practical playbooks to help you hire smarter and scale faster.
+          Actionable playbooks to help you hire smarter and scale faster.
         </p>
       </AnimatedSection>
 

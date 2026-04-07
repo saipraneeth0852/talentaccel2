@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, Globe, FileText, Lightbulb, Users, Phone, LayoutGrid, Menu, X, Settings, GraduationCap, Heart, ChevronDown } from "lucide-react";
+import { Home, Briefcase, Globe, FileText, Lightbulb, Users, Phone, LayoutGrid, Menu, X, Settings, GraduationCap, Heart, ChevronDown, Network, ClipboardList } from "lucide-react";
 import { LogoMark } from "./LogoMark";
 import { cn } from "@/lib/utils";
+import { useAuditModal } from "@/contexts/AuditModalContext";
 
 const serviceItems = [
   {
@@ -46,6 +47,12 @@ const serviceItems = [
 
 const resourceItems = [
   {
+    icon: Network,
+    title: "Talent Ecosystem",
+    desc: "See how your people challenges map to solutions",
+    href: "/talent-ecosystem",
+  },
+  {
     icon: Lightbulb,
     title: "Blog",
     desc: "Insights and trends from our experts",
@@ -78,6 +85,7 @@ const mobileNavItems = [
 ];
 
 export const FloatingNav = () => {
+  const { openAudit } = useAuditModal();
   const location = useLocation();
   const [activeHash, setActiveHash] = useState(window.location.hash);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -329,10 +337,17 @@ export const FloatingNav = () => {
               </Link>
             );
           })}
+          <button
+            onClick={openAudit}
+            className="ml-2 px-4 py-2 text-sm font-semibold rounded-full border border-primary text-primary hover:bg-primary/10 transition-all duration-200 whitespace-nowrap flex items-center gap-1.5"
+          >
+            <ClipboardList className="w-3.5 h-3.5" />
+            Free HR Audit
+          </button>
           <Link
             to="/contact"
             onClick={() => handleNavClick("/contact")}
-            className="ml-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:shadow-lg active:scale-95 whitespace-nowrap"
+            className="ml-1 px-5 py-2.5 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:shadow-lg active:scale-95 whitespace-nowrap"
           >
             Book a Consultation
           </Link>
@@ -424,13 +439,20 @@ export const FloatingNav = () => {
                     </Link>
                   )
                })}
+               <button
+                 onClick={() => { openAudit(); setIsMobileMenuOpen(false); }}
+                 className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-base font-bold rounded-2xl border-2 border-primary text-primary text-center hover:bg-primary/10 transition-colors"
+               >
+                 <ClipboardList className="w-5 h-5" />
+                 Free HR Audit
+               </button>
                <Link
                  to="/contact"
                  onClick={() => {
                    handleNavClick("/contact");
                    setIsMobileMenuOpen(false);
                  }}
-                 className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-base font-bold rounded-2xl bg-secondary text-secondary-foreground text-center shadow-lg hover:opacity-90 transition-opacity"
+                 className="mt-3 flex items-center justify-center gap-2 w-full py-4 text-base font-bold rounded-2xl bg-secondary text-secondary-foreground text-center shadow-lg hover:opacity-90 transition-opacity"
                >
                  Book a Consultation
                </Link>

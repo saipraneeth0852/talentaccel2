@@ -16,10 +16,10 @@ export const FreeHRAudit = () => {
              Free HR Audit
           </div>
           <h2 className="text-4xl lg:text-5xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
-             A clearer view of where your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">people operations can do even more</span>
+             A clearer view of where your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">people operations can excel</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
-             Our free audit gives you practical insight into your current setup, along with thoughtful recommendations to support your next stage of growth.
+             Practical insights and actionable HR recommendations to support your next stage of growth.
           </p>
         </AnimatedSection>
         
@@ -32,7 +32,7 @@ export const FreeHRAudit = () => {
                 </div>
                 <div className="text-sm font-black tracking-widest text-blue-400 uppercase mb-2">Step 1</div>
                 <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Discovery Call</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">We begin with a focused conversation about your team, your goals, and the areas where you'd like more clarity or support.</p>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">Discuss team goals and pinpoint HR bottlenecks.</p>
              </div>
           </StaggerItem>
 
@@ -44,7 +44,7 @@ export const FreeHRAudit = () => {
                 </div>
                 <div className="text-sm font-black tracking-widest text-primary uppercase mb-2">Step 2</div>
                 <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Review</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">We look at your hiring, HR workflows, payroll, and compliance setup to understand what's working well and where you can strengthen further.</p>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">Analyze your existing hiring, payroll, and compliance setup.</p>
              </div>
           </StaggerItem>
 
@@ -56,7 +56,7 @@ export const FreeHRAudit = () => {
                 </div>
                 <div className="text-sm font-black tracking-widest text-emerald-400 uppercase mb-2">Step 3</div>
                 <h3 className="text-2xl font-bold mb-4 lg:mb-6 leading-snug">Action Plan</h3>
-                <p className="text-slate-400 text-base leading-relaxed flex-1">You receive a tailored set of recommendations with clear priorities and next steps you can act on with confidence.</p>
+                <p className="text-slate-400 text-base leading-relaxed flex-1">Receive a prioritized roadmap of HR recommendations.</p>
              </div>
           </StaggerItem>
         </StaggerContainer>

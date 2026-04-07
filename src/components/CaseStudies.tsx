@@ -45,7 +45,7 @@ export const CaseStudies = () => {
             <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">Case Studies</h2>
           </Link>
           <p className="text-muted-foreground text-lg mb-0">
-            Real outcomes from companies that trusted TalentAccel to build their teams.
+            Real outcomes from companies that scaled with TalentAccel.
           </p>
         </AnimatedSection>
 

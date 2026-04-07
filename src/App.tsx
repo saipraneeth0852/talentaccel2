@@ -7,6 +7,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FloatingNav } from "@/components/FloatingNav";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { AuditModalProvider } from "@/contexts/AuditModalContext";
+import { FreeHRAuditModal } from "@/components/FreeHRAuditModal";
+import { AuditFloatingWidget } from "@/components/AuditFloatingWidget";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./components/PageTransition";
@@ -29,6 +32,7 @@ const HrAdvisory = lazy(() => import("./pages/services/HrAdvisory"));
 const LearningDevelopment = lazy(() => import("./pages/services/LearningDevelopment"));
 const EmployeeExperience = lazy(() => import("./pages/services/EmployeeExperience"));
 const ExtendedWorkforce = lazy(() => import("./pages/services/ExtendedWorkforce"));
+const TalentEcosystemPage = lazy(() => import("./pages/TalentEcosystemPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SeedJobs = lazy(() => import("./pages/SeedJobs"));
 
@@ -127,6 +131,7 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => (
   <>
     <FloatingNav />
     {children}
+    <AuditFloatingWidget />
   </>
 );
 
@@ -156,6 +161,7 @@ const AnimatedRoutes = () => {
           <Route path="/contact" element={<PublicLayout><PageTransition><Contact /></PageTransition></PublicLayout>} />
           <Route path="/blog" element={<PublicLayout><PageTransition><Blog /></PageTransition></PublicLayout>} />
           <Route path="/blog/:slug" element={<PublicLayout><PageTransition><BlogPost /></PageTransition></PublicLayout>} />
+          <Route path="/talent-ecosystem" element={<PublicLayout><PageTransition><TalentEcosystemPage /></PageTransition></PublicLayout>} />
           <Route path="/case-studies" element={<PublicLayout><PageTransition><CaseStudiesPage /></PageTransition></PublicLayout>} />
           <Route path="/case-studies/:id" element={<PublicLayout><PageTransition><CaseStudyPost /></PageTransition></PublicLayout>} />
           <Route path="/services/talent-acquisition" element={<PublicLayout><PageTransition><TalentAcquisition /></PageTransition></PublicLayout>} />
@@ -199,10 +205,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <AuthProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <AnimatedRoutes />
-        </BrowserRouter>
+        <AuditModalProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <AnimatedRoutes />
+            <FreeHRAuditModal />
+          </BrowserRouter>
+        </AuditModalProvider>
       </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>

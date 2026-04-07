@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain, Palette, BarChart3, Cpu, Briefcase, Rocket, TrendingUp, Building2, Settings2, Handshake } from "lucide-react";
+import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain, Palette, BarChart3, Cpu, Briefcase, Rocket, TrendingUp, Building2, Settings2, Handshake, Headphones } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 const advantages = [
-  { icon: Users, title: "Access to Exceptional Talent", desc: "India offers one of the largest pools of highly skilled professionals across engineering, AI, data science, and product development." },
-  { icon: Zap, title: "Cost-Effective Scaling", desc: "Offshore teams provide significant cost advantages without compromising on talent quality or operational speed." },
-  { icon: Globe, title: "Rapid Team Expansion", desc: "Companies can quickly build teams to accelerate product development, iterate faster, and drive innovation." },
-  { icon: Shield, title: "Global Delivery Capability", desc: "India teams work seamlessly across global time zones, ensuring round-the-clock support and operations." },
+  { icon: Users, title: "Access to Exceptional Talent", desc: "Tap into one of the largest pools of highly skilled engineers and product specialists." },
+  { icon: Zap, title: "Cost-Effective Scaling", desc: "Achieve significant cost advantages without compromising on quality or speed." },
+  { icon: Globe, title: "Rapid Team Expansion", desc: "Build teams quickly to accelerate product development and drive innovation." },
+  { icon: Shield, title: "Global Delivery Capability", desc: "Work seamlessly across global time zones for round-the-clock operations." },
 ];
 
 const services = [
-  { icon: Globe, title: "GCC Blueprint & Workforce Design", desc: "We define the operating model, org shape, location strategy, and scale plan your GCC needs to launch with clarity." },
-  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "We hire leadership, specialist, and functional talent through a structured recruitment engine built for long-term team quality." },
-  { icon: Rocket, title: "Launch & Onboarding", desc: "We stand up the team with coordinated onboarding, role alignment, stakeholder integration, and a working rhythm from day one." },
-  { icon: Brain, title: "HR Operations & Compliance", desc: "We run payroll, statutory compliance, employee support, and core people operations so the GCC stays steady and audit-ready." },
-  { icon: TrendingUp, title: "Governance & GCC Enablement", desc: "We bring reporting, coordination, and operating discipline into the day-to-day so your GCC scales with control and continuity." },
+  { icon: Globe, title: "GCC Blueprint & Workforce Design", desc: "Define the operating model, location strategy, and scale plan." },
+  { icon: Briefcase, title: "Talent Sourcing & Recruitment", desc: "Hire leadership and specialized talent through a structured recruitment engine." },
+  { icon: Rocket, title: "Launch & Onboarding", desc: "Stand up the team with coordinated onboarding and a working rhythm from day one." },
+  { icon: Brain, title: "HR Operations & Compliance", desc: "Run payroll, compliance, and core operations to keep the GCC audit-ready." },
+  { icon: TrendingUp, title: "Governance & GCC Enablement", desc: "Bring reporting and operating discipline into the day-to-day." },
 ];
 
 const roleCategories = [
@@ -24,6 +24,7 @@ const roleCategories = [
   { category: "Product & Design", roles: ["Product Managers", "Product Analysts", "UX / UI Designers", "Design Ops"], icon: Palette },
   { category: "Business & Operations", roles: ["Business Analysts", "Customer Success", "Sales Operations", "Marketing Specialists"], icon: BarChart3 },
   { category: "Specialized Talent", roles: ["Telecom Engineers", "Embedded Systems", "Electronics Engineers", "Hardware QA"], icon: Cpu },
+  { category: "Support Functions", roles: ["HR & People Operations", "Finance & Accounting", "Legal & Compliance Support", "IT Helpdesk", "Admin & Executive Assistants"], icon: Headphones },
 ];
 
 const botStages = [
@@ -31,21 +32,21 @@ const botStages = [
     stage: "01",
     label: "Build",
     title: "Set Up Your GCC Foundation",
-    desc: "We establish the right operating model, hiring plan, compliance structure, and team setup so your India hub starts on strong ground.",
+    desc: "Establish the operating model, hiring plan, and compliance structure.",
     icon: Building2,
   },
   {
     stage: "02",
     label: "Operate",
     title: "Run with Full Operational Ownership",
-    desc: "We manage day-to-day execution across hiring, HR, payroll, compliance, and operating rhythm while the center gains scale and stability.",
+    desc: "Manage day-to-day execution across hiring, payroll, and compliance.",
     icon: Settings2,
   },
   {
     stage: "03",
     label: "Transfer",
     title: "Hand Over with Confidence",
-    desc: "Once the GCC is mature, we transition knowledge, processes, and control to your internal team with continuity built into every step.",
+    desc: "Transition knowledge, processes, and control to your internal team.",
     icon: Handshake,
   },
 ];
@@ -120,7 +121,7 @@ const OffshoreTeams = () => {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
               >
-                Accelerate your growth by seamlessly embedding elite engineering and operational precision into your organization structure. We provide the talent, the space, and the legal compliance.
+                Embed elite engineering and operational precision into your organization. We provide the talent, space, and legal compliance.
               </motion.p>
 
               <motion.div
@@ -183,13 +184,44 @@ const OffshoreTeams = () => {
 
       {/* Main Content */}
       <div className="relative pb-16">
-        {/* BOT / GCC Journey */}
+        {/* 1. Why India — validate the decision first */}
+        <section className="py-16 relative z-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              subheading="The India Advantage"
+              heading="Why Companies Build Teams in India"
+              description="The premier global hub for tech innovation and resilient operations."
+            />
+            <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {advantages.map((a) => {
+                const Icon = a.icon;
+                return (
+                  <StaggerItem key={a.title}>
+                    <motion.div
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className="group relative p-8 rounded-3xl bg-card border border-border shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-300 h-full overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:bg-primary/10 transition-colors duration-500" />
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10">
+                        <Icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 relative z-10">{a.title}</h3>
+                      <p className="text-base text-muted-foreground leading-relaxed relative z-10">{a.desc}</p>
+                    </motion.div>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* 2. BOT / GCC Journey — how we execute */}
         <section id="engagement" className="py-16 relative z-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
               subheading="Build-Operate-Transfer (BOT) / GCC"
               heading="How the GCC Journey Takes Shape"
-              description="We set up your offshore center, run it with operational ownership, and transition it to your team when the foundation is ready to stand independently."
+              description="Set up, scale, and seamlessly transition your offshore center."
             />
             <div className="max-w-6xl mx-auto">
               <AnimatedSection className="mb-8">
@@ -246,13 +278,55 @@ const OffshoreTeams = () => {
           </div>
         </section>
 
-        {/* What We Provide */}
+        {/* 3. Roles — show the breadth of what's possible */}
+        <section className="py-16 relative z-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              subheading="Talent Across Every Function"
+              heading="Roles We Help You Build"
+              description="Access top-tier professionals across engineering, product, operations, and support functions — from individual contributors to team leads."
+            />
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+              {roleCategories.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <StaggerItem key={cat.category}>
+                    <div className="p-8 rounded-3xl bg-gradient-to-b from-card to-background border border-border shadow-sm hover:border-primary/40 transition-colors h-full">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-extrabold text-foreground mb-4">{cat.category}</h3>
+                      <ul className="space-y-3">
+                        {cat.roles.map((r) => (
+                          <li key={r} className="flex items-start gap-3 text-sm text-muted-foreground font-medium">
+                            <span className="mt-0.5 rounded-full bg-secondary/20 p-0.5">
+                              <Check className="w-3 h-3 text-secondary" />
+                            </span>
+                            {r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+            <AnimatedSection className="mt-6 text-center">
+              <p className="text-sm text-muted-foreground">
+                This is a non-exhaustive list. If you don't see the role you're hiring for,{" "}
+                <a href="/#contact" className="text-primary font-medium hover:underline">get in touch</a> — we source across a wide range of functions.
+              </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* 4. What We Provide — our specific capabilities */}
         <section className="py-16 relative z-20 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="End-To-End GCC Ownership" 
-              heading="A GCC Partner Across the Full Operating Model" 
-              description="TalentAccel helps companies design, launch, and run Global Capability Centers in India with one accountable partner across strategy, team buildout, HR, compliance, and operating continuity."
+            <SectionHeader
+              subheading="End-To-End GCC Ownership"
+              heading="A GCC Partner Across the Full Operating Model"
+              description="One accountable partner across strategy, hiring, HR, compliance, and operations."
             />
             <AnimatedSection className="mb-8">
               <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
@@ -293,58 +367,22 @@ const OffshoreTeams = () => {
           </div>
         </section>
 
-        {/* Roles */}
+        {/* 5. ROI — close with the economic case */}
         <section className="py-16 relative z-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="Specialized Technical Talent" 
-              heading="Roles We Help You Build" 
-              description="Access pre-vetted, top-tier professionals across engineering, sophisticated product management, and core business operations."
+            <SectionHeader
+              subheading="Economic Efficiency & Scale"
+              heading="The Velocity of Offshore Expansion"
+              description="Expand technical capabilities while maximizing your operational budget."
             />
-            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {roleCategories.map((cat, idx) => {
-                const Icon = cat.icon;
-                return (
-                  <StaggerItem key={cat.category}>
-                    <div className="p-8 rounded-3xl bg-gradient-to-b from-card to-background border border-border shadow-sm hover:border-primary/40 transition-colors h-full">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-extrabold text-foreground mb-4">{cat.category}</h3>
-                      <ul className="space-y-3">
-                        {cat.roles.map((r) => (
-                          <li key={r} className="flex items-start gap-3 text-sm text-muted-foreground font-medium">
-                            <span className="mt-0.5 rounded-full bg-secondary/20 p-0.5">
-                              <Check className="w-3 h-3 text-secondary" />
-                            </span>
-                            {r}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </StaggerItem>
-                );
-              })}
-            </StaggerContainer>
-          </div>
-        </section>
 
-        {/* The ROI of Offshore (Combo timeline & cost) */}
-        <section className="py-16 relative z-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="Economic Efficiency & Scale" 
-              heading="The Velocity of Offshore Expansion" 
-              description="Rapidly expand your technical capabilities while maximizing your operational budget and maintaining exceptional standards."
-            />
-            
             <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
               {/* Timeline */}
               <AnimatedSection className="space-y-8">
                 <h3 className="text-2xl font-bold text-foreground mb-6">Typical Growth Trajectory</h3>
                 <div className="relative pl-8 space-y-10 border-l-2 border-border">
                   {scalingTimeline.map((s, i) => (
-                    <motion.div 
+                    <motion.div
                       key={s.time}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -360,14 +398,14 @@ const OffshoreTeams = () => {
                   ))}
                 </div>
               </AnimatedSection>
-              
+
               {/* Cost Box */}
               <AnimatedSection>
                 <div className="rounded-3xl bg-gradient-to-br from-muted/80 to-background border border-border p-10 shadow-xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                  
+
                   <h3 className="text-xl font-bold text-foreground mb-8">Estimated Economic Advantage</h3>
-                  
+
                   <div className="space-y-6">
                     <div className="p-6 rounded-3xl bg-background border border-border flex justify-between items-center relative z-10 hover:border-red-500/30 transition-colors">
                       <div>
@@ -378,7 +416,7 @@ const OffshoreTeams = () => {
                         <p className="text-3xl font-extrabold text-foreground tracking-tight">$150K<span className="text-xl text-muted-foreground">+</span></p>
                       </div>
                     </div>
-                    
+
                     <div className="p-6 rounded-3xl bg-gradient-to-r from-primary/10 to-transparent border-l-4 border-l-primary flex justify-between items-center relative z-10 hover:border-l-secondary transition-all">
                       <div>
                         <p className="text-xs font-bold text-primary tracking-widest uppercase mb-1">India Hub</p>
@@ -389,7 +427,7 @@ const OffshoreTeams = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-8 pt-6 border-t border-border relative z-10 flex items-start gap-4">
                     <div className="bg-secondary/20 p-3 rounded-full shrink-0">
                       <Zap className="w-6 h-6 text-secondary" />
@@ -403,37 +441,6 @@ const OffshoreTeams = () => {
             </div>
           </div>
         </section>
-
-        {/* Why India */}
-        <section className="py-16 relative z-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader 
-              subheading="The India Advantage" 
-              heading="Why Companies Build Teams in India" 
-              description="India has evolved into the defining global hub for technology innovation, complex product development, and resilient business operations."
-            />
-            <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {advantages.map((a, i) => {
-                const Icon = a.icon;
-                return (
-                  <StaggerItem key={a.title}>
-                    <motion.div 
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      className="group relative p-8 rounded-3xl bg-card border border-border shadow-lg hover:shadow-2xl hover:border-primary/30 transition-all duration-300 h-full overflow-hidden"
-                    >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full translate-x-10 -translate-y-10 group-hover:bg-primary/10 transition-colors duration-500" />
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10">
-                        <Icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                      <h3 className="text-xl font-bold text-foreground mb-3 relative z-10">{a.title}</h3>
-                      <p className="text-base text-muted-foreground leading-relaxed relative z-10">{a.desc}</p>
-                    </motion.div>
-                  </StaggerItem>
-                );
-              })}
-            </StaggerContainer>
-          </div>
-        </section>
       </div>
 
       {/* CTA */}
@@ -442,9 +449,9 @@ const OffshoreTeams = () => {
           <AnimatedSection>
             <div className="rounded-[3rem] bg-gradient-hero p-10 lg:p-20 text-center overflow-hidden relative shadow-2xl">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-              <h2 className="text-4xl lg:text-5xl font-black text-primary-foreground mb-6 relative z-10 tracking-tight">Ready to Build Your Engineering Hub?</h2>
+              <h2 className="text-4xl lg:text-5xl font-black text-primary-foreground mb-6 relative z-10 tracking-tight">Ready to Build Your Hub?</h2>
               <p className="text-primary-foreground/80 text-lg lg:text-xl font-medium mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed">
-                TalentAccel connects you with top global talent while handling all the complex HR operations and legal scaffolding.
+                Access top global talent while we handle complex HR operations and legal scaffolding.
               </p>
               <div className="relative z-10 flex justify-center gap-4">
                 <a href="/#contact" className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-secondary text-secondary-foreground font-bold text-lg hover:shadow-[0_0_30px_rgba(var(--secondary),0.5)] transition-all hover:scale-105 duration-300">

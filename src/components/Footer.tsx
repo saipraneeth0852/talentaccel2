@@ -148,35 +148,6 @@ export const Footer = () => (
               </svg>
             </a>
           </div>
-
-          <div className="space-y-4">
-            <a
-              href="mailto:biz@talentaccel.com"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
-            >
-              <Mail className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> biz@talentaccel.com
-            </a>
-            <a
-              href="tel:+918217642293"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
-            >
-              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8217642293
-            </a>
-            <a
-              href="tel:+918431867096"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
-            >
-              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8431867096
-            </a>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=2nd+floor%2C+3G68%2B8F5%2C+Shettihalli+Main+Rd%2C+Jalahalli+West%2C+Bengaluru%2C+Karnataka+560015"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
-            >
-              <MapPin className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> Jalahalli West, Bengaluru 560015
-            </a>
-          </div>
         </div>
 
         {/* Link columns */}
@@ -197,6 +168,63 @@ export const Footer = () => (
             </ul>
           </div>
         ))}
+      </div>
+
+      {/* Contact & Addresses Row */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 py-10 border-t border-white/10">
+        <div>
+          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Get in Touch</h4>
+          <div className="space-y-3">
+            <a
+              href="mailto:biz@talentaccel.com"
+              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+            >
+              <Mail className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> biz@talentaccel.com
+            </a>
+            <a
+              href="tel:+918217642293"
+              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+            >
+              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8217642293
+            </a>
+            <a
+              href="tel:+918431867096"
+              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+            >
+              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8431867096
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Corporate Address</h4>
+          <div className="flex items-start gap-3 text-[14px] text-white/90">
+            <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=NO.+05,+10TH+CROSS,+WILSON+GARDEN,+BANGALORE+560027,+KARNATAKA,+INDIA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="leading-relaxed hover:text-white transition-colors"
+            >
+              NO. 05, 10TH CROSS, WILSON GARDEN,<br/>BANGALORE – 560027, KARNATAKA, INDIA.
+            </a>
+          </div>
+        </div>
+
+        <div>
+           <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Office Address</h4>
+           <div className="flex items-start gap-3 text-[14px] text-white/90">
+             <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
+             <a
+               href="https://www.google.com/maps/search/?api=1&query=2nd+floor%2C+3G68%2B8F5%2C+Shettihalli+Main+Rd%2C+Jalahalli+West%2C+Bengaluru%2C+Karnataka+560015"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="leading-relaxed hover:text-white transition-colors"
+             >
+               2nd floor, 3G68+8F5, Shettihalli Main Rd,<br/>Jalahalli West, Bengaluru, Karnataka 560015
+             </a>
+           </div>
+        </div>
       </div>
 
       <div className="border-t border-white/10 pt-6">
