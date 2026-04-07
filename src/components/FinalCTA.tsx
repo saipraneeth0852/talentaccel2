@@ -11,11 +11,11 @@ export const FinalCTA = () => {
         <div className="relative rounded-3xl bg-gradient-hero p-6 sm:p-10 lg:p-20 text-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(161_100%_45%/0.15),transparent_60%)]" />
           <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-primary-foreground mb-5">
-              Ready to scale?
+            <h2 className="cta-title text-primary-foreground mb-5">
+              Ready to Scale with Confidence?
             </h2>
-            <p className="text-base sm:text-lg text-primary-foreground/70 mb-8 sm:mb-10 max-w-xl mx-auto">
-              Let's build a people function tailored to your growth.
+            <p className="cta-subtitle text-primary-foreground/80 mb-8 sm:mb-10 mx-auto">
+              Build a people function that matches your ambition, with the hiring, HR, payroll, and compliance support your next phase demands.
             </p>
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               <a

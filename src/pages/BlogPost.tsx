@@ -164,7 +164,7 @@ const BlogPost = () => {
               <span className="text-xs text-muted-foreground">{formatDate(article.createdAt)}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-foreground max-w-3xl">
+            <h1 className="page-title max-w-3xl">
               {article.title}
             </h1>
           </motion.div>
@@ -233,7 +233,7 @@ const BlogPost = () => {
         <section className="py-16 lg:py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-10">
-              <h2 className="text-2xl font-bold text-foreground">More Insights</h2>
+              <h2 className="section-title">More Insights</h2>
             </AnimatedSection>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {others.map((a) => (

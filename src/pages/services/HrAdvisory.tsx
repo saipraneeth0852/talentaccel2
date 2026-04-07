@@ -38,15 +38,15 @@ const HrAdvisory = () => (
             <Settings className="w-3.5 h-3.5" /> HR Advisory & Operations
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
             Structured, Scalable{" "}
             <span className="text-gradient-accent">HR Foundations</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            End-to-end HR support for growing companies. We design the people systems, policies, and frameworks that your organization needs to scale without chaos.
+            Design the people systems, policies, and decision frameworks your company needs to scale with more clarity, consistency, and operational discipline.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4"
@@ -74,7 +74,7 @@ const HrAdvisory = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What's Included</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Services Include</h2>
+          <h2 className="section-title mb-4">Services Include</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {servicesList.map((s) => (
@@ -94,7 +94,7 @@ const HrAdvisory = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">How We Work</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Advisory in Detail</h2>
+          <h2 className="section-title mb-4">Advisory in Detail</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {details.map((d) => {
@@ -120,7 +120,7 @@ const HrAdvisory = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Engagement</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">How We Engage</h2>
+          <h2 className="section-title mb-4">How We Engage</h2>
         </AnimatedSection>
         <StaggerContainer className="grid md:grid-cols-3 gap-6">
           {[
@@ -144,9 +144,9 @@ const HrAdvisory = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Build the HR foundation your company needs.</h2>
-            <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Start with a free HR audit — we'll assess your current processes and recommend the right solution.
+            <h2 className="cta-title text-primary-foreground mb-5">Build the HR Foundation Your Company Needs</h2>
+            <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+              Start with a focused HR audit, and we'll help you identify the people systems, policies, and priorities that deserve attention first.
             </p>
             <a href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
               Book a Free HR Audit <ArrowRight className="w-4 h-4" />

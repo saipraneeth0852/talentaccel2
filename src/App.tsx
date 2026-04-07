@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation, useNavigationType, NavigationType } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigationType, NavigationType, Navigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -24,14 +24,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const CaseStudyPost = lazy(() => import("./pages/CaseStudyPost"));
-const TalentAcquisition = lazy(() => import("./pages/services/TalentAcquisition"));
-const DedicatedTeams = lazy(() => import("./pages/services/DedicatedTeams"));
-const HrOperations = lazy(() => import("./pages/services/HrOperations"));
-const PayrollCompliance = lazy(() => import("./pages/services/PayrollCompliance"));
-const HrAdvisory = lazy(() => import("./pages/services/HrAdvisory"));
-const LearningDevelopment = lazy(() => import("./pages/services/LearningDevelopment"));
-const EmployeeExperience = lazy(() => import("./pages/services/EmployeeExperience"));
-const ExtendedWorkforce = lazy(() => import("./pages/services/ExtendedWorkforce"));
+const Services = lazy(() => import("./pages/Services"));
 const TalentEcosystemPage = lazy(() => import("./pages/TalentEcosystemPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SeedJobs = lazy(() => import("./pages/SeedJobs"));
@@ -164,14 +157,17 @@ const AnimatedRoutes = () => {
           <Route path="/talent-ecosystem" element={<PublicLayout><PageTransition><TalentEcosystemPage /></PageTransition></PublicLayout>} />
           <Route path="/case-studies" element={<PublicLayout><PageTransition><CaseStudiesPage /></PageTransition></PublicLayout>} />
           <Route path="/case-studies/:id" element={<PublicLayout><PageTransition><CaseStudyPost /></PageTransition></PublicLayout>} />
-          <Route path="/services/talent-acquisition" element={<PublicLayout><PageTransition><TalentAcquisition /></PageTransition></PublicLayout>} />
-          <Route path="/services/dedicated-teams" element={<PublicLayout><PageTransition><DedicatedTeams /></PageTransition></PublicLayout>} />
-          <Route path="/services/hr-operations" element={<PublicLayout><PageTransition><HrOperations /></PageTransition></PublicLayout>} />
-          <Route path="/services/payroll-compliance" element={<PublicLayout><PageTransition><PayrollCompliance /></PageTransition></PublicLayout>} />
-          <Route path="/services/hr-advisory" element={<PublicLayout><PageTransition><HrAdvisory /></PageTransition></PublicLayout>} />
-          <Route path="/services/learning-development" element={<PublicLayout><PageTransition><LearningDevelopment /></PageTransition></PublicLayout>} />
-          <Route path="/services/employee-experience" element={<PublicLayout><PageTransition><EmployeeExperience /></PageTransition></PublicLayout>} />
-          <Route path="/services/extended-workforce" element={<PublicLayout><PageTransition><ExtendedWorkforce /></PageTransition></PublicLayout>} />
+          <Route path="/services" element={<PublicLayout><PageTransition><Services /></PageTransition></PublicLayout>} />
+          {/* Legacy individual service routes - redirect to unified services page with anchors */}
+          <Route path="/services/talent-acquisition" element={<Navigate to="/services#talent-acquisition" replace />} />
+          <Route path="/services/hr-operations" element={<Navigate to="/services#hr-operations" replace />} />
+          <Route path="/services/hr-advisory" element={<Navigate to="/services#hr-advisory" replace />} />
+          <Route path="/services/learning-development" element={<Navigate to="/services#learning-development" replace />} />
+          <Route path="/services/employee-experience" element={<Navigate to="/services#employee-experience" replace />} />
+          <Route path="/services/extended-workforce" element={<Navigate to="/services#extended-workforce" replace />} />
+          {/* Redirect old multi-service routes to main services page */}
+          <Route path="/services/dedicated-teams" element={<Navigate to="/services" replace />} />
+          <Route path="/services/payroll-compliance" element={<Navigate to="/services" replace />} />
 
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

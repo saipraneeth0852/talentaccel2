@@ -19,7 +19,7 @@ export const TrustedBy = () => (
     <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
       <AnimatedSection className="text-center mb-12 max-w-4xl mx-auto">
         <h2 className="text-2xl md:text-[34px] font-medium text-muted-foreground leading-tight tracking-tight">
-          Trusted across <span className="font-bold text-foreground">fast-growing sectors</span> to build teams that scale
+          Trusted Across <span className="font-bold text-foreground">Fast-Growing Sectors</span> to Build Teams That Scale
         </h2>
       </AnimatedSection>
 

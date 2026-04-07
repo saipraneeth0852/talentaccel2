@@ -37,15 +37,15 @@ const DedicatedTeams = () => (
             <UserCheck className="w-3.5 h-3.5" /> Dedicated Hiring Teams
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
             Your Extended{" "}
             <span className="text-gradient-accent">Hiring Engine</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            Build your hiring engine with a dedicated TalentAccel recruitment team. We embed into your organization and work exclusively on your talent needs — like an in-house team, without the overhead.
+            Add an embedded hiring team that works like an extension of your business, giving your open roles the focus, consistency, and pace they need to close well.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4"
@@ -73,8 +73,8 @@ const DedicatedTeams = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">The Model</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">What You Get</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">A full dedicated team embedded into your hiring process — operating as your in-house recruitment function.</p>
+          <h2 className="section-title mb-4">What You Get</h2>
+          <p className="section-subtitle mx-auto text-center">A dedicated hiring pod that plugs into your process, reflects your brand, and operates with the ownership of an in-house function.</p>
         </AnimatedSection>
         <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {features.map((f) => {
@@ -101,7 +101,7 @@ const DedicatedTeams = () => (
         <div className="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
           <AnimatedSection>
             <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Why Dedicated</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">The Dedicated Advantage</h2>
+            <h2 className="section-title mb-6">The Dedicated Advantage</h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Unlike contingency hiring where a recruiter juggles dozens of clients, our Dedicated Team model gives you full focus, faster results, and complete alignment with your culture and goals.
             </p>
@@ -142,9 +142,9 @@ const DedicatedTeams = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Ready to build your hiring engine?</h2>
-            <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Tell us about your hiring needs and we'll set up a dedicated team in days.
+            <h2 className="cta-title text-primary-foreground mb-5">Ready to Build Your Hiring Engine?</h2>
+            <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+              Tell us what you need to hire, and we'll shape a dedicated team that can start building pipeline and momentum within days.
             </p>
             <a href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
               Get Started <ArrowRight className="w-4 h-4" />

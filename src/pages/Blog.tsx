@@ -78,18 +78,18 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
+                className="page-title mb-4"
               >
-                Talent & HR{" "}
+                Talent and HR{" "}
                 <span className="text-gradient-accent">Insights</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-muted-foreground max-w-xl"
+                className="page-subtitle"
               >
-                Practical guides on hiring, compliance, and building great teams — from the TalentAccel team.
+                Read clear, practical guidance on hiring, compliance, and people operations from teams doing the work in fast-moving growth environments.
               </motion.p>
             </div>
             <HeroImagePanel

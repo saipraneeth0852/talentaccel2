@@ -40,15 +40,15 @@ const HrOperations = () => (
             <FileText className="w-3.5 h-3.5" /> HR Operations
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
-            Zero Compliance Risk.{" "}
-            <span className="text-gradient-accent">Accurate Payroll.</span>
+            Reliable HR Operations and{" "}
+            <span className="text-gradient-accent">Accurate Payroll</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            We handle every aspect of payroll and statutory compliance so you can focus on running your business — not chasing filings.
+            Keep payroll, filings, and statutory obligations running smoothly with operational support that reduces risk and frees your team to focus elsewhere.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-3"
@@ -71,7 +71,7 @@ const HrOperations = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="mb-10">
-          <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
+          <h2 className="section-title mb-2">What's Included</h2>
         </AnimatedSection>
         <div className="flex flex-wrap gap-3">
           {servicesList.map((s) => (
@@ -107,8 +107,8 @@ const HrOperations = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Ready to simplify compliance?</h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Let our HR Operations team handle the filings, payroll, and compliance so you never miss a deadline.</p>
+            <h2 className="cta-title text-primary-foreground mb-4">Ready to Simplify Compliance?</h2>
+            <p className="cta-subtitle text-primary-foreground/80 mb-8 mx-auto">Let our HR Operations team run the payroll and compliance engine behind the scenes so nothing important slips through the cracks.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
             Talk to Us <ArrowRight className="w-4 h-4" />
           </Link>

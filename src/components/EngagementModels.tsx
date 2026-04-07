@@ -56,11 +56,11 @@ export const EngagementModels = () => {
             <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(37,99,235,0.35)] animate-pulse" />
             Flexible Partnerships
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight">
+          <h2 className="section-title mb-6">
             How We Engage With You
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            From tactical projects to fully managed people operations, our models are designed to scale alongside your organization.
+          <p className="section-subtitle mx-auto text-slate-500">
+            Choose the engagement model that fits your stage today, with enough flexibility to evolve as your team, priorities, and operating rhythm change.
           </p>
         </AnimatedSection>
 

@@ -40,15 +40,15 @@ const EmployeeExperience = () => (
             <Heart className="w-3.5 h-3.5" /> Employee Experience Solutions
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
-            Better Employee Experience{" "}
-            <span className="text-gradient-accent">Across the Lifecycle.</span>
+            Better Employee Experiences{" "}
+            <span className="text-gradient-accent">Across the Lifecycle</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            From the first day to the last, we help you build employee experiences that drive engagement, loyalty, and pride in your organisation.
+            Shape employee moments with more intention, from onboarding through exit, so people feel supported, recognised, and connected throughout their journey.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-3"
@@ -71,7 +71,7 @@ const EmployeeExperience = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="mb-10">
-          <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
+          <h2 className="section-title mb-2">What's Included</h2>
         </AnimatedSection>
         <div className="flex flex-wrap gap-3">
           {servicesList.map((s) => (
@@ -107,8 +107,8 @@ const EmployeeExperience = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Invest in your people's experience</h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Engaged employees stay longer, perform better, and become your best advocates. Let's build that together.</p>
+          <h2 className="cta-title text-primary-foreground mb-4">Invest in Your People's Experience</h2>
+          <p className="cta-subtitle text-primary-foreground/80 mb-8 mx-auto">Create employee experiences that strengthen belonging, reinforce culture, and give your team more reasons to stay and perform at their best.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
             Talk to Us <ArrowRight className="w-4 h-4" />
           </Link>

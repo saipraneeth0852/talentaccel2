@@ -11,37 +11,37 @@ const serviceItems = [
     icon: Users,
     title: "Talent Acquisition",
     desc: "End-to-end hiring across all engagement types",
-    href: "/services/talent-acquisition",
+    href: "/services#talent-acquisition",
   },
   {
     icon: FileText,
     title: "HR Operations",
     desc: "Complete payroll management and statutory compliance",
-    href: "/services/hr-operations",
+    href: "/services#hr-operations",
   },
   {
     icon: Settings,
     title: "HR Advisory",
     desc: "Strategic HR foundations to structure and scale",
-    href: "/services/hr-advisory",
+    href: "/services#hr-advisory",
   },
   {
     icon: GraduationCap,
     title: "Learning & Development",
     desc: "Capability-building programmes that develop leaders",
-    href: "/services/learning-development",
+    href: "/services#learning-development",
   },
   {
     icon: Heart,
     title: "Employee Experience",
     desc: "Everything that makes your employees feel valued",
-    href: "/services/employee-experience",
+    href: "/services#employee-experience",
   },
   {
     icon: Globe,
     title: "Extended Workforce",
     desc: "Specialist services beyond traditional HR",
-    href: "/services/extended-workforce",
+    href: "/services#extended-workforce",
   },
 ];
 
@@ -68,8 +68,8 @@ const resourceItems = [
 
 const navItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
-  { label: "Services", type: "mega-menu", items: serviceItems, icon: Briefcase, href: "/#services", hash: "#services" },
-  { label: "GCC", href: "/offshore-teams", hash: "", icon: Globe },
+  { label: "Services", type: "mega-menu", items: serviceItems, icon: Briefcase, href: "/services", hash: "" },
+  { label: "Global Teams (GCC)", href: "/offshore-teams", hash: "", icon: Globe },
   { label: "Resources", type: "dropdown", items: resourceItems, icon: Lightbulb },
   { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
   { label: "About", href: "/about", hash: "", icon: Users },
@@ -78,7 +78,7 @@ const navItems = [
 
 const mobileNavItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
-  { label: "Services", href: "/#services", hash: "#services", icon: Briefcase },
+  { label: "Services", href: "/services", hash: "", icon: Briefcase },
   { label: "Case Studies", href: "/case-studies", hash: "", icon: FileText },
   { label: "Contact", href: "/contact", hash: "", icon: Phone },
   { label: "More", action: "menu", icon: Menu },

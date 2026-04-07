@@ -55,7 +55,7 @@ const About = () => (
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+              className="page-title mb-6"
             >
               The People Partner for{" "}
               <span className="text-gradient-accent">India's Growing Companies</span>
@@ -64,9 +64,9 @@ const About = () => (
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+              className="page-subtitle"
             >
-              TalentAccel manages your full <strong>recruitment</strong>, <strong>HR operations</strong>, <strong>payroll</strong>, and <strong>compliance</strong> stack—so your leadership can stay focused on <strong>building the product</strong> and <strong>scaling the business</strong>.
+              TalentAccel builds the people backbone behind ambitious companies, combining recruitment, HR operations, payroll, and compliance so leadership can stay focused on growth.
             </motion.p>
           </div>
           <HeroImagePanel
@@ -84,8 +84,16 @@ const About = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <AnimatedSection>
-            <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Mission</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">We exist so you can focus on building</h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-3"
+            >
+              <span className="w-2 h-2 rounded-full bg-secondary" />
+              Our Mission
+            </motion.div>
+            <h2 className="section-title mb-6">We Exist So You Can Focus on Building</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Growing companies shouldn't have to spend their best energy on hiring complexity, payroll errors, and compliance risk. That's where we come in.
             </p>
@@ -116,8 +124,15 @@ const About = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Partners</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Our Team</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-secondary" />
+            Partners
+          </motion.div>
         </AnimatedSection>
         <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {team.map((member) => (
@@ -157,8 +172,16 @@ const About = () => (
     <section className="py-16 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
-          <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What We Stand For</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Our Values</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-secondary" />
+            What We Stand For
+          </motion.div>
+          <h2 className="section-title mb-4">Our Values</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((v) => {
@@ -184,11 +207,11 @@ const About = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-            <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-5">
-              Let's talk about your team
+            <h2 className="cta-title text-primary-foreground mb-5">
+              Let's Talk About Your Team
             </h2>
-            <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Whether you need to hire now or want to build a better HR foundation — we're happy to start with a conversation.
+            <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+              Whether you need to hire now, strengthen your HR foundation, or plan the next stage of growth, we can help you map the right move.
             </p>
             <a
               href="mailto:biz@talentaccel.com"

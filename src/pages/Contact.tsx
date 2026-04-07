@@ -69,7 +69,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
+                className="page-title mb-4"
               >
                 Let's Build Your Team{" "}
                 <span className="text-gradient-accent">Together</span>
@@ -78,9 +78,9 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-muted-foreground max-w-xl"
+                className="page-subtitle"
               >
-                Reach out for a free consultation. We'll assess your needs and recommend the right HR and talent solution.
+                Tell us where the friction is across hiring, HR, or compliance, and we'll help you identify the support model that best fits your stage and priorities.
               </motion.p>
             </div>
             <HeroImagePanel
@@ -126,7 +126,7 @@ const Contact = () => {
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Company Headquarters</p>
+                      <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wide font-semibold">Operations Office</p>
                       <p className="text-sm font-medium text-foreground leading-relaxed">
                         2nd floor, 3G68+8F5, Shettihalli Main Rd,<br />
                         Jalahalli West, Bengaluru, Karnataka 560015
@@ -271,9 +271,9 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm leading-none hover:opacity-90 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {submitting ? "Sending…" : <><span>Send Message</span> <Send className="w-4 h-4" /></>}
+                    {submitting ? "Sending…" : <><span>Send Message</span> <span className="flex items-center justify-center"><Send className="w-4 h-4" /></span></>}
                   </button>
                 </form>
               )}

@@ -38,15 +38,15 @@ const LearningDevelopment = () => (
             <GraduationCap className="w-3.5 h-3.5" /> Learning & Development
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
             Skilled Teams.{" "}
-            <span className="text-gradient-accent">Future-Ready Leaders.</span>
+            <span className="text-gradient-accent">Future-Ready Leaders</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            We design and deliver L&D programmes that close real skill gaps, develop your next generation of leaders, and keep your team ahead of the curve.
+            Build learning experiences that close real capability gaps, strengthen managers before the role stretches them, and prepare your team for what comes next.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-3"
@@ -69,7 +69,7 @@ const LearningDevelopment = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="mb-10">
-          <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
+          <h2 className="section-title mb-2">What's Included</h2>
         </AnimatedSection>
         <div className="flex flex-wrap gap-3">
           {servicesList.map((s) => (
@@ -105,8 +105,8 @@ const LearningDevelopment = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Build a learning culture</h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Work with TalentAccel to design an L&D programme that actually sticks — not just a one-day workshop.</p>
+          <h2 className="cta-title text-primary-foreground mb-4">Build a Learning Culture</h2>
+          <p className="cta-subtitle text-primary-foreground/80 mb-8 mx-auto">Design an L&D approach that creates lasting capability, not just one-off sessions that feel good for a day and disappear by Monday.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
             Talk to Us <ArrowRight className="w-4 h-4" />
           </Link>
