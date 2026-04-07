@@ -31,22 +31,22 @@ const botStages = [
   {
     stage: "01",
     label: "Build",
-    title: "Set Up Your GCC Foundation",
-    desc: "Establish the operating model, hiring plan, and compliance structure.",
+    title: "Start Strong, Scale Faster",
+    desc: "We design your GCC operating model, define the hiring plan, and set up compliant HR and payroll systems so your India hub launches with clarity and control.",
     icon: Building2,
   },
   {
     stage: "02",
     label: "Operate",
-    title: "Run with Full Operational Ownership",
-    desc: "Manage day-to-day execution across hiring, payroll, and compliance.",
+    title: "We Run the Engine, You Drive Growth",
+    desc: "We manage daily execution across hiring, payroll, HR operations, and governance so your leadership can focus on product, customers, and business growth.",
     icon: Settings2,
   },
   {
     stage: "03",
     label: "Transfer",
-    title: "Hand Over with Confidence",
-    desc: "Transition knowledge, processes, and control to your internal team.",
+    title: "Seamless Handover, Full Ownership",
+    desc: "When you are ready, we transfer every process, playbook, and key relationship to your internal team through a structured transition with no disruption or loss of momentum.",
     icon: Handshake,
   },
 ];
@@ -71,8 +71,8 @@ const SectionHeader = ({
       <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
       {subheading}
     </div>
-    <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">{heading}</h2>
-    <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">{description}</p>
+    <h2 className="section-title mb-4">{heading}</h2>
+    <p className="section-subtitle mx-auto">{description}</p>
   </AnimatedSection>
 );
 
@@ -107,9 +107,9 @@ const OffshoreTeams = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground mb-8"
+                className="page-title mb-8"
               >
-                Build Unstoppable <br className="hidden sm:block" />
+                Build High-Performing <br className="hidden sm:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-secondary">
                   Teams in India
                 </span>
@@ -119,9 +119,9 @@ const OffshoreTeams = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
+                className="page-subtitle mb-10"
               >
-                Embed elite engineering and operational precision into your organization. We provide the talent, space, and legal compliance.
+                Build your India team on a strong operating foundation, with the talent, compliance, and day-to-day execution support needed to scale with confidence.
               </motion.p>
 
               <motion.div
@@ -190,7 +190,7 @@ const OffshoreTeams = () => {
             <SectionHeader
               subheading="The India Advantage"
               heading="Why Companies Build Teams in India"
-              description="The premier global hub for tech innovation and resilient operations."
+              description="India offers the talent density, execution depth, and operating leverage companies need to build serious teams without compromising on quality."
             />
             <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {advantages.map((a) => {
@@ -221,24 +221,30 @@ const OffshoreTeams = () => {
             <SectionHeader
               subheading="Build-Operate-Transfer (BOT) / GCC"
               heading="How the GCC Journey Takes Shape"
-              description="Set up, scale, and seamlessly transition your offshore center."
+              description="From first hire to full ownership — a structured path that moves fast without burning bridges. Build now, own it forever."
             />
             <div className="max-w-6xl mx-auto">
               <AnimatedSection className="mb-8">
-                <div className="rounded-3xl bg-card border border-border shadow-sm px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className="rounded-3xl bg-card border border-border shadow-sm px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Globe className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-foreground">India Hub, Built Around Your GCC Model</p>
-                      <p className="text-sm text-muted-foreground">A structured path from setup to handover, designed for long-term ownership.</p>
+                      <p className="text-sm font-bold text-foreground">India Hub, Built Around Your GCC Model</p>
+                      <p className="text-sm text-muted-foreground mt-0.5">From setup to handover — designed for long-term ownership.</p>
                     </div>
                   </div>
-                  <div className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                    Global team
-                    <ArrowRight className="w-4 h-4" />
-                    India GCC
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-muted border border-border text-xs font-semibold text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
+                      Global Team
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold shadow-sm shadow-primary/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
+                      India GCC
+                    </span>
                   </div>
                 </div>
               </AnimatedSection>
@@ -284,28 +290,34 @@ const OffshoreTeams = () => {
             <SectionHeader
               subheading="Talent Across Every Function"
               heading="Roles We Help You Build"
-              description="Access top-tier professionals across engineering, product, operations, and support functions — from individual contributors to team leads."
+              description="Whatever your GCC needs to run at full capacity — we source it. Senior leaders to specialists, across every function that matters."
             />
             <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
               {roleCategories.map((cat) => {
                 const Icon = cat.icon;
                 return (
                   <StaggerItem key={cat.category}>
-                    <div className="p-8 rounded-3xl bg-gradient-to-b from-card to-background border border-border shadow-sm hover:border-primary/40 transition-colors h-full">
+                    <div className="p-8 rounded-3xl bg-gradient-to-b from-card to-background border border-border shadow-sm hover:border-primary/40 hover:shadow-md transition-all duration-300 h-full flex flex-col">
                       <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                         <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="text-lg font-extrabold text-foreground mb-4">{cat.category}</h3>
-                      <ul className="space-y-3">
+                      <ul className="space-y-3 flex-1">
                         {cat.roles.map((r) => (
                           <li key={r} className="flex items-start gap-3 text-sm text-muted-foreground font-medium">
-                            <span className="mt-0.5 rounded-full bg-secondary/20 p-0.5">
+                            <span className="mt-0.5 rounded-full bg-secondary/20 p-0.5 flex-shrink-0">
                               <Check className="w-3 h-3 text-secondary" />
                             </span>
                             {r}
                           </li>
                         ))}
                       </ul>
+                      <a
+                        href="/contact"
+                        className="mt-6 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full border border-primary/30 text-primary text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+                      >
+                        Get in Touch <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
                     </div>
                   </StaggerItem>
                 );
@@ -313,8 +325,8 @@ const OffshoreTeams = () => {
             </StaggerContainer>
             <AnimatedSection className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
-                This is a non-exhaustive list. If you don't see the role you're hiring for,{" "}
-                <a href="/#contact" className="text-primary font-medium hover:underline">get in touch</a> — we source across a wide range of functions.
+                Don't see the exact role?{" "}
+                <a href="/#contact" className="text-primary font-medium hover:underline">Tell us what you need</a> — we source across a far wider range than what's listed here.
               </p>
             </AnimatedSection>
           </div>
@@ -326,7 +338,7 @@ const OffshoreTeams = () => {
             <SectionHeader
               subheading="End-To-End GCC Ownership"
               heading="A GCC Partner Across the Full Operating Model"
-              description="One accountable partner across strategy, hiring, HR, compliance, and operations."
+              description="Work with one accountable partner across strategy, hiring, launch, HR operations, compliance, and operating discipline from day one onward."
             />
             <AnimatedSection className="mb-8">
               <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
@@ -373,7 +385,7 @@ const OffshoreTeams = () => {
             <SectionHeader
               subheading="Economic Efficiency & Scale"
               heading="The Velocity of Offshore Expansion"
-              description="Expand technical capabilities while maximizing your operational budget."
+              description="Expand technical capacity and operating range while directing more of your budget into product, growth, and strategic priorities."
             />
 
             <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
@@ -449,9 +461,9 @@ const OffshoreTeams = () => {
           <AnimatedSection>
             <div className="rounded-[3rem] bg-gradient-hero p-10 lg:p-20 text-center overflow-hidden relative shadow-2xl">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-              <h2 className="text-4xl lg:text-5xl font-black text-primary-foreground mb-6 relative z-10 tracking-tight">Ready to Build Your Hub?</h2>
-              <p className="text-primary-foreground/80 text-lg lg:text-xl font-medium mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed">
-                Access top global talent while we handle complex HR operations and legal scaffolding.
+              <h2 className="cta-title text-primary-foreground mb-6 relative z-10">Ready to Build Your India Hub?</h2>
+              <p className="cta-subtitle text-primary-foreground/85 font-medium mb-10 mx-auto relative z-10">
+                Access high-calibre talent while we handle the operating model, HR execution, and compliance scaffolding that keeps expansion moving.
               </p>
               <div className="relative z-10 flex justify-center gap-4">
                 <a href="/#contact" className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-secondary text-secondary-foreground font-bold text-lg hover:shadow-[0_0_30px_rgba(var(--secondary),0.5)] transition-all hover:scale-105 duration-300">

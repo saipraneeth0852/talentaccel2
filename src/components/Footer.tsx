@@ -70,7 +70,7 @@ export const Footer = () => (
               Talent<span className="text-[#00E59D]">Accel</span>
             </span>
           </div>
-          <p className="text-white/95 text-[15px] leading-relaxed mb-6 max-w-[280px]">
+          <p className="text-white text-[15px] leading-relaxed mb-6 max-w-[280px] font-medium">
             Helping growing companies build strong teams and thoughtful people operations.
           </p>
 
@@ -79,7 +79,7 @@ export const Footer = () => (
               href="https://facebook.com/talentaccel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-[#1877F2] transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on Facebook"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@ export const Footer = () => (
               href="https://instagram.com/talentaccel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-[#E4405F] transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on Instagram"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@ export const Footer = () => (
               href="https://linkedin.com/company/talentaccel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-[#0A66C2] transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -110,7 +110,7 @@ export const Footer = () => (
               href="https://pinterest.com/talentaccel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-[#BD081C] transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on Pinterest"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@ export const Footer = () => (
               href="https://x.com/talentaccel"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-white transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on X (formerly Twitter)"
             >
               <svg
@@ -136,7 +136,7 @@ export const Footer = () => (
               href="https://wa.me/918217642293"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-[#25D366] transition-colors"
+              className="text-white hover:text-white transition-colors"
               aria-label="TalentAccel on WhatsApp"
             >
               <svg
@@ -153,13 +153,13 @@ export const Footer = () => (
         {/* Link columns */}
         {Object.entries(footerLinks).map(([title, links]) => (
           <div key={title}>
-            <h4 className="font-semibold text-[16px] mb-6 text-white">{title}</h4>
+            <h4 className="font-bold text-[16px] mb-6 text-white">{title}</h4>
             <ul className="space-y-4">
               {links.map(({ label, href }) => (
                 <li key={label}>
                   <Link
                     to={href}
-                    className="text-[14px] text-white/85 hover:text-white transition-colors duration-200"
+                    className="text-[14px] text-white hover:text-white transition-colors duration-200 font-medium"
                   >
                     {label}
                   </Link>
@@ -173,33 +173,33 @@ export const Footer = () => (
       {/* Contact & Addresses Row */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 py-10 border-t border-white/10">
         <div>
-          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Get in Touch</h4>
+          <h4 className="text-[12px] text-white uppercase tracking-widest mb-4 font-bold">Get in Touch</h4>
           <div className="space-y-3">
             <a
               href="mailto:biz@talentaccel.com"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+              className="flex items-center gap-3 text-[14px] text-white hover:text-white transition-colors font-medium"
             >
-              <Mail className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> biz@talentaccel.com
+              <Mail className="w-[18px] h-[18px] text-white/90" strokeWidth={1.5} /> biz@talentaccel.com
             </a>
             <a
               href="tel:+918217642293"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+              className="flex items-center gap-3 text-[14px] text-white hover:text-white transition-colors font-medium"
             >
-              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8217642293
+              <Phone className="w-[18px] h-[18px] text-white/90" strokeWidth={1.5} /> +91 8217642293
             </a>
             <a
               href="tel:+918431867096"
-              className="flex items-center gap-3 text-[14px] text-white/90 hover:text-white transition-colors"
+              className="flex items-center gap-3 text-[14px] text-white hover:text-white transition-colors font-medium"
             >
-              <Phone className="w-[18px] h-[18px] text-white/70" strokeWidth={1.5} /> +91 8431867096
+              <Phone className="w-[18px] h-[18px] text-white/90" strokeWidth={1.5} /> +91 8431867096
             </a>
           </div>
         </div>
 
         <div>
-          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Corporate Headquarters</h4>
-          <div className="flex items-start gap-3 text-[14px] text-white/90">
-            <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
+          <h4 className="text-[12px] text-white uppercase tracking-widest mb-4 font-bold">Corporate Headquarters</h4>
+          <div className="flex items-start gap-3 text-[14px] text-white font-medium">
+            <MapPin className="w-[18px] h-[18px] text-white/90 shrink-0 mt-0.5" strokeWidth={1.5} />
             <a
               href="https://www.google.com/maps/search/?api=1&query=NO.+05,+10TH+CROSS,+WILSON+GARDEN,+BANGALORE+560027,+KARNATAKA,+INDIA"
               target="_blank"
@@ -212,9 +212,9 @@ export const Footer = () => (
         </div>
 
         <div>
-           <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Operations Office</h4>
-           <div className="flex items-start gap-3 text-[14px] text-white/90">
-             <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
+           <h4 className="text-[12px] text-white uppercase tracking-widest mb-4 font-bold">Operations Office</h4>
+           <div className="flex items-start gap-3 text-[14px] text-white font-medium">
+             <MapPin className="w-[18px] h-[18px] text-white/90 shrink-0 mt-0.5" strokeWidth={1.5} />
              <a
                href="https://www.google.com/maps/search/?api=1&query=2nd+floor%2C+3G68%2B8F5%2C+Shettihalli+Main+Rd%2C+Jalahalli+West%2C+Bengaluru%2C+Karnataka+560015"
                target="_blank"
@@ -228,7 +228,7 @@ export const Footer = () => (
       </div>
 
       <div className="border-t border-white/10 pt-6">
-        <p className="text-[13px] text-white/80">
+        <p className="text-[13px] text-white/90 font-medium">
           © 2026 TalentAccel. All rights reserved.
         </p>
       </div>

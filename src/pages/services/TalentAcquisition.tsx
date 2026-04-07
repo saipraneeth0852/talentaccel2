@@ -36,15 +36,15 @@ const TalentAcquisition = () => (
             <Users className="w-3.5 h-3.5" /> Talent Acquisition
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
-            Hire the Right Talent,{" "}
+            Hire the Right Talent{" "}
             <span className="text-gradient-accent">Faster</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            We help companies hire the right talent quickly and efficiently. From permanent hiring to executive search and tech roles, TalentAccel is your end-to-end recruitment partner.
+            Build a sharper, faster hiring engine with a partner that can source, assess, and close the talent your business needs at every stage of growth.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4"
@@ -72,7 +72,7 @@ const TalentAcquisition = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What's Included</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Services Include</h2>
+          <h2 className="section-title mb-4">Services Include</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {servicesList.map((s) => (
@@ -92,7 +92,7 @@ const TalentAcquisition = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Our Approach</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">How We Help</h2>
+          <h2 className="section-title mb-4">How We Help</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {howWeHelp.map((h) => {
@@ -119,7 +119,7 @@ const TalentAcquisition = () => (
         <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <AnimatedSection>
             <div className="p-8 rounded-2xl bg-card border border-border shadow-card h-full">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Ideal For</h2>
+              <h2 className="section-title mb-6">Ideal For</h2>
               <ul className="space-y-4">
                 {idealFor.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-foreground">
@@ -132,7 +132,7 @@ const TalentAcquisition = () => (
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
             <div className="p-8 rounded-2xl bg-card border border-border shadow-card h-full">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Our Model</h2>
+              <h2 className="section-title mb-6">Our Model</h2>
               <ul className="space-y-4">
                 {model.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-foreground">
@@ -154,9 +154,9 @@ const TalentAcquisition = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Ready to hire smarter?</h2>
-            <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Let TalentAccel build a recruitment engine tailored to your growth stage.
+            <h2 className="cta-title text-primary-foreground mb-5">Ready to Hire Smarter?</h2>
+            <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+              Build a recruitment engine designed around your growth stage, team needs, and the kind of talent you cannot afford to miss.
             </p>
             <a href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
               Book a Hiring Consultation <ArrowRight className="w-4 h-4" />

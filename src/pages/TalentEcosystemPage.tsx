@@ -31,18 +31,18 @@ const TalentEcosystemPage = () => (
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
+              className="page-title mb-4"
             >
-              Your challenges,{" "}
-              <span className="text-gradient-accent">our solutions</span>
+              Your Challenges,{" "}
+              <span className="text-gradient-accent">Our Solutions</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg text-muted-foreground max-w-xl"
+              className="page-subtitle"
             >
-              See how every people challenge maps to a structured solution — from hiring and compliance to leadership development and retention.
+              See how recurring people challenges connect to the right mix of hiring, compliance, leadership, and employee experience solutions across your business.
             </motion.p>
           </div>
           <HeroImagePanel

@@ -21,8 +21,8 @@ export const Industries = () => (
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
             Industries
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground tracking-tight">
-            We specialize in hiring for <span className="text-muted-foreground">high-growth sectors.</span>
+          <h2 className="section-title">
+            We Specialize in Hiring for <span className="text-muted-foreground">High-Growth Sectors.</span>
           </h2>
         </div>
       </AnimatedSection>

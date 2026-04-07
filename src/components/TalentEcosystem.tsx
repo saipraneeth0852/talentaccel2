@@ -10,54 +10,54 @@ import { Link } from "react-router-dom";
 const workflowData = [
   {
     challengeTitle: "Roles sit empty while your team burns out.",
-    challengeDesc: "Stop letting vacant roles stall growth.",
+    challengeDesc: "Open engineering and product roles slow delivery, stretch teams, and weaken hiring momentum.",
     solutionLabel: "Active Talent Acquisition",
-    solutionDesc: "We own your recruitment pipeline to close roles fast.",
+    solutionDesc: "Our talent acquisition team runs sourcing to offer closure, reducing time-to-hire and scaling critical roles faster.",
     solutionHref: "/services/talent-acquisition",
     icon: Users,
     color: "from-blue-500 to-indigo-500"
   },
   {
     challengeTitle: "Compliance is a legal minefield you can't ignore.",
-    challengeDesc: "Statutory compliance shouldn't be your job.",
+    challengeDesc: "As headcount grows, payroll compliance and statutory filings become harder to track, raising audit risk.",
     solutionLabel: "Seamless HR Operations",
-    solutionDesc: "Zero-risk statutory compliance. We handle multi-state filings and payroll operations so you stay audit-ready.",
+    solutionDesc: "We manage payroll, multi-state statutory compliance, and audit-ready records so your operations stay compliant.",
     solutionHref: "/services/hr-operations",
     icon: Shield,
     color: "from-emerald-500 to-teal-500"
   },
   {
     challengeTitle: "People operations need more structure as you scale.",
-    challengeDesc: "Your systems need to evolve as the business grows.",
+    challengeDesc: "Ad hoc policies and unclear ownership create delays, inconsistent decisions, and people-ops friction as you scale.",
     solutionLabel: "Strategic HR Advisory",
-    solutionDesc: "Strategic HR frameworks that scale—deploying org design and performance models to support your growing team.",
+    solutionDesc: "Our HR advisory services align org design, policies, and performance frameworks for structured, scalable growth.",
     solutionHref: "/services/hr-advisory",
     icon: Settings,
     color: "from-orange-500 to-red-500"
   },
   {
     challengeTitle: "Leading teams is a skill, not just a promotion.",
-    challengeDesc: "Individual contributors often struggle adjusting to leadership.",
+    challengeDesc: "New managers are often promoted without support, leading to communication gaps and uneven execution.",
     solutionLabel: "Management Development",
-    solutionDesc: "Transform top performers into capable managers with high-impact leadership development.",
+    solutionDesc: "Our leadership development programs build coaching and decision skills that improve retention and team performance.",
     solutionHref: "/services/learning-development",
     icon: GraduationCap,
     color: "from-purple-500 to-pink-500"
   },
   {
     challengeTitle: "Culture doesn't happen by accident—it's designed.",
-    challengeDesc: "Undefined culture leads to high attrition rates.",
+    challengeDesc: "Inconsistent onboarding and recognition reduce engagement, increase attrition, and weaken your employer brand.",
     solutionLabel: "Retention by Design",
-    solutionDesc: "Intentional employee experience and onboarding that converts new hires into long-term assets.",
+    solutionDesc: "We design employee experience programs across onboarding and lifecycle moments to strengthen culture and retention.",
     solutionHref: "/services/employee-experience",
     icon: Heart,
     color: "from-rose-500 to-orange-500"
   },
   {
     challengeTitle: "Expanding globally shouldn't feel overwhelming.",
-    challengeDesc: "Offshore constraints stall international momentum.",
+    challengeDesc: "Global expansion slows when offshore hiring, compliance setup, and operations are fragmented across vendors.",
     solutionLabel: "Extended Workforce Solutions",
-    solutionDesc: "Turn-key offshore setups and employer branding to accelerate your international workforce expansion.",
+    solutionDesc: "Our extended workforce solutions launch and scale global capability centers with clear governance and execution.",
     solutionHref: "/services/extended-workforce",
     icon: Globe,
     color: "from-cyan-500 to-blue-500"
@@ -165,11 +165,11 @@ export const TalentEcosystem = () => {
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
             People Operations
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight leading-tight max-w-3xl mx-auto">
-            People operations tailored for growth
+          <h2 className="section-title mb-4 leading-tight max-w-3xl mx-auto">
+            People Operations Tailored for Growth
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed mt-4">
-            Build scalable structure across hiring, HR, payroll, and compliance to drive momentum with confidence.
+          <p className="section-subtitle text-slate-500 mx-auto mt-4">
+            Explore how the right mix of hiring, HR, payroll, compliance, and leadership support can remove friction and create room for better growth.
           </p>
         </AnimatedSection>
 

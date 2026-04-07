@@ -58,11 +58,12 @@ export const Services = () => (
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
             Services
           </div>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6 tracking-tight leading-tight">
-            Comprehensive support for stronger teams
+          <h2 className="page-title mb-6">
+            Comprehensive Support for{" "}
+            <span className="text-gradient-accent drop-shadow-sm">Stronger Teams</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            End-to-end talent acquisition, HR operations, and employee experience under one roof.
+          <p className="section-subtitle max-w-2xl">
+            Bring talent acquisition, HR operations, and employee experience together under one trusted partner, so your team can move faster, stay aligned, and scale with more confidence.
           </p>
         </AnimatedSection>
 

@@ -5,6 +5,22 @@ import { useAuditModal } from "@/contexts/AuditModalContext";
 
 export const Hero = () => {
   const { openAudit } = useAuditModal();
+
+  const scrollToHowItWorks = () => {
+    const section = document.getElementById("how-it-works");
+    if (!section) return;
+
+    const navOffset = window.innerWidth >= 1024 ? 112 : 88;
+    const targetTop = section.getBoundingClientRect().top + window.scrollY - navOffset;
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", "#how-it-works");
+  };
+
   return (
   <section className="relative min-h-screen flex items-center overflow-hidden">
     {/* Subtle background gradient */}
@@ -28,19 +44,19 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-[2rem] leading-[1.15] sm:text-4xl lg:text-5xl font-extrabold lg:leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
-            One partner —{" "}
-            <span className="text-gradient-accent drop-shadow-sm">Complete people solutions</span>
+            One Partner for{" "}
+            <span className="text-gradient-accent drop-shadow-sm">Complete People Solutions</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg"
+            className="page-subtitle mb-10"
           >
-            TalentAccel partners with startups and growing companies to build high-performing teams, streamline HR operations, and ensure compliance — from hiring to payroll.
+            From hiring and HR operations to payroll and compliance, TalentAccel gives growing companies the people infrastructure to scale with clarity, speed, and confidence.
           </motion.p>
 
           <motion.div
@@ -57,8 +73,15 @@ export const Hero = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
             <a
-              href="#how-it-works"
-              className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-border text-foreground font-semibold text-sm hover:bg-muted transition-colors duration-200"
+              href="/#how-it-works"
+              onClick={(event) => {
+                const section = document.getElementById("how-it-works");
+                if (!section) return;
+
+                event.preventDefault();
+                scrollToHowItWorks();
+              }}
+              className="btn-pressable inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-3.5 rounded-full border border-primary text-primary font-semibold text-sm hover:bg-primary/10 transition-all duration-200"
             >
               See How It Works
               <ChevronRight className="w-4 h-4" />

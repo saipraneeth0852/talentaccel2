@@ -38,15 +38,15 @@ const PayrollCompliance = () => (
             <Calculator className="w-3.5 h-3.5" /> Payroll & Compliance
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
-            Zero Compliance Risk.{" "}
-            <span className="text-gradient-accent">Accurate Payroll.</span>
+            Accurate Payroll and{" "}
+            <span className="text-gradient-accent">Stronger Compliance</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            Simplify payroll and statutory compliance with our managed HR services. We handle all filings, calculations, and audits so your team never has to worry about compliance again.
+            Simplify payroll and statutory compliance with a managed service that keeps calculations accurate, filings on time, and audit readiness built into the process.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-4"
@@ -74,7 +74,7 @@ const PayrollCompliance = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Coverage</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Services Include</h2>
+          <h2 className="section-title mb-4">Services Include</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {servicesList.map((s) => (
@@ -94,7 +94,7 @@ const PayrollCompliance = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
           <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">What We Do</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">In Detail</h2>
+          <h2 className="section-title mb-4">In Detail</h2>
         </AnimatedSection>
         <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {details.map((d) => {
@@ -120,9 +120,9 @@ const PayrollCompliance = () => (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">Stay 100% compliant, always.</h2>
-            <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-              Let TalentAccel manage your payroll and compliance so you can focus on building your business.
+            <h2 className="cta-title text-primary-foreground mb-5">Stay 100% Compliant, Always</h2>
+            <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+              Let TalentAccel manage the payroll and compliance detail so your team can spend more time building the business, not chasing obligations.
             </p>
             <a href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
               Book a Free Compliance Audit <ArrowRight className="w-4 h-4" />

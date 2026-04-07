@@ -19,10 +19,10 @@ export const Insights = () => (
           Insights
         </div>
         <Link to="/blog" className="block hover:opacity-80 transition-opacity duration-200">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">Latest from Our Blog</h2>
+          <h2 className="section-title mb-4">Latest from Our Blog</h2>
         </Link>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Actionable playbooks to help you hire smarter and scale faster.
+        <p className="section-subtitle mx-auto">
+          Practical perspectives, proven frameworks, and field-tested guidance to help your team hire smarter and scale with fewer people headaches.
         </p>
       </AnimatedSection>
 

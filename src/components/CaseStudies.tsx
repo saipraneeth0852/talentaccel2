@@ -42,10 +42,10 @@ export const CaseStudies = () => {
             Impact
           </div>
           <Link to="/case-studies" className="inline-block hover:opacity-80 transition-opacity duration-200">
-            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4 tracking-tight">Case Studies</h2>
+            <h2 className="section-title mb-4">Case Studies</h2>
           </Link>
-          <p className="text-muted-foreground text-lg mb-0">
-            Real outcomes from companies that scaled with TalentAccel.
+          <p className="section-subtitle mb-0 text-center">
+            See how growing companies turned hiring pressure, compliance complexity, and scaling friction into measurable progress with TalentAccel.
           </p>
         </AnimatedSection>
 

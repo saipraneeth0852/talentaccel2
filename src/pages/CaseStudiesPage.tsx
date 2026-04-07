@@ -65,7 +65,7 @@ const CaseStudiesPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-foreground mb-4"
+                className="page-title mb-4"
               >
                 Real Results from{" "}
                 <span className="text-gradient-accent">Real Companies</span>
@@ -74,9 +74,9 @@ const CaseStudiesPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-muted-foreground max-w-xl"
+                className="page-subtitle"
               >
-                Companies that trusted TalentAccel to build their teams and manage their HR operations.
+                Explore how companies partnered with TalentAccel to solve hiring bottlenecks, strengthen operations, and build more scalable people foundations.
               </motion.p>
             </div>
             <HeroImagePanel
@@ -153,11 +153,11 @@ const CaseStudiesPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="rounded-3xl bg-gradient-hero p-12 lg:p-20 text-center">
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-5">
-                Ready to be our next success story?
+              <h2 className="cta-title text-primary-foreground mb-5">
+                Ready to Become Our Next Success Story?
               </h2>
-              <p className="text-primary-foreground/70 text-lg mb-10 max-w-xl mx-auto">
-                Let TalentAccel help you hire faster, stay compliant, and scale your team with confidence.
+              <p className="cta-subtitle text-primary-foreground/80 mb-10 mx-auto">
+                Build your next phase with a partner that can help you hire faster, stay compliant, and scale your team with more confidence.
               </p>
               <a
                 href="mailto:biz@talentaccel.com"

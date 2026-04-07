@@ -124,7 +124,7 @@ const CaseStudyPost = () => {
               )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-foreground max-w-4xl">
+            <h1 className="page-title max-w-4xl">
               {study.title}
             </h1>
           </motion.div>
@@ -148,19 +148,19 @@ const CaseStudyPost = () => {
             <div className="grid md:grid-cols-12 gap-8">
               <div className="md:col-span-8 space-y-12">
                 <AnimatedSection delay={0.2}>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">The Challenge</h2>
+                  <h2 className="section-title mb-4">The Challenge</h2>
                   <p className="text-muted-foreground leading-loose">
                     {study.challenge}
                   </p>
                 </AnimatedSection>
                 <AnimatedSection delay={0.3}>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">Our Solution</h2>
+                  <h2 className="section-title mb-4">Our Solution</h2>
                   <p className="text-muted-foreground leading-loose">
                     {study.solution}
                   </p>
                 </AnimatedSection>
                 <AnimatedSection delay={0.4}>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">The Outcome</h2>
+                  <h2 className="section-title mb-4">The Outcome</h2>
                   <p className="text-muted-foreground leading-loose">
                     {study.outcome}
                   </p>
@@ -169,7 +169,7 @@ const CaseStudyPost = () => {
                 {/* Key Results List */}
                 {Array.isArray(study.results) && study.results.length > 0 && (
                   <AnimatedSection delay={0.5}>
-                    <h2 className="text-xl font-bold text-foreground mb-6">Key Operations Delivered</h2>
+                    <h2 className="section-title mb-6">Key Operations Delivered</h2>
                     <ul className="space-y-4">
                       {study.results.map((r, idx) => (
                         <li key={idx} className="flex items-start gap-3">
@@ -231,7 +231,7 @@ const CaseStudyPost = () => {
         <section className="py-16 lg:py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="mb-10 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-foreground">More Case Studies</h2>
+              <h2 className="section-title">More Case Studies</h2>
               <Link to="/case-studies" className="text-sm font-semibold text-primary hover:underline">
                 View all
               </Link>

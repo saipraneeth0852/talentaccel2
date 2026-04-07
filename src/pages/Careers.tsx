@@ -64,6 +64,8 @@ const Careers = () => {
   const [openRoles, setOpenRoles] = useState<CareerRole[]>(curatedOpenRoles);
   const [loadingRoles, setLoadingRoles] = useState(true);
   const [applyRole, setApplyRole] = useState<CareerRole | null>(null);
+  const careerBadgeClass = "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm";
+  const careerBadgeDotClass = "w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse";
 
   useEffect(() => {
     const fetchOpenings = async () => {
@@ -118,16 +120,16 @@ const Careers = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+                className={careerBadgeClass}
               >
-                <span className="w-2 h-2 rounded-full bg-secondary" />
+                <span className={careerBadgeDotClass} />
                 Careers
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+                className="page-title mb-6"
               >
                 Grow with{" "}
                 <span className="text-gradient-accent">TalentAccel</span>
@@ -136,9 +138,9 @@ const Careers = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-lg text-muted-foreground leading-relaxed max-w-2xl"
+                className="page-subtitle"
               >
-                Join a team that's accelerating talent and enabling growth for startups and enterprises across India. We're always looking for sharp, driven people to join our mission.
+                Join a team helping ambitious companies build stronger people systems, better hiring engines, and more resilient growth across India and beyond.
               </motion.p>
             </div>
             <HeroImagePanel
@@ -155,8 +157,11 @@ const Careers = () => {
       <section className="py-16 md:py-12 lg:py-16 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-10">
-            <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Why Join Us</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Why Work at TalentAccel</h2>
+            <div className={careerBadgeClass}>
+              <span className={careerBadgeDotClass} />
+              Why Join Us
+            </div>
+            <h2 className="section-title mb-4">Why Work at TalentAccel</h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {perks.map((p) => {
@@ -181,8 +186,11 @@ const Careers = () => {
       <section className="py-16 md:py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-10">
-            <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Open Positions</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Current Openings</h2>
+            <div className={careerBadgeClass}>
+              <span className={careerBadgeDotClass} />
+              Open Positions
+            </div>
+            <h2 className="section-title mb-4">Current Openings</h2>
           </AnimatedSection>
 
           {loadingRoles ? (
@@ -237,9 +245,9 @@ const Careers = () => {
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <AnimatedSection className="h-full flex flex-col">
               <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Talent Network</p>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Don't See a Role? Join Our Network</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Upload your CV and join the TalentAccel talent network. When a role that matches your profile opens up, you'll be the first we reach out to.
+              <h2 className="section-title mb-4">Don't See a Role? Join Our Network</h2>
+              <p className="section-subtitle mb-6">
+                Share your profile once, and we'll keep you in mind for roles that align with your strengths, ambitions, and preferred direction of growth.
               </p>
               <ul className="space-y-3">
                 {[
@@ -398,58 +406,137 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Life at TalentAccel — image + culture section */}
-      <section className="py-16 md:py-12 lg:py-16">
+      {/* Life at TalentAccel */}
+      <section className="py-20 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-8">
-            <p className="text-sm font-semibold text-primary tracking-wide uppercase mb-3">Life at TalentAccel</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">A culture built on ambition & care</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              We move fast, but we build things right — including our team. Here's a glimpse of what it's like to work with us.
+
+          {/* Header */}
+          <AnimatedSection className="text-center mb-12">
+            <div className={careerBadgeClass}>
+              <span className={careerBadgeDotClass} />
+              Life at TalentAccel
+            </div>
+            <h2 className="section-title mb-4">
+              Where High Standards<br className="hidden sm:block" /> Meet Human Connection
+            </h2>
+            <p className="section-subtitle max-w-2xl mx-auto">
+              Ambition without ego. Speed without shortcuts. We hold each other to a high bar — and genuinely enjoy the climb.
             </p>
           </AnimatedSection>
 
-          {/* Image grid */}
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 max-w-5xl mx-auto">
-            {[
-              { bg: "from-primary/20 to-primary/5", label: "Team Meetings", aspect: "md:col-span-2 md:row-span-2" },
-              { bg: "from-secondary/20 to-secondary/5", label: "Strategy Sessions", aspect: "" },
-              { bg: "from-primary/10 to-secondary/10", label: "Learning Days", aspect: "" },
-              { bg: "from-secondary/20 to-primary/10", label: "Celebrations", aspect: "md:col-span-2" },
-            ].map((item, i) => (
-              <StaggerItem key={i}>
-                <div
-                  className={`${item.aspect} rounded-2xl overflow-hidden bg-gradient-to-br ${item.bg} border border-border aspect-square flex flex-col items-center justify-center gap-2 text-sm font-medium text-muted-foreground hover:scale-[1.02] transition-transform duration-300`}
-                >
-                  <Star className="w-6 h-6 text-primary/40" />
-                  {item.label}
-                  <span className="text-xs text-muted-foreground/60">{item.label}</span>
+          {/* Stats strip */}
+          <AnimatedSection>
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-14 max-w-3xl mx-auto">
+              {[
+                { value: "94%", label: "Team satisfaction score" },
+                { value: "40+", label: "Passionate people & growing" },
+                { value: "3×", label: "Avg. promotions per team member" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-3xl md:text-4xl font-extrabold text-primary leading-none mb-1">{stat.value}</div>
+                  <div className="text-xs text-muted-foreground font-medium uppercase tracking-wide">{stat.label}</div>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+              ))}
+            </div>
+          </AnimatedSection>
 
-          {/* Culture values row */}
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {/* Bento photo grid */}
+          <AnimatedSection className="mb-14 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+
+              {/* Large feature card with quote overlay */}
+              <div className="col-span-2 rounded-2xl overflow-hidden relative" style={{ minHeight: "280px" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                  alt="TalentAccel team collaborating"
+                  className="w-full h-full object-cover absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                  <p className="text-white font-semibold text-base md:text-lg leading-snug max-w-xs">
+                    "The energy here is unlike anywhere I've worked. High bar, real support."
+                  </p>
+                  <p className="text-white/60 text-xs mt-2 font-medium">— Priya, Talent Acquisition Lead</p>
+                </div>
+              </div>
+
+              {/* Culture proof card */}
+              <div className="rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex flex-col justify-between p-5 md:p-6 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full" />
+                <div className="absolute -bottom-6 -right-2 w-14 h-14 bg-white/5 rounded-full" />
+                <p className="text-white/80 text-xs font-semibold uppercase tracking-widest mb-3 relative z-10">Culture Proof</p>
+                <p className="text-white font-bold text-base md:text-lg leading-snug relative z-10">
+                  8 in 10 of our hires come through a team referral.
+                </p>
+                <p className="text-white/60 text-xs mt-3 leading-relaxed relative z-10">
+                  When your team refers their best friends, that says everything.
+                </p>
+              </div>
+
+              {/* Photo 2 */}
+              <div className="rounded-2xl overflow-hidden relative" style={{ minHeight: "160px" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+                  alt="Team strategy session"
+                  className="w-full h-full object-cover absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold">Strategy Days</span>
+              </div>
+
+              {/* Photo 3 */}
+              <div className="rounded-2xl overflow-hidden relative" style={{ minHeight: "160px" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80"
+                  alt="Team celebrating wins"
+                  className="w-full h-full object-cover absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <span className="absolute bottom-3 left-4 text-white text-xs font-semibold">Celebrating Wins</span>
+              </div>
+
+            </div>
+          </AnimatedSection>
+
+          {/* Culture pillars */}
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {[
-              { icon: Rocket, title: "Move Fast", desc: "We ship, iterate, and improve — every week." },
-              { icon: Heart, title: "People First", desc: "Empathy drives how we treat clients, candidates, and each other." },
-              { icon: Target, title: "Own It", desc: "Take initiative. Your impact is visible and recognized." },
-              { icon: Globe, title: "Think Big", desc: "We're building towards becoming India's top talent partner." },
+              {
+                icon: Rocket,
+                title: "Built to Move",
+                desc: "We ship every week. Feedback is instant, decisions are fast, and the work carries real stakes.",
+              },
+              {
+                icon: Heart,
+                title: "Human at Heart",
+                desc: "We debate ideas hard and treat people well. That's not a paradox — it's the only way we know how.",
+              },
+              {
+                icon: Target,
+                title: "Own Your Impact",
+                desc: "No hand-holding, no red tape. You'll see exactly how your work changes things — for the team and clients.",
+              },
+              {
+                icon: Globe,
+                title: "Always Growing",
+                desc: "Learning isn't saved for annual reviews. Stretch projects, mentorship, and investment in you are built into the day-to-day.",
+              },
             ].map((v) => {
               const Icon = v.icon;
               return (
-              <StaggerItem key={v.title}>
-                <div className="p-5 rounded-2xl bg-card border border-border shadow-card text-center h-full">
-                  <div className="mx-auto w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                <StaggerItem key={v.title}>
+                  <div className="group p-5 rounded-2xl bg-card border border-border shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 h-full">
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center mb-4 transition-colors">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-2">{v.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
                   </div>
-                  <h3 className="font-bold text-foreground mb-1.5">{v.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-                </div>
-              </StaggerItem>
-            )})}
+                </StaggerItem>
+              );
+            })}
           </StaggerContainer>
+
         </div>
       </section>
 

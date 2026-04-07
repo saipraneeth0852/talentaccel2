@@ -39,15 +39,15 @@ const ExtendedWorkforce = () => (
             <Globe className="w-3.5 h-3.5" /> Extended Workforce Services
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground mb-6"
+            className="page-title mb-6"
           >
             Support{" "}
-            <span className="text-gradient-accent">Beyond Traditional HR.</span>
+            <span className="text-gradient-accent">Beyond Traditional HR</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            className="page-subtitle mb-10"
           >
-            Specialist people services that extend your HR capability — employer branding, M&A support, immigration, CSR, and more.
+            Extend your people capability with specialist support across branding, transitions, immigration, culture initiatives, and the moments standard HR teams rarely have capacity to own well.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-wrap gap-3"
@@ -70,7 +70,7 @@ const ExtendedWorkforce = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="mb-10">
-          <h2 className="text-2xl font-bold text-foreground mb-2">What's Included</h2>
+          <h2 className="section-title mb-2">What's Included</h2>
         </AnimatedSection>
         <div className="flex flex-wrap gap-3">
           {servicesList.map((s) => (
@@ -106,8 +106,8 @@ const ExtendedWorkforce = () => (
     <section className="py-16 lg:py-16 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="rounded-3xl bg-gradient-hero p-12 lg:p-16 text-center">
-          <h2 className="text-3xl font-bold text-primary-foreground mb-4">Need specialist HR support?</h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-lg mx-auto">Whether it's an M&A, a visa challenge, or a brand refresh — our extended workforce team has the expertise.</p>
+          <h2 className="cta-title text-primary-foreground mb-4">Need Specialist HR Support?</h2>
+          <p className="cta-subtitle text-primary-foreground/80 mb-8 mx-auto">Whether you're navigating an M&A transition, a mobility challenge, or a talent-brand refresh, we can help you move with more confidence.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:opacity-90 transition-all hover:-translate-y-0.5">
             Talk to Us <ArrowRight className="w-4 h-4" />
           </Link>
