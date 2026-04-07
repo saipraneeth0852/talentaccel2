@@ -197,7 +197,7 @@ export const Footer = () => (
         </div>
 
         <div>
-          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Corporate Address</h4>
+          <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Corporate Headquarters</h4>
           <div className="flex items-start gap-3 text-[14px] text-white/90">
             <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
             <a
@@ -212,7 +212,7 @@ export const Footer = () => (
         </div>
 
         <div>
-           <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Office Address</h4>
+           <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 font-semibold">Operations Office</h4>
            <div className="flex items-start gap-3 text-[14px] text-white/90">
              <MapPin className="w-[18px] h-[18px] text-white/70 shrink-0 mt-0.5" strokeWidth={1.5} />
              <a
