@@ -189,7 +189,7 @@ export const FloatingNav = () => {
   return (
     <>
       {/* Top Navigation Wrapper */}
-      <div className="fixed top-0 lg:top-5 left-0 right-0 z-50 lg:pointer-events-none flex justify-center w-full bg-card/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-border/40 lg:border-none py-2.5 lg:py-0 pointer-events-auto transition-all duration-300 shadow-sm lg:shadow-none">
+      <div className="fixed top-0 lg:top-5 left-0 right-0 z-[80] lg:pointer-events-none flex justify-center w-full bg-card/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-border/40 lg:border-none py-2.5 lg:py-0 pointer-events-auto transition-all duration-300 shadow-sm lg:shadow-none">
         <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <motion.div
@@ -212,7 +212,7 @@ export const FloatingNav = () => {
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="hidden lg:flex items-center h-14 gap-1 px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float max-w-full overflow-x-auto hide-scrollbar pointer-events-auto"
+          className="hidden lg:flex items-center h-14 gap-1 px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float max-w-full overflow-x-auto overflow-visible hide-scrollbar pointer-events-auto z-[70]"
         >
           {navItems.map((item) => {
             const active = isItemActive(item);
@@ -250,7 +250,7 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-0 mt-5 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-3xl grid grid-cols-2 gap-2 z-[60] origin-top-left"
+                         className="absolute top-full left-0 mt-5 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-3xl grid grid-cols-2 gap-2 z-[90] origin-top-left">
                       >
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-muted/50 transition-colors h-full" onClick={() => setOpenDropdown(null)}>
@@ -296,7 +296,7 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl z-[60] origin-top"
+                         className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl z-[90] origin-top">
                       >
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-muted/50 transition-colors" onClick={() => setOpenDropdown(null)}>
