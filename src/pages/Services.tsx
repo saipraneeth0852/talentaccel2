@@ -358,16 +358,17 @@ export const ServicePage = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[65vh] flex items-center overflow-hidden pt-24 pb-12 lg:pb-20">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-subtle" />
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px]" />
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px] pointer-events-none" aria-hidden="true" />
 
-        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-16 lg:pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="max-w-2xl"
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />

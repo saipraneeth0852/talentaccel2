@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, Briefcase, Globe, FileText, Lightbulb, Users, Phone, LayoutGrid, Menu, X, Settings, GraduationCap, Heart, ChevronDown, Network, ClipboardList } from "lucide-react";
 import { LogoMark } from "./LogoMark";
@@ -50,19 +50,19 @@ const resourceItems = [
     icon: Network,
     title: "Talent Ecosystem",
     desc: "See how your people challenges map to solutions",
-    href: "/talent-ecosystem",
+    href: "/resources#talent-ecosystem",
   },
   {
     icon: Lightbulb,
     title: "Blog",
     desc: "Insights and trends from our experts",
-    href: "/blog",
+    href: "/resources#blog",
   },
   {
     icon: FileText,
     title: "Case Studies",
     desc: "Read about our successful partnerships",
-    href: "/case-studies",
+    href: "/resources#case-studies",
   },
 ];
 
@@ -70,7 +70,7 @@ const navItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", type: "mega-menu", items: serviceItems, icon: Briefcase, href: "/services", hash: "" },
   { label: "Global Teams (GCC)", href: "/offshore-teams", hash: "", icon: Globe },
-  { label: "Resources", type: "dropdown", items: resourceItems, icon: Lightbulb },
+  { label: "Resources", type: "dropdown", items: resourceItems, icon: Lightbulb, href: "/resources", hash: "" },
   { label: "Careers", href: "/careers", hash: "", icon: LayoutGrid },
   { label: "About", href: "/about", hash: "", icon: Users },
   { label: "Contact", href: "/contact", hash: "", icon: Phone },
@@ -79,7 +79,7 @@ const navItems = [
 const mobileNavItems = [
   { label: "Home", href: "/", hash: "", icon: Home },
   { label: "Services", href: "/services", hash: "", icon: Briefcase },
-  { label: "Case Studies", href: "/case-studies", hash: "", icon: FileText },
+  { label: "Case Studies", href: "/resources#case-studies", hash: "", icon: FileText },
   { label: "Contact", href: "/contact", hash: "", icon: Phone },
   { label: "More", action: "menu", icon: Menu },
 ];
@@ -87,6 +87,7 @@ const mobileNavItems = [
 export const FloatingNav = () => {
   const { openAudit } = useAuditModal();
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeHash, setActiveHash] = useState(window.location.hash);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -254,7 +255,11 @@ export const FloatingNav = () => {
                     onPointerEnter={() => handleHoverEnter(item.label)}
                     onPointerMove={() => handleHoverEnter(item.label)}
                     onClick={(e) => {
-                      if (item.href) handleNavClick(item.href);
+                      e.preventDefault();
+                      if (item.href) {
+                        navigate(item.href);
+                        handleNavClick(item.href);
+                      }
                       setOpenDropdown(openDropdown === item.label ? null : item.label);
                     }}
                     className={cn(
@@ -303,8 +308,16 @@ export const FloatingNav = () => {
                   onPointerMove={() => handleHoverEnter(item.label)}
                   onPointerLeave={scheduleCloseDropdown}
                 >
-                  <button
-                    onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                  <Link
+                    to={item.href || "#"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.href) {
+                        navigate(item.href);
+                        handleNavClick(item.href);
+                      }
+                      setOpenDropdown(openDropdown === item.label ? null : item.label);
+                    }}
                     onPointerEnter={() => handleHoverEnter(item.label)}
                     onPointerMove={() => handleHoverEnter(item.label)}
                     className={cn(
@@ -314,7 +327,7 @@ export const FloatingNav = () => {
                   >
                     {item.label}
                     <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", openDropdown === item.label && "rotate-180")} />
-                  </button>
+                  </Link>
                   
                   <AnimatePresence>
                     {openDropdown === item.label && (

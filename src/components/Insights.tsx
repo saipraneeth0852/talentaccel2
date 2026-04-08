@@ -18,7 +18,7 @@ export const Insights = () => (
           <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
           Insights
         </div>
-        <Link to="/blog" className="block hover:opacity-80 transition-opacity duration-200">
+        <Link to="/resources#blog" className="block hover:opacity-80 transition-opacity duration-200">
           <h2 className="section-title mb-4">Latest from Our Blog</h2>
         </Link>
         <p className="section-subtitle mx-auto">
@@ -29,7 +29,7 @@ export const Insights = () => (
       <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {articles.map((a) => (
           <StaggerItem key={a.title}>
-            <Link to="/blog">
+            <Link to="/resources#blog">
               <motion.div
                 whileHover={{ y: -4 }}
                 className="group p-6 rounded-3xl bg-card border border-border shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col cursor-pointer"

@@ -39,16 +39,17 @@ const About = () => (
     {/* Hero */}
     <section className="relative min-h-[60vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 lg:pt-24 pb-12">
+      <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px] pointer-events-none" aria-hidden="true" />
+      <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-16 lg:pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-secondary" />
+              <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
               About Us
             </motion.div>
             <motion.h1
@@ -72,8 +73,9 @@ const About = () => (
           <HeroImagePanel
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
             alt="About Us Visual"
-            className="lg:justify-self-end"
-            imageClassName="h-[260px] sm:h-[330px] lg:h-[440px]"
+            className="w-full max-w-[34rem] lg:justify-self-end"
+            imageClassName="h-[280px] sm:h-[360px] lg:h-[500px]"
+            glowClassName="top-14 bottom-4 from-primary/16 via-primary/8 to-secondary/22"
           />
         </div>
       </div>

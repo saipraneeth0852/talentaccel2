@@ -20,12 +20,10 @@ const OffshoreTeams = lazy(() => import("./pages/OffshoreTeams"));
 const About = lazy(() => import("./pages/About"));
 const Careers = lazy(() => import("./pages/Careers"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Blog = lazy(() => import("./pages/Blog"));
+const ResourcesPage = lazy(() => import("./pages/Resources"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
-const CaseStudiesPage = lazy(() => import("./pages/CaseStudiesPage"));
 const CaseStudyPost = lazy(() => import("./pages/CaseStudyPost"));
 const Services = lazy(() => import("./pages/Services"));
-const TalentEcosystemPage = lazy(() => import("./pages/TalentEcosystemPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SeedJobs = lazy(() => import("./pages/SeedJobs"));
 
@@ -152,10 +150,11 @@ const AnimatedRoutes = () => {
           <Route path="/about" element={<PublicLayout><PageTransition><About /></PageTransition></PublicLayout>} />
           <Route path="/careers" element={<PublicLayout><PageTransition><Careers /></PageTransition></PublicLayout>} />
           <Route path="/contact" element={<PublicLayout><PageTransition><Contact /></PageTransition></PublicLayout>} />
-          <Route path="/blog" element={<PublicLayout><PageTransition><Blog /></PageTransition></PublicLayout>} />
+          <Route path="/resources" element={<PublicLayout><PageTransition><ResourcesPage /></PageTransition></PublicLayout>} />
+          <Route path="/blog" element={<Navigate to="/resources#blog" replace />} />
+          <Route path="/talent-ecosystem" element={<Navigate to="/resources#talent-ecosystem" replace />} />
+          <Route path="/case-studies" element={<Navigate to="/resources#case-studies" replace />} />
           <Route path="/blog/:slug" element={<PublicLayout><PageTransition><BlogPost /></PageTransition></PublicLayout>} />
-          <Route path="/talent-ecosystem" element={<PublicLayout><PageTransition><TalentEcosystemPage /></PageTransition></PublicLayout>} />
-          <Route path="/case-studies" element={<PublicLayout><PageTransition><CaseStudiesPage /></PageTransition></PublicLayout>} />
           <Route path="/case-studies/:id" element={<PublicLayout><PageTransition><CaseStudyPost /></PageTransition></PublicLayout>} />
           <Route path="/services" element={<PublicLayout><PageTransition><Services /></PageTransition></PublicLayout>} />
           {/* Legacy individual service routes - redirect to unified services page with anchors */}

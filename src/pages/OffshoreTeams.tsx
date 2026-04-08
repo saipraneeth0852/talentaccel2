@@ -3,6 +3,7 @@ import { ArrowRight, ChevronRight, Check, Users, Globe, Shield, Zap, Code, Brain
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { HeroImagePanel } from "@/components/HeroImagePanel";
 
 const advantages = [
   { icon: Users, title: "Access to Exceptional Talent", desc: "Tap into one of the largest pools of highly skilled engineers and product specialists." },
@@ -86,98 +87,59 @@ const OffshoreTeams = () => {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-24 lg:pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-subtle" />
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px] pointer-events-none" aria-hidden="true" />
+        <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 pt-16 lg:pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="max-w-2xl">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-sm font-semibold text-secondary mb-8 shadow-sm backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-muted-foreground mb-8 shadow-sm"
               >
-                <Globe className="w-4 h-4" />
-                Global Delivery Excellence
+                <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
+                Global Teams (GCC)
               </motion.div>
-
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-                className="page-title mb-8"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="page-title mb-6"
               >
-                Build High-Performing <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-secondary">
-                  Teams in India
-                </span>
+                Build High-Performing{" "}
+                <span className="text-gradient-accent">Teams in India</span>
               </motion.h1>
-
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 className="page-subtitle mb-10"
               >
                 Build your India team on a strong operating foundation, with the talent, compliance, and day-to-day execution support needed to scale with confidence.
               </motion.p>
-
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex flex-col sm:flex-row flex-wrap gap-4"
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-wrap gap-4"
               >
-                <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm sm:text-base shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-1">
-                  Start Your Expansion <ArrowRight className="w-5 h-5" />
+                <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                  Start Your Expansion <ArrowRight className="w-4 h-4" />
                 </a>
-                <a href="#engagement" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-border text-foreground font-bold text-sm sm:text-base hover:bg-muted/50 hover:border-primary/50 transition-all duration-300">
-                  How We Work <ChevronRight className="w-5 h-5" />
+                <a href="#engagement" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-primary text-primary font-semibold text-sm hover:bg-primary/10 transition-all duration-200">
+                  How We Work <ChevronRight className="w-4 h-4" />
                 </a>
               </motion.div>
             </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }} 
-              animate={{ opacity: 1, x: 0 }} 
-              transition={{ duration: 0.9, delay: 0.2 }} 
-              className="relative hidden lg:block"
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-3xl" />
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 glass-panel">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Modern global tech team collaborating" 
-                  className="w-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700" 
-                  loading="lazy" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                
-                {/* Floating Metric Card */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                  className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md border border-white/10 rounded-3xl p-4 flex items-center justify-between shadow-2xl"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Users className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">Top 1% Talent</p>
-                      <p className="text-xs text-muted-foreground">Pre-vetted Engineers</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-foreground">100+</p>
-                    <p className="text-xs text-primary font-medium">Successful Hires</p>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
+            <HeroImagePanel
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+              alt="Global tech team collaborating"
+              className="w-full max-w-[34rem] lg:justify-self-end"
+              imageClassName="h-[280px] sm:h-[360px] lg:h-[500px]"
+              glowClassName="top-14 bottom-4 from-primary/16 via-primary/8 to-secondary/22"
+            />
           </div>
         </div>
       </section>

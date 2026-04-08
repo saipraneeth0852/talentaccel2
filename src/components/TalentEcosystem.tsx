@@ -153,6 +153,8 @@ export const TalentEcosystem = () => {
 
   return (
     <section ref={containerRef} className="py-10 lg:py-12 relative bg-white overflow-hidden">
+      {/* Matches the curved left-edge treatment from the Home hero */}
+      <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] bg-gradient-hero rounded-bl-[200px] pointer-events-none" aria-hidden="true" />
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />

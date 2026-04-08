@@ -41,7 +41,7 @@ export const CaseStudies = () => {
             <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(239,90,57,0.8)] animate-pulse" />
             Impact
           </div>
-          <Link to="/case-studies" className="inline-block hover:opacity-80 transition-opacity duration-200">
+          <Link to="/resources#case-studies" className="inline-block hover:opacity-80 transition-opacity duration-200">
             <h2 className="section-title mb-4">Case Studies</h2>
           </Link>
           <p className="section-subtitle mb-0 text-center">

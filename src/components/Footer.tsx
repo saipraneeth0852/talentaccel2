@@ -23,10 +23,10 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Startups & GCCs", href: "/#industries" },
   ],
   Resources: [
-    { label: "Blog", href: "/blog" },
-    { label: "Hiring Guides", href: "/blog" },
-    { label: "HR Templates", href: "/blog" },
-    { label: "Case Studies", href: "/case-studies" },
+    { label: "Blog", href: "/resources#blog" },
+    { label: "Hiring Guides", href: "/resources#blog" },
+    { label: "HR Templates", href: "/resources#blog" },
+    { label: "Case Studies", href: "/resources#case-studies" },
   ],
 };
 
