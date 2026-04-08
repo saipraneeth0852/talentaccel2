@@ -250,7 +250,7 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-0 mt-5 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-3xl grid grid-cols-2 gap-2 z-50 origin-top-left"
+                         className="absolute top-full left-0 mt-5 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-3xl grid grid-cols-2 gap-2 z-[60] origin-top-left"
                       >
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-muted/50 transition-colors h-full" onClick={() => setOpenDropdown(null)}>
@@ -296,7 +296,7 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl z-50 origin-top"
+                         className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl z-[60] origin-top"
                       >
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-muted/50 transition-colors" onClick={() => setOpenDropdown(null)}>
