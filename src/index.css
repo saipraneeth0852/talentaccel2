@@ -139,6 +139,12 @@
       padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
   }
+
+  @media (max-width: 767px) {
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center !important;
+    }
+  }
 }
 
 @layer utilities {
