@@ -92,6 +92,29 @@ export const FloatingNav = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
+  const closeDropdownTimeoutRef = useRef<number | null>(null);
+
+  const clearCloseTimeout = () => {
+    if (closeDropdownTimeoutRef.current) {
+      window.clearTimeout(closeDropdownTimeoutRef.current);
+      closeDropdownTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleCloseDropdown = () => {
+    clearCloseTimeout();
+    // Small delay makes hover usable on trackpads (cursor can briefly leave the trigger).
+    closeDropdownTimeoutRef.current = window.setTimeout(() => {
+      setOpenDropdown(null);
+      closeDropdownTimeoutRef.current = null;
+    }, 150);
+  };
+
+  const handleHoverEnter = (label: string) => {
+    clearCloseTimeout();
+    setOpenDropdown(label);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -189,7 +212,7 @@ export const FloatingNav = () => {
   return (
     <>
       {/* Top Navigation Wrapper */}
-      <div className="fixed top-0 lg:top-5 left-0 right-0 z-[80] lg:pointer-events-none flex justify-center w-full bg-card/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-border/40 lg:border-none py-2.5 lg:py-0 pointer-events-auto transition-all duration-300 shadow-sm lg:shadow-none">
+      <div className="fixed top-0 lg:top-5 left-0 right-0 z-[9000] flex justify-center w-full bg-card/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-border/40 lg:border-none py-2.5 lg:py-0 pointer-events-auto transition-all duration-300 shadow-sm lg:shadow-none">
         <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <motion.div
@@ -212,7 +235,7 @@ export const FloatingNav = () => {
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="hidden lg:flex items-center h-14 gap-1 px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float max-w-full overflow-x-auto overflow-visible hide-scrollbar pointer-events-auto z-[70]"
+          className="hidden lg:flex items-center h-12 xl:h-14 gap-0.5 xl:gap-1 px-1.5 xl:px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float overflow-visible pointer-events-auto z-[9100]"
         >
           {navItems.map((item) => {
             const active = isItemActive(item);
@@ -222,20 +245,20 @@ export const FloatingNav = () => {
                 <div 
                   key={item.label} 
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onPointerEnter={() => handleHoverEnter(item.label)}
+                  onPointerMove={() => handleHoverEnter(item.label)}
+                  onPointerLeave={scheduleCloseDropdown}
                 >
                   <Link
                     to={item.href || "#"}
+                    onPointerEnter={() => handleHoverEnter(item.label)}
+                    onPointerMove={() => handleHoverEnter(item.label)}
                     onClick={(e) => {
                       if (item.href) handleNavClick(item.href);
-                      if (window.innerWidth >= 1024) {
-                         // Let hover handle toggle on desktop
-                         setOpenDropdown(openDropdown === item.label ? null : item.label);
-                      }
+                      setOpenDropdown(openDropdown === item.label ? null : item.label);
                     }}
                     className={cn(
-                      "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap outline-none",
+                      "relative flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap outline-none",
                       openDropdown === item.label ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                     )}
                   >
@@ -250,7 +273,9 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-0 mt-5 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-3xl grid grid-cols-2 gap-2 z-[90] origin-top-left">
+                         onPointerEnter={clearCloseTimeout}
+                         onPointerLeave={scheduleCloseDropdown}
+                         className="absolute top-full left-0 mt-2 w-[700px] p-4 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] rounded-3xl grid grid-cols-2 gap-2 z-[9200] origin-top-left">
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-muted/50 transition-colors h-full" onClick={() => setOpenDropdown(null)}>
                              <div className="flex bg-primary/10 text-primary w-11 h-11 rounded-xl shrink-0 items-center justify-center transition-colors group-hover:bg-primary/20 group-hover:scale-105 duration-300">
@@ -274,13 +299,16 @@ export const FloatingNav = () => {
                 <div 
                   key={item.label}
                   className="relative flex items-center"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onPointerEnter={() => handleHoverEnter(item.label)}
+                  onPointerMove={() => handleHoverEnter(item.label)}
+                  onPointerLeave={scheduleCloseDropdown}
                 >
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                    onPointerEnter={() => handleHoverEnter(item.label)}
+                    onPointerMove={() => handleHoverEnter(item.label)}
                     className={cn(
-                      "relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap outline-none",
+                      "relative flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap outline-none",
                       openDropdown === item.label ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                     )}
                   >
@@ -295,7 +323,9 @@ export const FloatingNav = () => {
                          animate={{ opacity: 1, y: 0 }}
                          exit={{ opacity: 0, y: 15 }}
                          transition={{ duration: 0.2, ease: "easeOut" }}
-                         className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl z-[90] origin-top">
+                         onPointerEnter={clearCloseTimeout}
+                         onPointerLeave={scheduleCloseDropdown}
+                         className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] p-2 bg-card border border-border/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] rounded-2xl z-[9200] origin-top">
                          {item.items.map((subItem: any) => (
                            <Link key={subItem.title} to={subItem.href} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-muted/50 transition-colors" onClick={() => setOpenDropdown(null)}>
                              <div className="flex bg-secondary/10 text-secondary-foreground w-9 h-9 rounded-lg shrink-0 items-center justify-center transition-colors group-hover:bg-secondary/20">
@@ -320,7 +350,7 @@ export const FloatingNav = () => {
                 to={item.href!}
                 onClick={() => handleNavClick(item.href!)}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap",
+                  "relative px-1.5 xl:px-3 py-1.5 xl:py-2 text-[13px] xl:text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap",
                   active ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                 )}
               >
@@ -337,15 +367,16 @@ export const FloatingNav = () => {
           })}
           <button
             onClick={openAudit}
-            className="ml-2 px-4 py-2 text-sm font-semibold rounded-full border border-primary text-primary hover:bg-primary/10 transition-all duration-200 whitespace-nowrap flex items-center gap-1.5"
+            className="ml-1 xl:ml-2 px-2.5 xl:px-4 py-1.5 xl:py-2 text-[13px] xl:text-sm font-semibold rounded-full border border-primary text-primary hover:bg-primary/10 transition-all duration-200 whitespace-nowrap flex items-center gap-1 xl:gap-1.5"
           >
             <ClipboardList className="w-3.5 h-3.5" />
-            Free HR Audit
+            <span className="hidden xl:inline">Free HR Audit</span>
+            <span className="xl:hidden">HR Audit</span>
           </button>
           <Link
             to="/contact"
             onClick={() => handleNavClick("/contact")}
-            className="ml-1 px-5 py-2.5 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:shadow-lg active:scale-95 whitespace-nowrap"
+            className="ml-1 px-3 xl:px-5 py-1.5 xl:py-2.5 text-[13px] xl:text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-all duration-200 hover:shadow-lg active:scale-95 whitespace-nowrap"
           >
             Book a Consultation
           </Link>
