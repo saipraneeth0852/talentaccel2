@@ -212,7 +212,7 @@ export const FloatingNav = () => {
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="hidden xl:flex items-center h-14 gap-1 px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float w-fit pointer-events-auto"
+          className="hidden lg:flex items-center h-14 gap-1 px-2 rounded-full bg-card/80 backdrop-blur-xl border border-border shadow-float max-w-full overflow-x-auto hide-scrollbar pointer-events-auto"
         >
           {navItems.map((item) => {
             const active = isItemActive(item);
