@@ -68,8 +68,8 @@ export const Services = () => (
         </AnimatedSection>
 
         <HeroImagePanel
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
-          alt="HR professionals collaboratively reviewing business strategy"
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+          alt="Strategic planning and business consulting"
           className="w-full max-w-[34rem] lg:justify-self-end"
           imageClassName="h-[240px] sm:h-[320px] lg:h-[450px]"
           glowClassName="inset-x-[12%] top-12 bottom-6 from-primary/16 via-primary/10 to-secondary/16"

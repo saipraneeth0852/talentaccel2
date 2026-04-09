@@ -203,12 +203,12 @@ export const Footer = () => (
           <div className="flex items-start gap-3 text-[14px] text-white font-medium">
             <MapPin className="w-[18px] h-[18px] text-white/90 shrink-0 mt-0.5" strokeWidth={1.5} />
             <a
-              href="https://www.google.com/maps/search/?api=1&query=NO.+05,+10TH+CROSS,+WILSON+GARDEN,+BANGALORE+560027,+KARNATAKA,+INDIA"
+              href="https://maps.google.com/?q=No.+05,+10th+Cross,+Wilson+Garden,+Bangalore+560027,+Karnataka,+India"
               target="_blank"
               rel="noopener noreferrer"
               className="leading-relaxed hover:text-white transition-colors"
             >
-              NO. 05, 10TH CROSS, WILSON GARDEN,<br/>BANGALORE – 560027, KARNATAKA, INDIA.
+              No. 05, 10th Cross, Wilson Garden,<br/>Bangalore – 560027, Karnataka, India.
             </a>
           </div>
         </div>
@@ -218,12 +218,12 @@ export const Footer = () => (
            <div className="flex items-start gap-3 text-[14px] text-white font-medium">
              <MapPin className="w-[18px] h-[18px] text-white/90 shrink-0 mt-0.5" strokeWidth={1.5} />
              <a
-               href="https://www.google.com/maps/search/?api=1&query=No.22,+2nd+floor,+Lakeview+defence+colony,+Shettihalli,+Jalahalli+West,+Bengaluru+560015"
+               href="https://maps.google.com/?q=No.+22,+2nd+Floor,+Lakeview+Defence+Colony,+Shettihalli,+Jalahalli+West,+Bengaluru+560015"
                target="_blank"
                rel="noopener noreferrer"
                className="leading-relaxed hover:text-white transition-colors"
              >
-               No.22, 2nd floor, Lakeview defence colony,<br/>Shettihalli, Jalahalli West, Bengaluru 560015
+               No. 22, 2nd Floor, Lakeview Defence Colony,<br/>Shettihalli, Jalahalli West, Bengaluru 560015
              </a>
            </div>
         </div>

@@ -134,7 +134,7 @@ const OffshoreTeams = () => {
               </motion.div>
             </div>
             <HeroImagePanel
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
               alt="Global tech team collaborating"
               className="w-full max-w-[34rem] lg:justify-self-end"
               imageClassName="h-[280px] sm:h-[360px] lg:h-[500px]"

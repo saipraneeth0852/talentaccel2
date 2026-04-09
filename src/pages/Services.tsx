@@ -394,10 +394,10 @@ export const ServicePage = () => {
             </motion.div>
 
             <HeroImagePanel
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-              alt="HR Services and People Operations Platform"
-              className="w-full max-w-[34rem] lg:justify-self-end"
-              imageClassName="h-[280px] sm:h-[360px] lg:h-[500px]"
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+              alt="Strategic planning and team collaboration"
+              className="w-full max-w-[34rem] lg:justify-self-end mt-8 lg:mt-0"
+              imageClassName="h-[280px] sm:h-[360px] lg:h-[460px]"
               glowClassName="top-14 bottom-4 from-primary/16 via-primary/8 to-secondary/22"
             />
           </div>
