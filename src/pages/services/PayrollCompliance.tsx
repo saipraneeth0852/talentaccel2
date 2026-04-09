@@ -23,7 +23,7 @@ const details = [
 const PayrollCompliance = () => (
   <>
     <SEO
-      title="Payroll Processing & Compliance for Startups"
+      title="Payroll Processing & Compliance for Startups | TalentAccel"
       description="Accurate payroll and statutory compliance for Indian startups. PF, ESI, TDS & labour law — fully managed so you never face a penalty."
       keywords="payroll compliance India, startup payroll India, PF ESI TDS compliance, payroll outsourcing India"
     />

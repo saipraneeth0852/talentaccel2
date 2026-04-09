@@ -21,7 +21,7 @@ const model = ["Dedicated recruiter", "Dedicated sourcing specialist", "Hiring a
 const TalentAcquisition = () => (
   <>
     <SEO
-      title="Talent Acquisition & Hiring Solutions"
+      title="Talent Acquisition & Hiring Solutions | TalentAccel"
       description="End-to-end recruitment for startups in India. We source, screen & onboard top tech and business talent — 40% faster than traditional agencies."
       keywords="talent acquisition India, startup hiring, tech recruitment India, permanent hiring, contract staffing"
     />

@@ -25,7 +25,7 @@ const details = [
 const HrOperations = () => (
   <>
     <SEO
-      title="HR Operations & Managed Services"
+      title="HR Operations & Managed Services | TalentAccel"
       description="Outsourced HR operations for growing startups — employee onboarding, HRMS setup, compliance reporting & policy management. All fully managed."
       keywords="HR operations outsourcing India, managed HR services startup, HRMS setup India, employee onboarding"
     />

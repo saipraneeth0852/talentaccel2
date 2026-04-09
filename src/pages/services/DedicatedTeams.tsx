@@ -22,7 +22,7 @@ const benefits = [
 const DedicatedTeams = () => (
   <>
     <SEO
-      title="Dedicated Offshore Tech Teams in India"
+      title="Dedicated Offshore Tech Teams in India | TalentAccel"
       description="Build a dedicated offshore tech or ops team in India in 30 days. We handle hiring, onboarding, payroll & HR — you focus on your product."
       keywords="dedicated offshore team India, offshore development team, India tech team, offshore hiring startup"
     />

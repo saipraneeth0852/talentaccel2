@@ -24,7 +24,7 @@ const details = [
 const ExtendedWorkforce = () => (
   <>
     <SEO
-      title="Extended Workforce Management"
+      title="Extended Workforce Management | TalentAccel"
       description="Manage contractors, freelancers & gig workers compliantly in India. We handle contracts, payments, compliance & vendor workforce at scale."
       keywords="extended workforce India, contractor management India, gig worker compliance, freelancer payroll India"
     />

@@ -11,7 +11,7 @@ import { SEO } from "@/components/SEO";
 const Index = () => (
   <>
     <SEO
-      title="Scale Your Team & Operations"
+      title="TalentAccel | Scalable HR, Tech Teams & People Operations Partner"
       description="TalentAccel manages your full recruitment, HR operations, payroll, and compliance stack—freeing your leadership to focus on building the product and scaling the business."
       keywords="recruitment services India, HR operations for startups, payroll and compliance, offshore team building, talent acquisition, scaling tech teams, HR outsourcing"
     />

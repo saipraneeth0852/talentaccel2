@@ -25,7 +25,7 @@ const details = [
 const EmployeeExperience = () => (
   <>
     <SEO
-      title="Employee Experience & Retention"
+      title="Employee Experience & Retention Services | TalentAccel"
       description="Build a workplace people stay at. We design engagement frameworks, feedback systems & retention strategies that reduce attrition for growing startups."
       keywords="employee experience India, employee retention startup, engagement framework, reduce attrition India"
     />

@@ -23,7 +23,7 @@ const details = [
 const LearningDevelopment = () => (
   <>
     <SEO
-      title="Learning & Development Solutions"
+      title="Learning & Development Solutions | TalentAccel"
       description="Structured L&D programs for startups — from onboarding bootcamps and manager training to role-specific upskilling that drives team performance."
       keywords="learning development India, L&D startup, employee training India, onboarding programs, upskilling"
     />

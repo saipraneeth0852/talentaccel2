@@ -23,7 +23,7 @@ const details = [
 const HrAdvisory = () => (
   <>
     <SEO
-      title="HR Advisory & Strategy for Startups"
+      title="HR Advisory & Strategy for Startups | TalentAccel"
       description="Strategic HR advisory for startups and scale-ups — org design, compensation benchmarking, people policies & HR roadmap tailored for fast growth."
       keywords="HR advisory India, HR strategy startup, HR consulting India, org design startup, compensation benchmarking"
     />
